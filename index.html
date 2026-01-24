@@ -240,6 +240,133 @@
       .brand{min-width:auto}
       .menu{justify-content:flex-start}
     }
+
+    /* ==========================
+       PAINEL VISUAL PREMIUM
+       ========================== */
+    .premium-panel{
+      padding: 12px 0 6px;
+    }
+
+    .panel{
+      border:1px solid var(--line);
+      background: rgba(15,21,26,.55);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+
+    .panel-media{
+      position:relative;
+      height: 340px;
+      background: #0a0e11;
+    }
+
+    .panel-media img{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      opacity:0;
+      transform: scale(1.03);
+      transition: opacity 900ms ease, transform 1800ms ease;
+      filter: saturate(1.02) contrast(1.02);
+    }
+
+    .panel-media img.is-active{
+      opacity:1;
+      transform: scale(1);
+    }
+
+    .panel-overlay{
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(90deg, rgba(11,15,18,.88) 0%, rgba(11,15,18,.55) 40%, rgba(11,15,18,.15) 70%, rgba(11,15,18,0) 100%),
+        radial-gradient(700px 360px at 20% 0%, rgba(201,168,106,.18), transparent 65%),
+        radial-gradient(560px 360px at 80% 30%, rgba(122,166,184,.12), transparent 60%);
+    }
+
+    .panel-content{
+      position:absolute;
+      left: 22px;
+      right: 22px;
+      bottom: 18px;
+      display:grid;
+      gap:10px;
+      z-index:2;
+    }
+
+    .panel-kicker{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .panel-chip{
+      border:1px solid rgba(201,168,106,.35);
+      background: rgba(201,168,106,.08);
+      color: var(--text);
+      border-radius:999px;
+      padding:8px 10px;
+      font-size:13px;
+    }
+
+    .panel-title{
+      margin:0;
+      font-size:22px;
+      letter-spacing:.2px;
+    }
+
+    .panel-sub{
+      margin:0;
+      color: rgba(233,238,243,.78);
+      font-size:14px;
+      max-width: 780px;
+    }
+
+    .panel-actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top: 6px;
+    }
+
+    .panel-dots{
+      position:absolute;
+      right: 16px;
+      bottom: 16px;
+      z-index:3;
+      display:flex;
+      gap:8px;
+      align-items:center;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(11,15,18,.55);
+      backdrop-filter: blur(8px);
+    }
+
+    .dot{
+      width:8px;
+      height:8px;
+      border-radius:999px;
+      background: rgba(233,238,243,.28);
+      border:1px solid rgba(233,238,243,.18);
+      cursor:pointer;
+    }
+
+    .dot.is-active{
+      background: rgba(201,168,106,.95);
+      border-color: rgba(201,168,106,.55);
+    }
+
+    @media (max-width: 940px){
+      .panel-media{height: 280px;}
+      .panel-title{font-size:20px;}
+    }
   </style>
 </head>
 
@@ -248,7 +375,6 @@
   <div class="topbar">
     <div class="wrap">
       <div class="nav">
-        <!-- Brand clicável -->
         <a class="brand" href="#">
           <div class="logo">
             <img src="assets/images/logo/logo-yama-spa.png" alt="Yama Spa Logo">
@@ -290,7 +416,6 @@
           viver e construir o padrão Yama Spa.
         </p>
 
-        <!-- ✅ 3 portas claras -->
         <div class="hero-actions">
           <a class="btn primary" href="#unidades">Quero viver a experiência</a>
           <a class="btn" href="#cursos">Quero me formar</a>
@@ -326,7 +451,45 @@
     </div>
   </div>
 
-  <!-- FRANQUIA -->
+  <!-- PAINEL VISUAL PREMIUM -->
+  <div class="wrap premium-panel">
+    <div class="panel" id="premiumPanel">
+      <div class="panel-media">
+        <img class="is-active" src="assets/images/hero/panel-01.jpg" alt="Yama Spa — Experiência premium">
+        <img src="assets/images/hero/panel-02.jpg" alt="Cursos Yama Spa — Formação profissional">
+        <img src="assets/images/hero/panel-03.jpg" alt="CIMS School — Certificação e formatura">
+
+        <div class="panel-overlay"></div>
+
+        <div class="panel-content">
+          <div class="panel-kicker">
+            <span class="panel-chip">✨ Experiência</span>
+            <span class="panel-chip">🎓 Formação</span>
+            <span class="panel-chip">🏛️ Tenha seu Yama Spa</span>
+          </div>
+
+          <h3 class="panel-title" id="panelTitle">Um padrão que se sente.</h3>
+          <p class="panel-sub" id="panelSub">
+            Do atendimento premium às formações profissionais — o Yama Spa foi criado para elevar o nível do bem-estar com presença, técnica e elegância.
+          </p>
+
+          <div class="panel-actions">
+            <a class="btn primary" href="#unidades">Quero viver a experiência</a>
+            <a class="btn" href="#cursos">Quero me formar</a>
+            <a class="btn" href="#franquia">Quero ter meu Yama Spa</a>
+          </div>
+        </div>
+
+        <div class="panel-dots" aria-label="Seleção do painel">
+          <span class="dot is-active" data-slide="0" title="Experiência"></span>
+          <span class="dot" data-slide="1" title="Formação"></span>
+          <span class="dot" data-slide="2" title="CIMS School"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PILARES / FRANQUIA -->
   <div class="wrap section" id="franquia">
     <div class="section-head">
       <div>
@@ -367,7 +530,6 @@
     </div>
   </div>
 
-  <!-- CURSOS -->
   <div class="wrap section" id="cursos">
     <div class="section-head">
       <div>
@@ -402,7 +564,6 @@
     </div>
   </div>
 
-  <!-- PARCEIROS -->
   <div class="wrap section" id="parceiros">
     <div class="section-head">
       <div>
@@ -431,7 +592,6 @@
     </div>
   </div>
 
-  <!-- UNIDADES -->
   <div class="wrap section" id="unidades">
     <div class="section-head">
       <div>
@@ -455,7 +615,6 @@
     </div>
   </div>
 
-  <!-- PRODUTOS -->
   <div class="wrap section" id="produtos">
     <div class="section-head">
       <div>
@@ -484,7 +643,6 @@
     </div>
   </div>
 
-  <!-- BLOG -->
   <div class="wrap section" id="blog">
     <div class="section-head">
       <div>
@@ -513,7 +671,6 @@
     </div>
   </div>
 
-  <!-- QUEM SOMOS -->
   <div class="wrap section" id="quem-somos">
     <div class="section-head">
       <div>
@@ -535,7 +692,6 @@
     </div>
   </div>
 
-  <!-- CONTATO -->
   <div class="wrap section" id="contato">
     <div class="section-head">
       <div>
@@ -560,7 +716,6 @@
     </div>
   </div>
 
-  <!-- RODAPÉ -->
   <div class="wrap footer">
     <div>
       <b>Yama Spa</b> • Japão • Komaki • Toyoake
@@ -590,7 +745,74 @@
   </div>
 
   <script>
+    // Ano no rodapé
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Painel Visual Premium
+    (function(){
+      const panel = document.getElementById("premiumPanel");
+      if(!panel) return;
+
+      const imgs = panel.querySelectorAll(".panel-media img");
+      const dots = panel.querySelectorAll(".dot");
+      const title = document.getElementById("panelTitle");
+      const sub = document.getElementById("panelSub");
+
+      const slides = [
+        {
+          title: "Um padrão que se sente.",
+          sub: "Experiência premium no Japão: ambiente, presença e cuidado real — do jeito Yama Spa.",
+        },
+        {
+          title: "Formação profissional com excelência.",
+          sub: "Cursos Yama Spa para atender com técnica, ergonomia e padrão premium — do jeito certo.",
+        },
+        {
+          title: "CIMS School — autoridade educacional parceira.",
+          sub: "Certificações e formações complementares reconhecidas internacionalmente, integradas ao seu caminho.",
+        }
+      ];
+
+      let index = 0;
+      let timer = null;
+      const intervalMs = 6500;
+
+      function show(i){
+        index = i;
+        imgs.forEach((img, k) => img.classList.toggle("is-active", k === i));
+        dots.forEach((d, k) => d.classList.toggle("is-active", k === i));
+        if(title) title.textContent = slides[i].title;
+        if(sub) sub.textContent = slides[i].sub;
+      }
+
+      function next(){
+        show((index + 1) % imgs.length);
+      }
+
+      function start(){
+        stop();
+        timer = setInterval(next, intervalMs);
+      }
+
+      function stop(){
+        if(timer) clearInterval(timer);
+        timer = null;
+      }
+
+      dots.forEach(d => {
+        d.addEventListener("click", () => {
+          const i = Number(d.dataset.slide || "0");
+          show(i);
+          start();
+        });
+      });
+
+      panel.addEventListener("mouseenter", stop);
+      panel.addEventListener("mouseleave", start);
+
+      show(0);
+      start();
+    })();
   </script>
 </body>
 </html>
