@@ -1,1 +1,547 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yama Spa | Toque que transforma vidas</title>
+  <meta name="description" content="Yama Spa no Japão: experiências premium, formação profissional, parceiros e franquia sem mensalidade ou royalty." />
+
+  <style>
+    :root{
+      --bg:#0b0f12;
+      --card:#0f151a;
+      --text:#e9eef3;
+      --muted:#aab6c2;
+      --line:rgba(255,255,255,.08);
+      --accent:#c9a86a; /* dourado premium */
+      --accent2:#7aa6b8; /* azul suave */
+      --radius:18px;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --max: 1120px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(1200px 600px at 20% -10%, rgba(201,168,106,.18), transparent 60%),
+                  radial-gradient(900px 500px at 90% 10%, rgba(122,166,184,.14), transparent 55%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.6;
+    }
+    a{color:inherit; text-decoration:none}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 18px}
+    .topbar{
+      position:sticky; top:0; z-index:10;
+      backdrop-filter: blur(10px);
+      background: rgba(11,15,18,.72);
+      border-bottom:1px solid var(--line);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+      gap:14px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px; min-width: 220px;
+    }
+    .logo{
+      width:34px; height:34px; border-radius:50%;
+      border:1px solid rgba(201,168,106,.55);
+      box-shadow: 0 0 0 4px rgba(201,168,106,.08);
+      display:grid; place-items:center;
+      font-weight:700; color:var(--accent);
+      letter-spacing:.5px;
+    }
+    .brand b{letter-spacing:.6px}
+    .brand small{display:block; color:var(--muted); margin-top:-2px; font-size:12px}
+    .menu{
+      display:flex; flex-wrap:wrap; gap:10px;
+      justify-content:flex-end;
+    }
+    .menu a{
+      padding:8px 10px;
+      border:1px solid transparent;
+      border-radius:999px;
+      color:var(--muted);
+      font-size:14px;
+    }
+    .menu a:hover{
+      color:var(--text);
+      border-color:var(--line);
+      background: rgba(255,255,255,.03);
+    }
+    .cta{
+      display:flex; gap:10px; align-items:center;
+    }
+    .btn{
+      padding:10px 14px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      color:var(--text);
+      font-weight:600;
+      font-size:14px;
+      cursor:pointer;
+    }
+    .btn:hover{border-color:rgba(201,168,106,.45)}
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(201,168,106,.95), rgba(201,168,106,.65));
+      border-color: rgba(201,168,106,.4);
+      color:#101418;
+    }
+    .btn.primary:hover{filter:brightness(1.05)}
+    .hero{
+      padding:54px 0 22px;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:18px;
+      align-items:stretch;
+    }
+    .hero-card{
+      border:1px solid var(--line);
+      background: rgba(15,21,26,.78);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding:26px;
+      overflow:hidden;
+      position:relative;
+    }
+    .hero-card:before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background: radial-gradient(600px 300px at 20% 0%, rgba(201,168,106,.20), transparent 65%),
+                  radial-gradient(500px 300px at 90% 20%, rgba(122,166,184,.18), transparent 55%);
+      z-index:0;
+    }
+    .hero-card > *{position:relative; z-index:1}
+    h1{
+      margin:0 0 10px;
+      font-size:38px;
+      line-height:1.15;
+      letter-spacing:.2px;
+    }
+    .lead{color:var(--muted); margin:0 0 18px; font-size:16px}
+    .hero-actions{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px}
+    .badges{
+      display:flex; gap:10px; flex-wrap:wrap; margin-top:18px;
+    }
+    .badge{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      color:var(--muted);
+      border-radius:999px;
+      padding:8px 10px;
+      font-size:13px;
+    }
+    .side{
+      display:grid; gap:18px;
+    }
+    .mini{
+      border:1px solid var(--line);
+      background: rgba(15,21,26,.55);
+      border-radius: var(--radius);
+      padding:18px;
+    }
+    .mini h3{margin:0 0 6px; font-size:16px}
+    .mini p{margin:0; color:var(--muted); font-size:14px}
+    .section{
+      padding:26px 0;
+    }
+    .section-head{
+      display:flex; align-items:flex-end; justify-content:space-between;
+      gap:12px; margin-bottom:12px;
+    }
+    .section-head h2{
+      margin:0;
+      font-size:22px;
+      letter-spacing:.2px;
+    }
+    .section-head p{
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+      max-width: 520px;
+    }
+    .grid3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+    }
+    .card{
+      border:1px solid var(--line);
+      background: rgba(15,21,26,.55);
+      border-radius: var(--radius);
+      padding:18px;
+      box-shadow: 0 10px 25px rgba(0,0,0,.22);
+    }
+    .card h3{margin:0 0 6px; font-size:16px}
+    .card p{margin:0 0 10px; color:var(--muted); font-size:14px}
+    .card a.more{
+      display:inline-flex; gap:8px; align-items:center;
+      color:var(--text);
+      font-weight:700; font-size:14px;
+    }
+    .card a.more span{color:var(--accent)}
+    .split{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+    }
+    .footer{
+      margin-top:30px;
+      border-top:1px solid var(--line);
+      padding:22px 0 40px;
+      color:var(--muted);
+      font-size:13px;
+    }
+    .footer .cols{
+      display:grid;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      gap:14px;
+      margin-top:10px;
+    }
+    .footer a{color:var(--muted)}
+    .footer a:hover{color:var(--text)}
+    .note{color:var(--muted); font-size:12px; margin-top:8px}
+
+    @media (max-width: 940px){
+      .hero-grid{grid-template-columns:1fr}
+      h1{font-size:32px}
+      .grid3{grid-template-columns:1fr}
+      .split{grid-template-columns:1fr}
+      .brand{min-width:auto}
+      .menu{justify-content:flex-start}
+    }
+  </style>
+</head>
+
+<body>
+  <!-- TOPO -->
+  <div class="topbar">
+    <div class="wrap">
+      <div class="nav">
+        <div class="brand">
+          <div class="logo">Y</div>
+          <div>
+            <b>YAMA SPA</b>
+            <small>Komaki • Toyoake • Japão</small>
+          </div>
+        </div>
+
+        <div class="menu">
+          <a href="#franquia">Franquia</a>
+          <a href="#cursos">Cursos</a>
+          <a href="#parceiros">Parceiros</a>
+          <a href="#unidades">Unidades</a>
+          <a href="#produtos">Produtos</a>
+          <a href="#blog">Blog</a>
+          <a href="#quem-somos">Quem somos</a>
+          <a href="#contato">Contato</a>
+        </div>
+
+        <div class="cta">
+          <a class="btn" href="#contato">Agendar</a>
+          <a class="btn primary" href="#franquia">Quero ser parceiro</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div class="wrap hero">
+    <div class="hero-grid">
+      <div class="hero-card">
+        <h1>Toque que transforma vidas.</h1>
+        <p class="lead">
+          Experiências premium de bem-estar no Japão, com formação profissional e expansão consciente.
+          Construímos unidades, parceiros e franquias com padrão Yama Spa — do jeito certo.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn primary" href="#unidades">Ver unidades</a>
+          <a class="btn" href="#cursos">Ver cursos</a>
+          <a class="btn" href="#franquia">Franquia (sem mensalidade)</a>
+        </div>
+
+        <div class="badges">
+          <div class="badge">✨ Padrão premium</div>
+          <div class="badge">🤝 Parcerias reais</div>
+          <div class="badge">🎓 Formação profissional</div>
+          <div class="badge">📍 Japão</div>
+        </div>
+
+        <div class="note">
+          * Este site está em construção. Em breve com fotos e catálogo completo.
+        </div>
+      </div>
+
+      <div class="side">
+        <div class="mini">
+          <h3>Franquia Yama Spa</h3>
+          <p>Modelo de expansão sem mensalidade ou royalty. Estrutura, treinamento e padrão visual.</p>
+        </div>
+        <div class="mini">
+          <h3>Cursos Yama Spa</h3>
+          <p>Formação para quem quer começar do jeito certo e elevar o nível profissional.</p>
+        </div>
+        <div class="mini">
+          <h3>Parceiros</h3>
+          <p>Profissionais e empresas alinhadas com o padrão Yama Spa: qualidade, ética e presença.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PILARES -->
+  <div class="wrap section" id="franquia">
+    <div class="section-head">
+      <div>
+        <h2>Franquia Yama Spa</h2>
+        <p>Para quem quer começar do jeito certo — com estrutura, padrão e suporte.</p>
+      </div>
+      <a class="btn" href="#contato">Falar com a equipe</a>
+    </div>
+
+    <div class="grid3">
+      <div class="card">
+        <h3>Sem mensalidade / Sem royalty</h3>
+        <p>Modelo pensado para crescer com leveza, mantendo padrão premium e organização.</p>
+        <a class="more" href="#contato"><span>→</span> Quero saber como funciona</a>
+      </div>
+      <div class="card">
+        <h3>Treinamento e padrão</h3>
+        <p>Manual do padrão Yama Spa, atendimento, experiência do cliente e posicionamento.</p>
+        <a class="more" href="#cursos"><span>→</span> Ver cursos e formação</a>
+      </div>
+      <div class="card">
+        <h3>Marca e marketing</h3>
+        <p>Base de conteúdo, identidade e orientação para crescer com consistência.</p>
+        <a class="more" href="#parceiros"><span>→</span> Quero ser parceiro</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap section" id="cursos">
+    <div class="section-head">
+      <div>
+        <h2>Cursos Yama Spa</h2>
+        <p>Formação profissional com foco em técnica, postura, ergonomia e experiência.</p>
+      </div>
+      <a class="btn" href="#contato">Quero informações</a>
+    </div>
+
+    <div class="grid3">
+      <div class="card">
+        <h3>Curso Base (Iniciante)</h3>
+        <p>Para quem quer entrar na área com segurança e padrão profissional.</p>
+        <a class="more" href="#contato"><span>→</span> Solicitar datas</a>
+      </div>
+      <div class="card">
+        <h3>Curso Avançado</h3>
+        <p>Manobras, pontos de tensão, fluxo e construção de atendimento premium.</p>
+        <a class="more" href="#contato"><span>→</span> Ver conteúdo</a>
+      </div>
+      <div class="card">
+        <h3>CIMS School (parceira)</h3>
+        <p>Integração com cursos e certificações profissionais da CIMS School.</p>
+        <a class="more" href="#contato"><span>→</span> Como integrar no seu caminho</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap section" id="parceiros">
+    <div class="section-head">
+      <div>
+        <h2>Yama Spa Parceiros</h2>
+        <p>Profissionais e empresas alinhadas com o padrão Yama Spa.</p>
+      </div>
+      <a class="btn" href="#contato">Quero ser parceiro</a>
+    </div>
+
+    <div class="grid3">
+      <div class="card">
+        <h3>Profissionais</h3>
+        <p>Terapeutas que desejam crescer com estrutura, padrão e ética profissional.</p>
+        <a class="more" href="#contato"><span>→</span> Entrar na rede</a>
+      </div>
+      <div class="card">
+        <h3>Empresas</h3>
+        <p>Parcerias com hotéis, salões, clínicas e negócios locais no Japão.</p>
+        <a class="more" href="#contato"><span>→</span> Propor parceria</a>
+      </div>
+      <div class="card">
+        <h3>Eventos</h3>
+        <p>Ações de bem-estar, workshops e presença estratégica da marca.</p>
+        <a class="more" href="#contato"><span>→</span> Chamar para evento</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- UNIDADES -->
+  <div class="wrap section" id="unidades">
+    <div class="section-head">
+      <div>
+        <h2>Unidades</h2>
+        <p>Atendimento no Japão com padrão Yama Spa.</p>
+      </div>
+      <a class="btn" href="#contato">Agendar</a>
+    </div>
+
+    <div class="split">
+      <div class="card">
+        <h3>Komaki</h3>
+        <p>Unidade principal. Ambiente acolhedor e experiência premium.</p>
+        <a class="more" href="#contato"><span>→</span> Agendar em Komaki</a>
+      </div>
+      <div class="card">
+        <h3>Toyoake</h3>
+        <p>Unidade parceira com padrão Yama Spa e atendimento profissional.</p>
+        <a class="more" href="#contato"><span>→</span> Agendar em Toyoake</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRODUTOS -->
+  <div class="wrap section" id="produtos">
+    <div class="section-head">
+      <div>
+        <h2>Produtos</h2>
+        <p>Catálogo em construção: cuidados, bem-estar e itens recomendados pelo Yama Spa.</p>
+      </div>
+      <a class="btn" href="#contato">Quero o catálogo</a>
+    </div>
+
+    <div class="grid3">
+      <div class="card">
+        <h3>Óleos & Aromas</h3>
+        <p>Seleção recomendada para relaxamento e cuidados em casa.</p>
+        <a class="more" href="#contato"><span>→</span> Pedir sugestões</a>
+      </div>
+      <div class="card">
+        <h3>Compressas de ervas</h3>
+        <p>Itens e recomendações alinhadas ao padrão de experiência Yama Spa.</p>
+        <a class="more" href="#contato"><span>→</span> Ver opções</a>
+      </div>
+      <div class="card">
+        <h3>Cuidados pós-massagem</h3>
+        <p>Rotinas simples para manter o corpo leve e a mente tranquila.</p>
+        <a class="more" href="#contato"><span>→</span> Receber recomendações</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- BLOG -->
+  <div class="wrap section" id="blog">
+    <div class="section-head">
+      <div>
+        <h2>Blog</h2>
+        <p>Conteúdo sobre massagem, bem-estar e rotina de cuidados.</p>
+      </div>
+      <a class="btn" href="#contato">Sugerir tema</a>
+    </div>
+
+    <div class="grid3">
+      <div class="card">
+        <h3>Massagem no frio: por que ajuda tanto?</h3>
+        <p>Como o corpo acumula tensão no inverno e como aliviar de forma segura.</p>
+        <a class="more" href="#"><span>→</span> Em breve</a>
+      </div>
+      <div class="card">
+        <h3>Como escolher a massagem ideal</h3>
+        <p>Dicas simples para escolher a técnica certa de acordo com seu objetivo.</p>
+        <a class="more" href="#"><span>→</span> Em breve</a>
+      </div>
+      <div class="card">
+        <h3>O que é uma experiência premium</h3>
+        <p>Detalhes que mudam tudo: ambiente, técnica, presença e cuidado real.</p>
+        <a class="more" href="#"><span>→</span> Em breve</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUEM SOMOS -->
+  <div class="wrap section" id="quem-somos">
+    <div class="section-head">
+      <div>
+        <h2>Quem somos</h2>
+        <p>Uma marca nascida no Japão, com missão de elevar o padrão do bem-estar.</p>
+      </div>
+      <a class="btn" href="#contato">Falar com a equipe</a>
+    </div>
+
+    <div class="card">
+      <h3>Yama Spa</h3>
+      <p>
+        O Yama Spa é um projeto de bem-estar com foco em experiência premium, formação profissional e expansão por meio de parceiros e franquias.
+        Nosso compromisso é com qualidade, ética, presença e cuidado verdadeiro.
+      </p>
+      <p class="note">
+        * Em breve: história completa, fotos das unidades e linha do tempo da marca.
+      </p>
+    </div>
+  </div>
+
+  <!-- CONTATO -->
+  <div class="wrap section" id="contato">
+    <div class="section-head">
+      <div>
+        <h2>Contato</h2>
+        <p>Agendamento, informações de cursos, parcerias e franquia.</p>
+      </div>
+    </div>
+
+    <div class="split">
+      <div class="card">
+        <h3>WhatsApp</h3>
+        <p>📲 Clique para falar com a equipe e receber atendimento.</p>
+        <a class="btn primary" href="https://wa.me/" target="_blank" rel="noopener">Abrir WhatsApp</a>
+        <p class="note">* Vou ajustar o link assim que você me passar o número no formato internacional.</p>
+      </div>
+      <div class="card">
+        <h3>Instagram</h3>
+        <p>📷 Acompanhe conteúdos, bastidores, novidades e vagas de cursos.</p>
+        <a class="btn" href="https://instagram.com/" target="_blank" rel="noopener">Abrir Instagram</a>
+        <p class="note">* Vou ajustar para @yama.spa quando você quiser.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- RODAPÉ -->
+  <div class="wrap footer">
+    <div>
+      <b>Yama Spa</b> • Japão • Komaki • Toyoake
+      <div class="note">© <span id="year"></span> Yama Spa. Todos os direitos reservados.</div>
+    </div>
+
+    <div class="cols">
+      <div>
+        <div style="font-weight:700; margin-bottom:6px;">Mapa do site</div>
+        <div><a href="#franquia">Franquia</a></div>
+        <div><a href="#cursos">Cursos</a></div>
+        <div><a href="#parceiros">Parceiros</a></div>
+        <div><a href="#unidades">Unidades</a></div>
+      </div>
+      <div>
+        <div style="font-weight:700; margin-bottom:6px;">Conteúdo</div>
+        <div><a href="#produtos">Produtos</a></div>
+        <div><a href="#blog">Blog</a></div>
+        <div><a href="#quem-somos">Quem somos</a></div>
+      </div>
+      <div>
+        <div style="font-weight:700; margin-bottom:6px;">Contato</div>
+        <div><a href="#contato">Agendar / Informações</a></div>
+        <div class="note">Em breve: Política de Privacidade e Termos</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
 
