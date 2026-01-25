@@ -162,7 +162,7 @@
     .section-head h2{margin:0; font-size:22px}
     .section-head p{margin:0; color:var(--muted); font-size:14px; max-width: 560px}
 
-    /* PAINEL VISUAL (cards grandes) */
+    /* PAINEL VISUAL */
     .panel{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
@@ -176,19 +176,24 @@
       box-shadow: 0 10px 25px rgba(0,0,0,.22);
       display:flex;
       flex-direction:column;
-      min-height: 280px;
+      min-height: 300px;
       position:relative;
     }
     .panel-media{
-      height:140px;
-      background:
-        radial-gradient(500px 240px at 25% 20%, rgba(201,168,106,.22), transparent 60%),
-        radial-gradient(420px 240px at 85% 40%, rgba(122,166,184,.14), transparent 55%),
-        rgba(255,255,255,.03);
+      height:165px;
       border-bottom:1px solid var(--line);
       display:flex;
       align-items:flex-end;
       padding:14px;
+      background-size: cover;
+      background-position: center;
+      position:relative;
+    }
+    .panel-media:after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background: linear-gradient(to top, rgba(11,15,18,.88), rgba(11,15,18,.22) 55%, rgba(11,15,18,0));
     }
     .panel-tag{
       display:inline-flex;
@@ -197,9 +202,11 @@
       padding:8px 10px;
       border-radius:999px;
       border:1px solid var(--line);
-      background: rgba(0,0,0,.25);
+      background: rgba(0,0,0,.30);
       color: var(--muted);
       font-size:12px;
+      position:relative;
+      z-index:2;
     }
     .panel-content{
       padding:16px 18px 18px;
@@ -345,7 +352,7 @@
     </div>
   </div>
 
-  <!-- PAINEL PRINCIPAL -->
+  <!-- PAINEL -->
   <div class="wrap section">
     <div class="section-head">
       <div>
@@ -357,12 +364,12 @@
 
     <div class="panel">
       <a class="panel-card" href="franquia.html">
-        <div class="panel-media">
+        <div class="panel-media" style="background-image:url('assets/images/logo/panel-01.jpg');">
           <div class="panel-tag">👑 Franquia • Expansão</div>
         </div>
         <div class="panel-content">
           <h3>Ter meu Yama Spa</h3>
-          <p>Modelo de franquia sem mensalidade/royalty. Padrão, estrutura e suporte para crescer do jeito certo.</p>
+          <p>Modelo sem mensalidade/royalty. Padrão, estrutura e suporte para crescer do jeito certo.</p>
           <div class="panel-actions">
             <span class="btn primary">Ver franquia</span>
             <span class="btn">Falar com a equipe</span>
@@ -371,7 +378,7 @@
       </a>
 
       <a class="panel-card" href="cursos.html">
-        <div class="panel-media">
+        <div class="panel-media" style="background-image:url('assets/images/logo/panel-02.jpg');">
           <div class="panel-tag">🎓 Cursos • Formação</div>
         </div>
         <div class="panel-content">
@@ -385,7 +392,7 @@
       </a>
 
       <a class="panel-card" href="unidades.html">
-        <div class="panel-media">
+        <div class="panel-media" style="background-image:url('assets/images/logo/panel-03.jpg');">
           <div class="panel-tag">📍 Unidades • Japão</div>
         </div>
         <div class="panel-content">
@@ -398,8 +405,9 @@
         </div>
       </a>
 
+      <!-- Enquanto não tiver panel-04/05/06, repetimos imagens (depois troca em 10s) -->
       <a class="panel-card" href="produtos.html">
-        <div class="panel-media">
+        <div class="panel-media" style="background-image:url('assets/images/logo/panel-01.jpg');">
           <div class="panel-tag">🧴 Produtos • Curadoria</div>
         </div>
         <div class="panel-content">
@@ -413,11 +421,11 @@
       </a>
 
       <a class="panel-card" href="blog.html">
-        <div class="panel-media">
+        <div class="panel-media" style="background-image:url('assets/images/logo/panel-02.jpg');">
           <div class="panel-tag">📚 Blog • Conteúdo</div>
         </div>
         <div class="panel-content">
-          <h3>Aprender e cuidar melhor do corpo</h3>
+          <h3>Aprender e cuidar do corpo</h3>
           <p>Conteúdo claro sobre massagem, bem-estar, postura e hábitos para viver com leveza.</p>
           <div class="panel-actions">
             <span class="btn primary">Ver blog</span>
@@ -427,7 +435,7 @@
       </a>
 
       <a class="panel-card" href="parceiros.html">
-        <div class="panel-media">
+        <div class="panel-media" style="background-image:url('assets/images/logo/panel-03.jpg');">
           <div class="panel-tag">🤝 Parceiros • Rede</div>
         </div>
         <div class="panel-content">
