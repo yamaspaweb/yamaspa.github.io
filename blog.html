@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog | Yama Spa</title>
+  <meta name="description" content="Blog Yama Spa: massagem, bem-estar, rotina de autocuidado e dicas para viver com mais leveza. Conteúdo premium, claro e direto." />
+
+  <style>
+    :root{
+      --bg:#0b0f12;
+      --card:#0f151a;
+      --text:#e9eef3;
+      --muted:#aab6c2;
+      --line:rgba(255,255,255,.08);
+      --accent:#c9a86a;
+      --accent2:#7aa6b8;
+      --radius:18px;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --max: 1120px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(1200px 600px at 20% -10%, rgba(201,168,106,.18), transparent 60%),
+                  radial-gradient(900px 500px at 90% 10%, rgba(122,166,184,.12), transparent 55%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.6;
+    }
+    a{color:inherit; text-decoration:none}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 18px}
+
+    /* Topo */
+    .topbar{
+      position:sticky; top:0; z-index:10;
+      backdrop-filter: blur(10px);
+      background: rgba(11,15,18,.72);
+      border-bottom:1px solid var(--line);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+      gap:14px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px; min-width: 220px;
+    }
+    .logo{
+      width:42px; height:42px; border-radius:50%;
+      border:1px solid rgba(201,168,106,.55);
+      box-shadow: 0 0 0 4px rgba(201,168,106,.12);
+      background: rgba(255,255,255,.02);
+      display:flex; align-items:center; justify-content:center;
+      overflow:hidden;
+      flex: 0 0 auto;
+    }
+    .logo img{
+      width:100%; height:100%;
+      object-fit:contain;
+      padding:6px;
+      display:block;
+    }
+    .brand b{letter-spacing:.6px}
+    .brand small{display:block; color:var(--muted); margin-top:-2px; font-size:12px}
+
+    .menu{
+      display:flex; flex-wrap:wrap; gap:10px;
+      justify-content:flex-end;
+    }
+    .menu a{
+      padding:8px 10px;
+      border:1px solid transparent;
+      border-radius:999px;
+      color:var(--muted);
+      font-size:14px;
+    }
+    .menu a:hover{
+      color:var(--text);
+      border-color:var(--line);
+      background: rgba(255,255,255,.03);
+    }
+
+    .cta{display:flex; gap:10px; align-items:center}
+    .btn{
+      padding:10px 14px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      color:var(--text);
+      font-weight:600;
+      font-size:14px;
+      cursor:pointer;
+      display:inline-block;
+    }
+    .btn:hover{border-color:rgba(201,168,106,.45)}
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(201,168,106,.95), rgba(201,168,106,.65));
+      border-color: rgba(201,168,106,.4);
+      color:#101418;
+    }
+    .btn.primary:hover{filter:brightness(1.05)}
+
+    /* Hero */
+    .hero{padding:58px 0 18px}
+    .hero-card{
+      border:1px solid var(--line);
+      background: rgba(15,21,26,.78);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding:28px;
+      position:relative;
+      overflow:hidden;
+    }
+    .hero-card:before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background: radial-gradient(600px 300px at 20% 0%, rgba(201,168,106,.20), transparent 65%),
+                  radial-gradient(500px 300px at 90% 20%, rgba(122,166,184,.16), transparent 55%);
+      z-index:0;
+    }
+    .hero-card > *{position:relative; z-index:1}
+
+    h1{margin:0 0 10px; font-size:34px; line-height:1.15}
+    .lead{margin:0; color:var(--muted); max-width: 900px}
+
+    .bar{
+      display:flex; gap:10px; flex-wrap:wrap; margin-top:16px;
+      align-items:center;
+    }
+    .search{
+      flex:1;
+      min-width: 220px;
+      display:flex;
+      gap:10px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      border-radius:999px;
+      padding:10px 12px;
+      align-items:center;
+    }
+    .search input{
+      width:100%;
+      border:none;
+      outline:none;
+      background:transparent;
+      color:var(--text);
+      font-size:14px;
+    }
+    .chip{
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      color: var(--muted);
+      font-size:13px;
+      cursor:pointer;
+      user-select:none;
+    }
+    .chip.active{
+      border-color: rgba(201,168,106,.45);
+      background: rgba(201,168,106,.10);
+      color: var(--text);
+    }
+
+    /* Posts */
+    .section{padding:26px 0}
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+    }
+    .post{
+      border:1px solid var(--line);
+      background: rgba(15,21,26,.55);
+      border-radius: var(--radius);
+      overflow:hidden;
+      box-shadow: 0 10px 25px rgba(0,0,0,.22);
+      display:flex;
+      flex-direction:column;
+      min-height: 260px;
+    }
+    .thumb{
+      height:140px;
+      background:
+        radial-gradient(500px 220px at 25% 20%, rgba(201,168,106,.22), transparent 60%),
+        radial-gradient(420px 220px at 85% 40%, rgba(122,166,184,.16), transparent 55%),
+        rgba(255,255,255,.03);
+      border-bottom: 1px solid var(--line);
+      display:flex;
+      align-items:flex-end;
+      padding:14px;
+    }
+    .tag{
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(0,0,0,.25);
+      color: var(--muted);
+      font-size:12px;
+    }
+    .content{
+      padding:16px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      flex:1;
+    }
+    .content h3{margin:0; font-size:16px}
+    .meta{color:var(--muted); font-size:12px}
+    .content p{margin:0; color:var(--muted); font-size:14px}
+    .more{
+      margin-top:auto;
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+      font-weight:800;
+      font-size:14px;
+    }
+    .more span{color:var(--accent)}
+
+    .cta-box{
+      margin-top:18px;
+      border:1px solid rgba(201,168,106,.35);
+      background: linear-gradient(135deg, rgba(201,168,106,.12), rgba(201,168,106,.05));
+      border-radius: var(--radius);
+      padding:18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+    }
+
+    .footer{
+      margin-top:30px;
+      border-top:1px solid var(--line);
+      padding:22px 0 40px;
+      color:var(--muted);
+      font-size:13px;
+    }
+    .note{color:var(--muted); font-size:12px; margin-top:8px}
+
+    @media (max-width: 940px){
+      h1{font-size:28px}
+      .grid{grid-template-columns:1fr}
+      .menu{justify-content:flex-start}
+      .cta-box{flex-direction:column; align-items:flex-start}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="topbar">
+    <div class="wrap">
+      <div class="nav">
+        <a class="brand" href="index.html">
+          <div class="logo">
+            <img src="assets/images/logo/logo-yama-spa.png" alt="Yama Spa Logo">
+          </div>
+          <div>
+            <b>YAMA SPA</b>
+            <small>Komaki • Toyoake • Japão</small>
+          </div>
+        </a>
+
+        <div class="menu">
+          <a href="franquia.html">Franquia</a>
+          <a href="cursos.html">Cursos</a>
+          <a href="parceiros.html">Parceiros</a>
+          <a href="unidades.html">Unidades</a>
+          <a href="produtos.html">Produtos</a>
+          <a href="blog.html" style="color:var(--text); border-color:var(--line); background:rgba(255,255,255,.03);">Blog</a>
+          <a href="quem-somos.html">Quem somos</a>
+          <a href="index.html#contato">Contato</a>
+        </div>
+
+        <div class="cta">
+          <a class="btn" href="index.html#contato">Agendar</a>
+          <a class="btn primary" href="franquia.html">Quero ter meu Yama Spa</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap hero">
+    <div class="hero-card">
+      <h1>Blog Yama Spa</h1>
+      <p class="lead">
+        Conteúdo sobre massagem, bem-estar e autocuidado.
+        Leitura clara, elegante e prática — para você viver com mais leveza.
+      </p>
+
+      <div class="bar">
+        <div class="search">
+          🔎
+          <input id="q" type="text" placeholder="Buscar no blog (ex.: massagem no frio, tensão, postura)..." />
+        </div>
+
+        <div class="chip active" data-filter="all">Tudo</div>
+        <div class="chip" data-filter="bemestar">Bem-estar</div>
+        <div class="chip" data-filter="massagem">Massagem</div>
+        <div class="chip" data-filter="dicas">Dicas</div>
+      </div>
+
+      <div class="note">
+        * Os primeiros artigos estão em construção. Em breve teremos posts completos com fotos.
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap section">
+    <div class="grid" id="posts">
+
+      <!-- POST 1 -->
+      <a class="post" href="#" data-tags="massagem bemestar">
+        <div class="thumb">
+          <div class="tag">🧊 Inverno • Massagem</div>
+        </div>
+        <div class="content">
+          <div class="meta">Em breve • 4 min</div>
+          <h3>Massagem no frio: por que o corpo acumula tanta tensão?</h3>
+          <p>Entenda o que muda no corpo no inverno e como aliviar com segurança.</p>
+          <div class="more"><span>→</span> Ler artigo</div>
+        </div>
+      </a>
+
+      <!-- POST 2 -->
+      <a class="post" href="#" data-tags="massagem dicas">
+        <div class="thumb">
+          <div class="tag">💆‍♀️ Guia • Escolha</div>
+        </div>
+        <div class="content">
+          <div class="meta">Em breve • 5 min</div>
+          <h3>Como escolher a massagem ideal para o seu objetivo</h3>
+          <p>Relaxamento, terapêutica, tensão localizada: como decidir com clareza.</p>
+          <div class="more"><span>→</span> Ler artigo</div>
+        </div>
+      </a>
+
+      <!-- POST 3 -->
+      <a class="post" href="#" data-tags="bemestar dicas">
+        <div class="thumb">
+          <div class="tag">🌿 Rotina • Leveza</div>
+        </div>
+        <div class="content">
+          <div class="meta">Em breve • 4 min</div>
+          <h3>Cuidados pós-massagem: o que fazer para durar mais</h3>
+          <p>Pequenas atitudes que prolongam o bem-estar: água, descanso e hábitos.</p>
+          <div class="more"><span>→</span> Ler artigo</div>
+        </div>
+      </a>
+
+      <!-- POST 4 -->
+      <a class="post" href="#" data-tags="massagem dicas">
+        <div class="thumb">
+          <div class="tag">🧠 Postura • Ergonomia</div>
+        </div>
+        <div class="content">
+          <div class="meta">Em breve • 6 min</div>
+          <h3>Postura e tensão: por que o pescoço trava?</h3>
+          <p>O que mais causa tensão na rotina e como a massagem ajuda de verdade.</p>
+          <div class="more"><span>→</span> Ler artigo</div>
+        </div>
+      </a>
+
+      <!-- POST 5 -->
+      <a class="post" href="#" data-tags="bemestar massagem">
+        <div class="thumb">
+          <div class="tag">✨ Experiência • Premium</div>
+        </div>
+        <div class="content">
+          <div class="meta">Em breve • 4 min</div>
+          <h3>O que torna uma experiência de spa realmente premium?</h3>
+          <p>Detalhes que mudam tudo: ambiente, toque, presença e cuidado real.</p>
+          <div class="more"><span>→</span> Ler artigo</div>
+        </div>
+      </a>
+
+      <!-- POST 6 -->
+      <a class="post" href="#" data-tags="dicas bemestar">
+        <div class="thumb">
+          <div class="tag">🌙 Sono • Relax</div>
+        </div>
+        <div class="content">
+          <div class="meta">Em breve • 3 min</div>
+          <h3>3 hábitos para relaxar à noite e dormir melhor</h3>
+          <p>Rotina simples para desacelerar: respiração, banho e autocuidado.</p>
+          <div class="more"><span>→</span> Ler artigo</div>
+        </div>
+      </a>
+
+    </div>
+
+    <div class="cta-box">
+      <div>
+        <div style="font-weight:800; font-size:16px; margin-bottom:6px;">Quer sugerir um tema?</div>
+        <div style="color:var(--muted); font-size:14px;">A equipe transforma sua dúvida em conteúdo claro e útil.</div>
+      </div>
+      <a class="btn primary" href="index.html#contato">Enviar sugestão</a>
+    </div>
+
+    <div class="note">
+      * Próximo passo: criar posts reais em arquivos separados e linkar aqui.
+    </div>
+  </div>
+
+  <div class="wrap footer">
+    <div>
+      <b>Yama Spa</b> • Japão
+      <div class="note">© <span id="year"></span> Yama Spa. Todos os direitos reservados.</div>
+    </div>
+  </div>
+
+  <script>
+    // Ano
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Filtros + busca (simples e leve)
+    const q = document.getElementById("q");
+    const chips = document.querySelectorAll(".chip");
+    const posts = [...document.querySelectorAll(".post")];
+
+    let activeFilter = "all";
+
+    function apply(){
+      const term = (q.value || "").toLowerCase().trim();
+
+      posts.forEach(p=>{
+        const tags = (p.getAttribute("data-tags") || "").toLowerCase();
+        const text = (p.innerText || "").toLowerCase();
+
+        const okFilter = activeFilter === "all" ? true : tags.includes(activeFilter);
+        const okSearch = term ? (text.includes(term) || tags.includes(term)) : true;
+
+        p.style.display = (okFilter && okSearch) ? "" : "none";
+      });
+    }
+
+    chips.forEach(c=>{
+      c.addEventListener("click", ()=>{
+        chips.forEach(x=>x.classList.remove("active"));
+        c.classList.add("active");
+        activeFilter = c.dataset.filter;
+        apply();
+      });
+    });
+
+    q.addEventListener("input", apply);
+  </script>
+</body>
+</html>
