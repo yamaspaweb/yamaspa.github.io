@@ -1,366 +1,532 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Yama Spa | Toque que transforma vidas</title>
-  <meta name="description" content="Yama Spa no Japão: experiências premium, formação profissional, parceiros e franquia sem mensalidade ou royalty." />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Yama Spa | Toque que transforma</title>
+  <meta name="description" content="Yama Spa — experiência premium em bem-estar, massagens e formação profissional com Margot Yamada." />
+  <meta name="theme-color" content="#0b0c10" />
 
   <style>
     :root{
-      --bg:#0b0f12;
-      --card:#0f151a;
-      --text:#e9eef3;
-      --muted:#aab6c2;
-      --line:rgba(255,255,255,.08);
-      --accent:#c9a86a; /* dourado premium */
-      --accent2:#7aa6b8; /* azul suave */
-      --radius:18px;
-      --shadow: 0 10px 30px rgba(0,0,0,.35);
-      --max: 1120px;
+      --bg:#07080b;
+      --card:#0e1016;
+      --card2:#0b0c10;
+      --text:#f5f6fb;
+      --muted:rgba(245,246,251,.70);
+      --muted2:rgba(245,246,251,.55);
+      --line:rgba(255,255,255,.10);
+      --gold:#d8b86a;
+      --gold2:#f1d08a;
+      --shadow: 0 14px 40px rgba(0,0,0,.55);
+      --radius: 18px;
+      --radius2: 28px;
+      --max: 1160px;
     }
-    *{box-sizing:border-box}
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      background: radial-gradient(1200px 600px at 20% -10%, rgba(201,168,106,.18), transparent 60%),
-                  radial-gradient(900px 500px at 90% 10%, rgba(122,166,184,.14), transparent 55%),
-                  var(--bg);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background:
+        radial-gradient(900px 500px at 15% 10%, rgba(216,184,106,.12), transparent 55%),
+        radial-gradient(900px 500px at 85% 20%, rgba(241,208,138,.10), transparent 55%),
+        radial-gradient(900px 500px at 50% 110%, rgba(216,184,106,.10), transparent 55%),
+        var(--bg);
       color:var(--text);
-      line-height:1.6;
+      overflow-x:hidden;
     }
-    a{color:inherit; text-decoration:none}
-    .wrap{max-width:var(--max); margin:0 auto; padding:0 18px}
 
-    /* TOPO */
+    a{ color:inherit; text-decoration:none; }
+    img{ max-width:100%; display:block; }
+
+    .container{
+      width:100%;
+      max-width:var(--max);
+      margin:0 auto;
+      padding: 0 18px;
+    }
+
+    /* ====== NAV ====== */
     .topbar{
-      position:sticky; top:0; z-index:10;
-      backdrop-filter: blur(10px);
-      background: rgba(11,15,18,.72);
+      position: sticky;
+      top:0;
+      z-index: 1000;
+      backdrop-filter: blur(16px);
+      background: rgba(7,8,11,.55);
       border-bottom:1px solid var(--line);
     }
+
     .nav{
-      display:flex; align-items:center; justify-content:space-between;
-      padding:14px 0;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
       gap:14px;
-      position:relative;
+      padding: 12px 0;
     }
+
     .brand{
-      display:flex; align-items:center; gap:10px; min-width: 220px;
+      display:flex; align-items:center; gap:12px;
+      min-width: 170px;
     }
-    .logo{
-      width:42px; height:42px; border-radius:50%;
-      border:1px solid rgba(201,168,106,.55);
-      box-shadow: 0 0 0 4px rgba(201,168,106,.12);
-      background: rgba(255,255,255,.02);
-      display:flex; align-items:center; justify-content:center;
-      overflow:hidden;
-      flex: 0 0 auto;
+    .brand img{
+      width:42px; height:42px; object-fit:contain;
+      filter: drop-shadow(0 10px 25px rgba(0,0,0,.5));
     }
-    .logo img{
-      width:100%; height:100%;
-      object-fit:contain;
-      padding:6px;
-      display:block;
+    .brand .name{
+      display:flex; flex-direction:column; line-height:1.05;
     }
-    .brand b{letter-spacing:.6px}
-    .brand small{display:block; color:var(--muted); margin-top:-2px; font-size:12px}
+    .brand .name strong{
+      letter-spacing:.14em;
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+    .brand .name span{
+      font-size: 12px;
+      color: var(--muted);
+      margin-top:4px;
+    }
 
     .menu{
-      display:flex; flex-wrap:wrap; gap:10px;
-      justify-content:flex-end;
+      display:flex;
+      align-items:center;
+      gap:18px;
+      color: var(--muted);
+      font-size: 14px;
     }
     .menu a{
-      padding:8px 10px;
-      border:1px solid transparent;
-      border-radius:999px;
-      color:var(--muted);
-      font-size:14px;
-    }
-    .menu a:hover{
-      color:var(--text);
-      border-color:var(--line);
-      background: rgba(255,255,255,.03);
-    }
-
-    .cta{display:flex; gap:10px; align-items:center}
-    .btn{
-      padding:10px 14px;
-      border-radius:999px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.03);
-      color:var(--text);
-      font-weight:600;
-      font-size:14px;
-      cursor:pointer;
-      display:inline-block;
+      padding:10px 10px;
+      border-radius: 12px;
+      transition: .2s ease;
       white-space:nowrap;
     }
-    .btn:hover{border-color:rgba(201,168,106,.45)}
-    .btn.primary{
-      background: linear-gradient(135deg, rgba(201,168,106,.95), rgba(201,168,106,.65));
-      border-color: rgba(201,168,106,.4);
-      color:#101418;
+    .menu a:hover{
+      background: rgba(255,255,255,.06);
+      color: var(--text);
     }
-    .btn.primary:hover{filter:brightness(1.05)}
 
-    /* HAMBURGER (mobile) */
-    .hamburger{
+    .actions{
+      display:flex; align-items:center; gap:10px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+      font-weight: 650;
+      font-size: 14px;
+      cursor:pointer;
+      transition: .2s ease;
+      box-shadow: 0 10px 30px rgba(0,0,0,.35);
+    }
+    .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.06); }
+    .btn.primary{
+      border-color: rgba(216,184,106,.55);
+      background: linear-gradient(180deg, rgba(216,184,106,.22), rgba(216,184,106,.10));
+    }
+
+    .hamb{
       display:none;
       width:44px; height:44px;
-      border-radius:999px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.03);
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
       color: var(--text);
-      font-size:18px;
       cursor:pointer;
     }
 
-    /* HERO */
-    .hero{padding:54px 0 22px}
-    .hero-grid{
-      display:grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap:18px;
-      align-items:stretch;
+    /* Mobile dropdown */
+    .mobileMenu{
+      display:none;
+      padding: 10px 0 16px;
+      border-top:1px solid var(--line);
     }
-    .hero-card{
-      border:1px solid var(--line);
-      background: rgba(15,21,26,.78);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding:26px;
-      overflow:hidden;
-      position:relative;
-    }
-
-    /* HERO “FORTE” COM FOTO DA MARGOT */
-    .hero-card.hero-founder{
-      background:
-        linear-gradient(90deg, rgba(11,15,18,.92) 0%, rgba(11,15,18,.72) 52%, rgba(11,15,18,.30) 100%),
-        radial-gradient(600px 300px at 20% 0%, rgba(201,168,106,.22), transparent 65%),
-        radial-gradient(500px 300px at 90% 20%, rgba(122,166,184,.18), transparent 55%),
-        url('assets/images/logo/margot.jpg');
-      background-size: cover;
-      background-position: center right;
-      border-color: rgba(201,168,106,.22);
-    }
-    .hero-card > *{position:relative; z-index:1}
-
-    .kicker{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:8px 10px;
-      border-radius:999px;
-      border:1px solid rgba(201,168,106,.25);
-      background: rgba(0,0,0,.25);
+    .mobileMenu a{
+      display:block;
+      padding: 12px 12px;
+      border-radius: 14px;
       color: var(--muted);
-      font-size:12px;
-      margin-bottom:12px;
+      border: 1px solid transparent;
+      transition:.2s ease;
     }
-    .kicker b{color:var(--text); font-weight:700}
+    .mobileMenu a:hover{
+      background: rgba(255,255,255,.05);
+      color: var(--text);
+      border-color: rgba(255,255,255,.08);
+    }
+    .mobileActions{
+      display:flex;
+      gap:10px;
+      padding: 10px 12px 0;
+    }
+    .mobileActions .btn{ width:100%; }
 
-    h1{
-      margin:0 0 10px;
-      font-size:38px;
-      line-height:1.15;
-      letter-spacing:.2px;
+    /* ====== HERO ====== */
+    .hero{
+      position:relative;
+      padding: 26px 0 26px;
     }
-    .lead{color:var(--muted); margin:0 0 18px; font-size:16px}
-    .hero-actions{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px}
-    .badges{display:flex; gap:10px; flex-wrap:wrap; margin-top:18px}
-    .badge{
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.03);
-      color:var(--muted);
-      border-radius:999px;
-      padding:8px 10px;
-      font-size:13px;
-    }
-    .side{display:grid; gap:18px}
-    .mini{
-      border:1px solid var(--line);
-      background: rgba(15,21,26,.55);
-      border-radius: var(--radius);
-      padding:18px;
-    }
-    .mini h3{margin:0 0 6px; font-size:16px}
-    .mini p{margin:0; color:var(--muted); font-size:14px}
 
-    /* SEÇÕES */
-    .section{padding:26px 0}
-    .section-head{
-      display:flex; align-items:flex-end; justify-content:space-between;
-      gap:12px; margin-bottom:12px;
-    }
-    .section-head h2{margin:0; font-size:22px}
-    .section-head p{margin:0; color:var(--muted); font-size:14px; max-width: 560px}
-
-    /* PAINEL VISUAL */
-    .panel{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:14px;
-    }
-    .panel-card{
-      border:1px solid var(--line);
-      background: rgba(15,21,26,.60);
-      border-radius: var(--radius);
+    .heroCard{
+      position:relative;
       overflow:hidden;
-      box-shadow: 0 10px 25px rgba(0,0,0,.22);
-      display:flex;
-      flex-direction:column;
-      min-height: 300px;
-      position:relative;
+      border-radius: var(--radius2);
+      background:
+        radial-gradient(800px 400px at 20% 10%, rgba(216,184,106,.22), transparent 60%),
+        radial-gradient(900px 500px at 95% 20%, rgba(241,208,138,.14), transparent 55%),
+        linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow: var(--shadow);
     }
-    .panel-media{
-      height:165px;
-      border-bottom:1px solid var(--line);
-      display:flex;
-      align-items:flex-end;
-      padding:14px;
-      background-size: cover;
-      background-position: center;
-      position:relative;
-    }
-    .panel-media:after{
-      content:"";
+
+    /* background image (Margot) */
+    .heroBg{
       position:absolute;
       inset:0;
-      background: linear-gradient(to top, rgba(11,15,18,.88), rgba(11,15,18,.22) 55%, rgba(11,15,18,0));
+      background-image: url("assets/images/logo/margot.jpg");
+      background-size: cover;
+      background-position: center 20%;
+      opacity: .22;
+      filter: saturate(1.05) contrast(1.02);
+      transform: scale(1.02);
     }
-    .panel-tag{
-      display:inline-flex;
-      gap:8px;
-      align-items:center;
-      padding:8px 10px;
-      border-radius:999px;
-      border:1px solid var(--line);
-      background: rgba(0,0,0,.30);
-      color: var(--muted);
-      font-size:12px;
+
+    .heroOverlay{
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(90deg, rgba(7,8,11,.92) 0%, rgba(7,8,11,.78) 45%, rgba(7,8,11,.35) 100%),
+        linear-gradient(180deg, rgba(7,8,11,.10), rgba(7,8,11,.65));
+    }
+
+    .heroInner{
       position:relative;
-      z-index:2;
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 18px;
+      padding: 26px;
+      min-height: clamp(520px, 70vh, 760px); /* desktop */
+      align-items: center;
     }
-    .panel-content{
-      padding:16px 18px 18px;
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      border:1px solid rgba(216,184,106,.45);
+      background: rgba(216,184,106,.10);
+      color: var(--gold2);
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: .02em;
+    }
+
+    .hero h1{
+      margin: 14px 0 10px;
+      font-size: clamp(30px, 4.2vw, 54px);
+      line-height: 1.03;
+      letter-spacing: -0.02em;
+    }
+
+    .hero h1 .gold{ color: var(--gold2); }
+
+    .hero p{
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: clamp(14px, 1.4vw, 18px);
+      line-height: 1.6;
+      max-width: 58ch;
+    }
+
+    .heroBullets{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin: 14px 0 22px;
+    }
+    .pill{
+      padding: 10px 12px;
+      border-radius: 999px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      color: rgba(245,246,251,.82);
+      font-size: 13px;
+      font-weight: 650;
+    }
+    .pill b{ color: var(--gold2); font-weight: 800; }
+
+    .heroBtns{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top: 6px;
+    }
+
+    .founderCard{
+      position:relative;
+      border-radius: 22px;
+      border:1px solid rgba(255,255,255,.10);
+      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      overflow:hidden;
+      box-shadow: 0 16px 40px rgba(0,0,0,.45);
+      align-self: stretch;
       display:flex;
       flex-direction:column;
-      gap:10px;
-      flex:1;
+      justify-content:flex-end;
+      min-height: 420px;
     }
-    .panel-content h3{margin:0; font-size:16px}
-    .panel-content p{margin:0; color:var(--muted); font-size:14px}
-    .panel-actions{margin-top:auto; display:flex; gap:10px; flex-wrap:wrap}
+    .founderImg{
+      position:absolute; inset:0;
+      background-image: url("assets/images/logo/margot.jpg");
+      background-size: cover;
+      background-position: center 18%;
+      filter: saturate(1.06) contrast(1.03);
+      transform: scale(1.02);
+    }
+    .founderShade{
+      position:absolute; inset:0;
+      background:
+        linear-gradient(180deg, rgba(7,8,11,.06), rgba(7,8,11,.80));
+    }
+    .founderInfo{
+      position:relative;
+      padding: 18px 18px 16px;
+    }
+    .founderInfo .role{
+      color: var(--gold2);
+      font-weight: 800;
+      letter-spacing:.12em;
+      text-transform: uppercase;
+      font-size: 12px;
+      margin-bottom: 8px;
+    }
+    .founderInfo h3{
+      margin: 0 0 8px;
+      font-size: 20px;
+      letter-spacing: -0.01em;
+    }
+    .founderInfo p{
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.55;
+    }
 
-    /* CONTATO */
-    .split{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
+    /* ====== SECTIONS ====== */
+    section{ padding: 18px 0 10px; }
+    .sectionTitle{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
       gap:14px;
+      padding: 14px 0;
     }
+    .sectionTitle h2{
+      margin:0;
+      font-size: 22px;
+      letter-spacing: -0.01em;
+    }
+    .sectionTitle p{
+      margin:0;
+      color: var(--muted2);
+      font-size: 14px;
+      line-height: 1.4;
+      max-width: 62ch;
+    }
+
+    .grid3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .grid2{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
     .card{
-      border:1px solid var(--line);
-      background: rgba(15,21,26,.55);
       border-radius: var(--radius);
-      padding:18px;
-      box-shadow: 0 10px 25px rgba(0,0,0,.22);
+      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow: 0 14px 34px rgba(0,0,0,.45);
+      overflow:hidden;
     }
-    .card h3{margin:0 0 6px; font-size:16px}
-    .card p{margin:0 0 10px; color:var(--muted); font-size:14px}
-    .note{color:var(--muted); font-size:12px; margin-top:8px}
 
-    /* RODAPÉ */
-    .footer{
-      margin-top:30px;
+    .feat{
+      padding: 16px;
+      min-height: 144px;
+    }
+    .feat .icon{
+      width:44px; height:44px;
+      display:grid; place-items:center;
+      border-radius: 14px;
+      border:1px solid rgba(216,184,106,.30);
+      background: rgba(216,184,106,.10);
+      color: var(--gold2);
+      font-weight: 900;
+      margin-bottom: 12px;
+    }
+    .feat h3{ margin:0 0 8px; font-size: 16px; }
+    .feat p{ margin:0; color: var(--muted); font-size: 14px; line-height: 1.6; }
+
+    .panel{
+      position:relative;
+      border-radius: var(--radius);
+      overflow:hidden;
+      min-height: 220px;
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow: 0 14px 34px rgba(0,0,0,.45);
+      background: #0a0b10;
+    }
+    .panel img{
+      width:100%;
+      height:100%;
+      object-fit: cover;
+      transform: scale(1.02);
+      filter: saturate(1.05) contrast(1.02);
+    }
+    .panel .cap{
+      position:absolute;
+      left: 14px;
+      right: 14px;
+      bottom: 14px;
+      padding: 12px 12px;
+      border-radius: 16px;
+      background: rgba(7,8,11,.62);
+      border:1px solid rgba(255,255,255,.10);
+      backdrop-filter: blur(10px);
+    }
+    .panel .cap strong{
+      display:block;
+      font-size: 14px;
+      letter-spacing:-0.01em;
+    }
+    .panel .cap span{
+      display:block;
+      margin-top: 4px;
+      color: var(--muted2);
+      font-size: 13px;
+    }
+
+    .ctaStrip{
+      margin: 18px 0 26px;
+      padding: 18px;
+      border-radius: var(--radius2);
+      border:1px solid rgba(216,184,106,.35);
+      background:
+        radial-gradient(700px 220px at 20% 30%, rgba(216,184,106,.22), transparent 60%),
+        linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 12px;
+      box-shadow: var(--shadow);
+    }
+    .ctaStrip h3{
+      margin:0;
+      font-size: 18px;
+      letter-spacing: -0.01em;
+    }
+    .ctaStrip p{
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    footer{
+      padding: 26px 0 36px;
       border-top:1px solid var(--line);
-      padding:22px 0 40px;
-      color:var(--muted);
-      font-size:13px;
-    }
-    .footer .cols{
-      display:grid;
-      grid-template-columns: 1.2fr 1fr 1fr;
-      gap:14px;
-      margin-top:10px;
-    }
-    .footer a{color:var(--muted)}
-    .footer a:hover{color:var(--text)}
-
-    /* ===== MOBILE NAV (hambúrguer) ===== */
-    @media (max-width: 940px){
-      .hero-grid{grid-template-columns:1fr}
-      h1{font-size:32px}
-      .panel{grid-template-columns:1fr}
-      .split{grid-template-columns:1fr}
-      .brand{min-width:auto}
-      .menu{justify-content:flex-start}
-      .hero-card.hero-founder{background-position:center}
+      margin-top: 26px;
+      color: var(--muted2);
+      font-size: 13px;
     }
 
-    @media (max-width: 640px){
-      .nav{
-        flex-wrap:nowrap;
-        gap:10px;
-      }
-      .brand b{font-size:14px}
-      .brand small{font-size:11px}
+    .footRow{
+      display:flex;
+      gap:16px;
+      justify-content:space-between;
+      align-items:flex-start;
+      flex-wrap:wrap;
+    }
+    .footRow .col{
+      min-width: 240px;
+      max-width: 520px;
+    }
+    .footRow strong{
+      color: rgba(245,246,251,.85);
+      display:block;
+      margin-bottom: 8px;
+      letter-spacing:.10em;
+      text-transform: uppercase;
+      font-size: 12px;
+    }
+    .links{
+      display:flex; flex-wrap:wrap; gap:10px;
+    }
+    .links a{
+      color: var(--muted2);
+      border:1px solid rgba(255,255,255,.10);
+      padding: 10px 12px;
+      border-radius: 14px;
+      background: rgba(255,255,255,.03);
+      transition:.2s ease;
+    }
+    .links a:hover{ color: var(--text); background: rgba(255,255,255,.05); transform: translateY(-1px); }
 
-      /* mostra o hambúrguer */
-      .hamburger{
-        display:inline-flex;
-        align-items:center;
-        justify-content:center;
+    /* ====== RESPONSIVE ====== */
+    @media (max-width: 980px){
+      .menu{ display:none; }
+      .hamb{ display:inline-grid; place-items:center; }
+      .heroInner{
+        grid-template-columns: 1fr;
+        gap: 14px;
+        padding: 18px;
+        min-height: auto;
       }
-
-      /* menu vira dropdown */
-      .menu{
-        display:none;
-        position:absolute;
-        left:18px;
-        right:18px;
-        top:68px;
-        background: rgba(11,15,18,.92);
-        border:1px solid var(--line);
-        border-radius: 16px;
-        padding:10px;
-        backdrop-filter: blur(10px);
-        flex-direction:column;
-        gap:6px;
-        z-index:999;
+      .founderCard{
+        min-height: 320px;
       }
-      .menu.open{display:flex}
+      .grid3{ grid-template-columns: 1fr; }
+      .grid2{ grid-template-columns: 1fr; }
+      .ctaStrip{ flex-direction:column; align-items:flex-start; }
+    }
 
-      .menu a{
-        padding:12px 12px;
-        border-radius:12px;
-        background: rgba(255,255,255,.02);
-      }
-
-      /* CTA compacto */
-      .cta{gap:8px; margin-left:auto}
-      .cta .btn{padding:10px 12px; font-size:13px}
+    @media (max-width: 520px){
+      .brand .name span{ display:none; }
+      .hero{ padding-top: 14px; }
+      .hero h1{ font-size: 32px; }
+      .hero p{ font-size: 14px; }
+      .founderCard{ min-height: 280px; }
     }
   </style>
 </head>
 
 <body>
-  <!-- TOPO -->
-  <div class="topbar">
-    <div class="wrap">
+
+  <!-- NAV -->
+  <header class="topbar">
+    <div class="container">
       <div class="nav">
-        <a class="brand" href="index.html">
-          <div class="logo">
-            <img src="assets/images/logo/logo-yama-spa.png" alt="Yama Spa Logo">
-          </div>
-          <div>
-            <b>YAMA SPA</b>
-            <small>Komaki • Toyoake • Japão</small>
+        <a class="brand" href="index.html" aria-label="Yama Spa">
+          <img src="assets/images/logo/logo-yama-spa.png" alt="Logo Yama Spa" />
+          <div class="name">
+            <strong>YAMA SPA</strong>
+            <span>Toque que transforma</span>
           </div>
         </a>
 
-        <div class="menu" id="menu">
+        <nav class="menu" aria-label="Menu principal">
           <a href="franquia.html">Franquia</a>
           <a href="cursos.html">Cursos</a>
           <a href="parceiros.html">Parceiros</a>
@@ -368,252 +534,226 @@
           <a href="produtos.html">Produtos</a>
           <a href="blog.html">Blog</a>
           <a href="quem-somos.html">Quem somos</a>
-          <a href="#contato">Contato</a>
+        </nav>
+
+        <div class="actions">
+          <a class="btn" href="cursos.html">🎓 Ver cursos</a>
+          <a class="btn primary" href="parceiros.html">🤝 Seja parceiro</a>
+          <button class="hamb" id="hamb" aria-label="Abrir menu" title="Menu">☰</button>
         </div>
+      </div>
 
-        <button class="hamburger" id="menuBtn" aria-label="Abrir menu" aria-expanded="false">☰</button>
+      <div class="mobileMenu" id="mobileMenu">
+        <a href="franquia.html">Franquia</a>
+        <a href="cursos.html">Cursos</a>
+        <a href="parceiros.html">Parceiros</a>
+        <a href="unidades.html">Unidades</a>
+        <a href="produtos.html">Produtos</a>
+        <a href="blog.html">Blog</a>
+        <a href="quem-somos.html">Quem somos</a>
 
-        <div class="cta">
-          <a class="btn" href="#contato">Agendar</a>
-          <a class="btn primary" href="franquia.html">Franquia</a>
+        <div class="mobileActions">
+          <a class="btn" href="cursos.html">🎓 Ver cursos</a>
+          <a class="btn primary" href="parceiros.html">🤝 Seja parceiro</a>
         </div>
       </div>
     </div>
-  </div>
+  </header>
 
   <!-- HERO -->
-  <div class="wrap hero">
-    <div class="hero-grid">
+  <main class="hero">
+    <div class="container">
+      <div class="heroCard">
+        <div class="heroBg" aria-hidden="true"></div>
+        <div class="heroOverlay" aria-hidden="true"></div>
 
-      <!-- HERO PRINCIPAL COM MARGOT -->
-      <div class="hero-card hero-founder">
-        <div class="kicker">👑 <b>O método por trás do Yama Spa</b> — por Margot Yamada</div>
+        <div class="heroInner">
+          <div>
+            <div class="badge">✨ Experiência premium em bem-estar</div>
 
-        <h1>Toque que transforma vidas.</h1>
+            <h1>
+              O método por trás do <span class="gold">Yama Spa</span><br/>
+              com <span class="gold">Margot Yamada</span>
+            </h1>
 
-        <p class="lead">
-          Yama Spa é uma marca premium construída com técnica, presença e padrão.
-          <br><br>
-          <b>Margot Yamada</b> é a fundadora e referência do método — responsável pelas formações,
-          pelo padrão de atendimento e pela expansão consciente no Japão.
-        </p>
+            <p>
+              Massagens profissionais, rituais terapêuticos e formação com padrão premium.
+              Aqui, você encontra cuidado de verdade — e também aprende com quem vive isso há anos.
+            </p>
 
-        <div class="hero-actions">
-          <a class="btn primary" href="cursos.html">Estudar com a Margot</a>
-          <a class="btn" href="unidades.html">Agendar uma massagem</a>
-          <a class="btn" href="quem-somos.html">Conhecer a história</a>
-        </div>
+            <div class="heroBullets">
+              <div class="pill">🌿 <b>Relaxamento</b> profundo</div>
+              <div class="pill">💆‍♀️ Técnica + presença</div>
+              <div class="pill">🎓 Cursos com mentoria</div>
+              <div class="pill">🤝 Rede de parceiros</div>
+            </div>
 
-        <div class="badges">
-          <div class="badge">🎓 Formação profissional</div>
-          <div class="badge">✨ Padrão premium</div>
-          <div class="badge">🤝 Expansão consciente</div>
-          <div class="badge">📍 Japão</div>
-        </div>
-
-        <div class="note">
-          * Site em evolução: em breve com fotos das unidades, formaturas e catálogo completo.
-        </div>
-      </div>
-
-      <!-- LADO DIREITO -->
-      <div class="side">
-        <div class="mini">
-          <h3>Franquia Yama Spa</h3>
-          <p>Para quem quer ter seu próprio Yama Spa — com estrutura, padrão e suporte.</p>
-          <div style="margin-top:10px;">
-            <a class="btn primary" href="franquia.html">Quero ter meu Yama Spa</a>
+            <div class="heroBtns">
+              <a class="btn primary" href="cursos.html">🎓 Quero aprender com a Margot</a>
+              <a class="btn" href="unidades.html">📍 Ver unidades</a>
+              <a class="btn" href="quem-somos.html">🌸 Conhecer a história</a>
+            </div>
           </div>
-        </div>
-        <div class="mini">
-          <h3>Cursos Yama Spa</h3>
-          <p>Formação profissional para atender com técnica, postura e padrão premium.</p>
-          <div style="margin-top:10px;">
-            <a class="btn" href="cursos.html">Ver cursos</a>
-          </div>
-        </div>
-        <div class="mini">
-          <h3>Parceiros</h3>
-          <p>Rede de profissionais e empresas alinhadas com o padrão Yama Spa.</p>
-          <div style="margin-top:10px;">
-            <a class="btn" href="parceiros.html">Quero ser parceiro</a>
-          </div>
-        </div>
-      </div>
 
-    </div>
-  </div>
-
-  <!-- PAINEL -->
-  <div class="wrap section">
-    <div class="section-head">
-      <div>
-        <h2>O que você procura hoje?</h2>
-        <p>Escolha um caminho. A experiência Yama Spa foi pensada para ser clara, premium e humana.</p>
-      </div>
-      <a class="btn" href="quem-somos.html">Conhecer a marca</a>
-    </div>
-
-    <div class="panel">
-      <a class="panel-card" href="franquia.html">
-        <div class="panel-media" style="background-image:url('assets/images/logo/panel-01.jpg');">
-          <div class="panel-tag">👑 Franquia • Expansão</div>
+          <aside class="founderCard" aria-label="Fundadora Margot Yamada">
+            <div class="founderImg" aria-hidden="true"></div>
+            <div class="founderShade" aria-hidden="true"></div>
+            <div class="founderInfo">
+              <div class="role">Fundadora & Professora</div>
+              <h3>Margot Yamada</h3>
+              <p>
+                A cara da marca Yama Spa: referência em massoterapia, bem-estar e formação profissional.
+                Um método que une técnica, sensibilidade e excelência.
+              </p>
+              <a class="btn" href="quem-somos.html">🌿 Ver “Quem somos”</a>
+            </div>
+          </aside>
         </div>
-        <div class="panel-content">
-          <h3>Ter meu Yama Spa</h3>
-          <p>Modelo sem mensalidade/royalty. Padrão, estrutura e suporte para crescer do jeito certo.</p>
-          <div class="panel-actions">
-            <span class="btn primary">Ver franquia</span>
-            <span class="btn">Falar com a equipe</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="panel-card" href="cursos.html">
-        <div class="panel-media" style="background-image:url('assets/images/logo/panel-02.jpg');">
-          <div class="panel-tag">🎓 Cursos • Formação</div>
-        </div>
-        <div class="panel-content">
-          <h3>Me formar com padrão premium</h3>
-          <p>Trilhas do iniciante ao avançado. Postura, ergonomia, técnica e experiência profissional.</p>
-          <div class="panel-actions">
-            <span class="btn primary">Ver cursos</span>
-            <span class="btn">Pedir datas</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="panel-card" href="unidades.html">
-        <div class="panel-media" style="background-image:url('assets/images/logo/panel-03.jpg');">
-          <div class="panel-tag">📍 Unidades • Japão</div>
-        </div>
-        <div class="panel-content">
-          <h3>Agendar uma massagem</h3>
-          <p>Komaki e Toyoake. Atendimento premium, acolhimento e cuidado verdadeiro.</p>
-          <div class="panel-actions">
-            <span class="btn primary">Ver unidades</span>
-            <span class="btn">Agendar</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="panel-card" href="produtos.html">
-        <div class="panel-media" style="background-image:url('assets/images/logo/panel-01.jpg');">
-          <div class="panel-tag">🧴 Produtos • Curadoria</div>
-        </div>
-        <div class="panel-content">
-          <h3>Produtos recomendados</h3>
-          <p>Óleos, compressas de ervas e cuidados pós-massagem alinhados ao padrão Yama Spa.</p>
-          <div class="panel-actions">
-            <span class="btn primary">Ver produtos</span>
-            <span class="btn">Receber recomendações</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="panel-card" href="blog.html">
-        <div class="panel-media" style="background-image:url('assets/images/logo/panel-02.jpg');">
-          <div class="panel-tag">📚 Blog • Conteúdo</div>
-        </div>
-        <div class="panel-content">
-          <h3>Aprender e cuidar do corpo</h3>
-          <p>Conteúdo claro sobre massagem, bem-estar, postura e hábitos para viver com leveza.</p>
-          <div class="panel-actions">
-            <span class="btn primary">Ver blog</span>
-            <span class="btn">Sugerir tema</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="panel-card" href="parceiros.html">
-        <div class="panel-media" style="background-image:url('assets/images/logo/panel-03.jpg');">
-          <div class="panel-tag">🤝 Parceiros • Rede</div>
-        </div>
-        <div class="panel-content">
-          <h3>Entrar na rede de parceiros</h3>
-          <p>Profissionais e empresas alinhadas com o padrão premium: ética, técnica e presença.</p>
-          <div class="panel-actions">
-            <span class="btn primary">Ver parceiros</span>
-            <span class="btn">Propor parceria</span>
-          </div>
-        </div>
-      </a>
-    </div>
-  </div>
-
-  <!-- CONTATO -->
-  <div class="wrap section" id="contato">
-    <div class="section-head">
-      <div>
-        <h2>Contato</h2>
-        <p>Agendamento, cursos, parceiros e franquia. Fale com a equipe.</p>
       </div>
     </div>
+  </main>
 
-    <div class="split">
-      <div class="card">
-        <h3>WhatsApp</h3>
-        <p>📲 Clique para falar com a equipe e receber atendimento.</p>
-        <a class="btn primary" href="https://wa.me/" target="_blank" rel="noopener">Abrir WhatsApp</a>
-        <p class="note">* Ajuste o link assim que você colocar o número no formato internacional.</p>
+  <!-- FEATURES -->
+  <section>
+    <div class="container">
+      <div class="sectionTitle">
+        <div>
+          <h2>O que você encontra no Yama Spa</h2>
+          <p>Experiência premium para clientes — e cursos profissionais para quem quer transformar a carreira.</p>
+        </div>
       </div>
 
-      <div class="card">
-        <h3>Instagram</h3>
-        <p>📷 Acompanhe conteúdos, bastidores, novidades e vagas de cursos.</p>
-        <a class="btn" href="https://instagram.com/" target="_blank" rel="noopener">Abrir Instagram</a>
-        <p class="note">* Ajuste para @yama.spa quando quiser.</p>
+      <div class="grid3">
+        <div class="card feat">
+          <div class="icon">💆</div>
+          <h3>Massagens & Terapias</h3>
+          <p>Atendimento com técnica, respeito e cuidado profundo — para aliviar tensões e renovar energia.</p>
+        </div>
+
+        <div class="card feat">
+          <div class="icon">🎓</div>
+          <h3>Cursos profissionais</h3>
+          <p>Aprenda com a Margot Yamada: aulas práticas, método claro e padrão premium.</p>
+        </div>
+
+        <div class="card feat">
+          <div class="icon">🤝</div>
+          <h3>Rede de parceiros</h3>
+          <p>Faça parte da família Yama Spa: suporte, padronização e fortalecimento da marca.</p>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- RODAPÉ -->
-  <div class="wrap footer">
-    <div>
-      <b>Yama Spa</b> • Japão • Komaki • Toyoake
-      <div class="note">© <span id="year"></span> Yama Spa. Todos os direitos reservados.</div>
-    </div>
+  <!-- PANELS / VITRINE -->
+  <section>
+    <div class="container">
+      <div class="sectionTitle">
+        <div>
+          <h2>Destaques</h2>
+          <p>Uma vitrine visual para guiar as pessoas para as páginas mais importantes do site.</p>
+        </div>
+      </div>
 
-    <div class="cols">
-      <div>
-        <div style="font-weight:700; margin-bottom:6px;">Pilares</div>
-        <div><a href="franquia.html">Franquia</a></div>
-        <div><a href="cursos.html">Cursos</a></div>
-        <div><a href="parceiros.html">Parceiros</a></div>
-        <div><a href="unidades.html">Unidades</a></div>
-      </div>
-      <div>
-        <div style="font-weight:700; margin-bottom:6px;">Conteúdo</div>
-        <div><a href="produtos.html">Produtos</a></div>
-        <div><a href="blog.html">Blog</a></div>
-        <div><a href="quem-somos.html">Quem somos</a></div>
-      </div>
-      <div>
-        <div style="font-weight:700; margin-bottom:6px;">Contato</div>
-        <div><a href="#contato">Agendar / Informações</a></div>
-        <div class="note">Em breve: Política de Privacidade e Termos</div>
+      <div class="grid2">
+        <a class="panel" href="produtos.html" aria-label="Produtos recomendados">
+          <img src="assets/images/logo/panel-01.jpg" alt="Produtos recomendados Yama Spa" />
+          <div class="cap">
+            <strong>🛍️ Produtos recomendados</strong>
+            <span>Seleção premium para autocuidado e rotina em casa.</span>
+          </div>
+        </a>
+
+        <a class="panel" href="blog.html" aria-label="Blog: Aprender a cuidar do corpo">
+          <img src="assets/images/logo/panel-02.jpg" alt="Blog Yama Spa" />
+          <div class="cap">
+            <strong>📚 Blog — Aprender a cuidar do corpo</strong>
+            <span>Dicas práticas, hábitos e bem-estar no dia a dia.</span>
+          </div>
+        </a>
+
+        <a class="panel" href="parceiros.html" aria-label="Entrar na rede de parceiros">
+          <img src="assets/images/logo/panel-03.jpg" alt="Rede de parceiros Yama Spa" />
+          <div class="cap">
+            <strong>🤝 Entrar na rede de parceiros</strong>
+            <span>Vamos crescer juntos com padrão premium e suporte.</span>
+          </div>
+        </a>
+
+        <a class="panel" href="cursos.html" aria-label="Cursos com Margot Yamada">
+          <img src="assets/images/logo/panel-04.jpg" alt="Cursos Yama Spa com Margot Yamada" />
+          <div class="cap">
+            <strong>🎓 Cursos com Margot Yamada</strong>
+            <span>Formação profissional com técnica e confiança.</span>
+          </div>
+        </a>
       </div>
     </div>
-  </div>
+  </section>
+
+  <!-- CTA STRIP -->
+  <section>
+    <div class="container">
+      <div class="ctaStrip">
+        <div>
+          <h3>Quer aprender com quem é referência?</h3>
+          <p>Veja os cursos e reserve sua vaga nas próximas turmas com a Margot Yamada.</p>
+        </div>
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <a class="btn primary" href="cursos.html">🎓 Ver cursos</a>
+          <a class="btn" href="parceiros.html">🤝 Ser parceiro</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footRow">
+        <div class="col">
+          <strong>Yama Spa</strong>
+          <div style="display:flex; gap:12px; align-items:center;">
+            <img src="assets/images/logo/logo-yama-spa.png" alt="Logo Yama Spa" style="width:44px;height:44px;object-fit:contain;" />
+            <div>
+              <div style="color:rgba(245,246,251,.85); font-weight:750;">Toque que transforma</div>
+              <div style="margin-top:4px;">Massagens, bem-estar e formação profissional com padrão premium.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <strong>Navegação</strong>
+          <div class="links">
+            <a href="cursos.html">Cursos</a>
+            <a href="unidades.html">Unidades</a>
+            <a href="produtos.html">Produtos</a>
+            <a href="blog.html">Blog</a>
+            <a href="quem-somos.html">Quem somos</a>
+            <a href="parceiros.html">Parceiros</a>
+            <a href="franquia.html">Franquia</a>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:18px;">
+        © <span id="year"></span> Yama Spa — Todos os direitos reservados.
+      </div>
+    </div>
+  </footer>
 
   <script>
+    // ano automático
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    const menuBtn = document.getElementById('menuBtn');
-    const menu = document.getElementById('menu');
-
-    menuBtn.addEventListener('click', () => {
-      const isOpen = menu.classList.toggle('open');
-      menuBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-      menuBtn.textContent = isOpen ? '✕' : '☰';
-    });
-
-    menu.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => {
-        menu.classList.remove('open');
-        menuBtn.setAttribute('aria-expanded', 'false');
-        menuBtn.textContent = '☰';
-      });
+    // menu mobile
+    const hamb = document.getElementById("hamb");
+    const mobileMenu = document.getElementById("mobileMenu");
+    hamb?.addEventListener("click", () => {
+      const isOpen = mobileMenu.style.display === "block";
+      mobileMenu.style.display = isOpen ? "none" : "block";
+      hamb.textContent = isOpen ? "☰" : "✕";
+      hamb.setAttribute("aria-label", isOpen ? "Abrir menu" : "Fechar menu");
     });
   </script>
 </body>
