@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tenha o seu Yama Spa | Yama Spa Japão</title>
+  <meta name="description" content="Tenha o seu próprio Yama Spa. Modelo de expansão consciente, sem mensalidade ou royalty, com padrão premium e suporte." />
+
+  <style>
+    :root{
+      --bg:#0b0f12;
+      --card:#0f151a;
+      --text:#e9eef3;
+      --muted:#aab6c2;
+      --line:rgba(255,255,255,.08);
+      --accent:#c9a86a;
+      --radius:18px;
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+      --max:1120px;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    a{text-decoration:none;color:inherit}
+    .wrap{max-width:var(--max);margin:0 auto;padding:0 18px}
+
+    /* TOPO */
+    .top{
+      border-bottom:1px solid var(--line);
+      background:rgba(11,15,18,.9);
+    }
+    .nav{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:16px 0;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+    .logo{
+      width:44px;
+      height:44px;
+      border-radius:50%;
+      border:1px solid rgba(201,168,106,.6);
+      box-shadow:0 0 0 4px rgba(201,168,106,.12);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .logo img{
+      width:100%;
+      height:100%;
+      object-fit:contain;
+      padding:6px;
+    }
+    .brand b{letter-spacing:.6px}
+    .brand small{display:block;color:var(--muted);font-size:12px}
+
+    .btn{
+      padding:10px 16px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+      font-weight:600;
+    }
+    .btn.primary{
+      background:linear-gradient(135deg,#c9a86a,#b99758);
+      color:#111;
+      border:none;
+    }
+
+    /* HERO */
+    .hero{
+      padding:70px 0 40px;
+    }
+    h1{
+      font-size:40px;
+      margin-bottom:14px;
+      line-height:1.15;
+    }
+    .lead{
+      color:var(--muted);
+      max-width:760px;
+      font-size:18px;
+    }
+
+    /* SEÇÕES */
+    .section{padding:40px 0}
+    h2{font-size:26px;margin-bottom:12px}
+    p{margin-bottom:14px}
+
+    .grid3{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+    .card{
+      border:1px solid var(--line);
+      background:rgba(15,21,26,.6);
+      border-radius:var(--radius);
+      padding:22px;
+      box-shadow:var(--shadow);
+    }
+    .card h3{margin-top:0}
+
+    .cta-box{
+      margin-top:30px;
+      padding:26px;
+      border-radius:var(--radius);
+      background:linear-gradient(135deg,rgba(201,168,106,.15),rgba(201,168,106,.05));
+      border:1px solid rgba(201,168,106,.35);
+    }
+
+    /* FOOTER */
+    footer{
+      border-top:1px solid var(--line);
+      padding:30px 0;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    @media(max-width:900px){
+      .grid3{grid-template-columns:1fr}
+      h1{font-size:32px}
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- TOPO -->
+  <div class="top">
+    <div class="wrap nav">
+      <a class="brand" href="index.html">
+        <div class="logo">
+          <img src="assets/images/logo/logo-yama-spa.png" alt="Yama Spa">
+        </div>
+        <div>
+          <b>YAMA SPA</b>
+          <small>Japão</small>
+        </div>
+      </a>
+
+      <a class="btn" href="index.html">Voltar</a>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div class="wrap hero">
+    <h1>Tenha o seu próprio Yama Spa.</h1>
+    <p class="lead">
+      Um modelo de expansão consciente para quem deseja construir
+      um espaço de bem-estar com padrão premium, identidade forte
+      e acompanhamento — sem mensalidade ou royalty.
+    </p>
+
+    <a class="btn primary" href="#contato">Quero conversar</a>
+  </div>
+
+  <!-- COMO FUNCIONA -->
+  <div class="wrap section">
+    <h2>Como funciona</h2>
+
+    <div class="grid3">
+      <div class="card">
+        <h3>1. Formação e alinhamento</h3>
+        <p>
+          Você aprende o padrão Yama Spa: técnica, postura, atendimento
+          e experiência do cliente.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>2. Estrutura e identidade</h3>
+        <p>
+          Orientação sobre ambiente, identidade visual, posicionamento
+          e experiência premium.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>3. Abertura com suporte</h3>
+        <p>
+          Você abre o seu Yama Spa com acompanhamento
+          e entra para a rede Yama.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- DIFERENCIAIS -->
+  <div class="wrap section">
+    <h2>Por que o Yama Spa?</h2>
+
+    <div class="grid3">
+      <div class="card">
+        <h3>Sem mensalidade ou royalty</h3>
+        <p>Você cresce sem pressão financeira mensal.</p>
+      </div>
+      <div class="card">
+        <h3>Padrão premium real</h3>
+        <p>Não é só estética — é postura, técnica e presença.</p>
+      </div>
+      <div class="card">
+        <h3>Marca com propósito</h3>
+        <p>Um projeto que transforma vidas pelo cuidado.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="wrap section" id="contato">
+    <div class="cta-box">
+      <h2>Esse caminho faz sentido para você?</h2>
+      <p>
+        Se você sente que chegou o momento de construir algo próprio,
+        com propósito, padrão e acompanhamento, vamos conversar.
+      </p>
+      <a class="btn primary" href="https://wa.me/" target="_blank">
+        Falar com a equipe Yama Spa
+      </a>
+    </div>
+  </div>
+
+  <!-- RODAPÉ -->
+  <footer>
+    <div class="wrap">
+      © <span id="year"></span> Yama Spa — Japão
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
