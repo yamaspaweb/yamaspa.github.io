@@ -123,7 +123,7 @@
     }
     .hero-card > *{position:relative; z-index:1}
     h1{margin:0 0 10px; font-size:34px; line-height:1.15}
-    .lead{margin:0; color:var(--muted); max-width: 920px}
+    .lead{margin:0; color:var(--muted); max-width: 940px}
 
     .badges{display:flex; gap:10px; flex-wrap:wrap; margin-top:16px}
     .badge{
@@ -174,12 +174,40 @@
     .quote b{color: var(--text)}
     .note{color:var(--muted); font-size:12px; margin-top:8px}
 
-    .footer{
-      margin-top:30px;
-      border-top:1px solid var(--line);
-      padding:22px 0 40px;
-      color:var(--muted);
+    /* Founder card */
+    .founder{
+      display:grid;
+      grid-template-columns: 210px 1fr;
+      gap:14px;
+      align-items:stretch;
+    }
+    .avatar{
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      overflow:hidden;
+      background: rgba(255,255,255,.02);
+      box-shadow: 0 10px 25px rgba(0,0,0,.22);
+      min-height: 220px;
+    }
+    .avatar img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+      filter: saturate(1.05) contrast(1.02);
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      border-radius:999px;
+      padding:8px 10px;
       font-size:13px;
+      color: var(--muted);
+      margin-top:10px;
+      flex-wrap:wrap;
     }
 
     @media (max-width: 940px){
@@ -187,6 +215,8 @@
       .grid3{grid-template-columns:1fr}
       .split{grid-template-columns:1fr}
       .menu{justify-content:flex-start}
+      .founder{grid-template-columns:1fr}
+      .avatar{min-height:260px}
     }
   </style>
 </head>
@@ -224,6 +254,7 @@
     </div>
   </div>
 
+  <!-- HERO -->
   <div class="wrap hero">
     <div class="hero-card">
       <h1>Quem somos</h1>
@@ -234,7 +265,7 @@
       </p>
 
       <div class="badges">
-        <div class="badge">✨ Elegância e presença</div>
+        <div class="badge">✨ Marca premium</div>
         <div class="badge">🤝 Expansão consciente</div>
         <div class="badge">🎓 Formação profissional</div>
         <div class="badge">📍 Japão</div>
@@ -242,6 +273,49 @@
     </div>
   </div>
 
+  <!-- FUNDADORA -->
+  <div class="wrap section">
+    <div class="section-head">
+      <div>
+        <h2>A fundadora</h2>
+        <p>O Yama Spa tem rosto, história e direção. E isso importa.</p>
+      </div>
+    </div>
+
+    <div class="founder">
+      <!-- Troque a imagem abaixo pelo arquivo correto que você já tem -->
+      <div class="avatar">
+        <img src="assets/images/quemsomos/margot-yamada.jpg" alt="Margot Yamada - Fundadora do Yama Spa">
+      </div>
+
+      <div class="card">
+        <h3>Margot Yamada</h3>
+        <p>
+          <b>Fundadora do Yama Spa</b> e referência na formação profissional.
+          É quem define o <b>Padrão Yama</b> — técnica, postura, ergonomia, presença e excelência na experiência do cliente.
+        </p>
+        <p>
+          O Yama Spa nasceu com um objetivo claro: <b>entregar bem-estar real</b>, com ambiente premium e atendimento consciente,
+          elevando o nível do mercado no Japão e conectando uma rede de profissionais com padrão.
+        </p>
+
+        <div class="pill">⭐ Direção & padrão</div>
+        <div class="pill">🎓 Cursos com ela</div>
+        <div class="pill">🤝 Parcerias e expansão</div>
+
+        <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;">
+          <a class="btn" href="cursos.html">Ver cursos</a>
+          <a class="btn primary" href="index.html#contato">Falar com a equipe</a>
+        </div>
+
+        <div class="note">
+          * Se você ainda não colocou essa foto no projeto: crie a pasta <b>assets/images/quemsomos/</b> e envie o arquivo <b>margot-yamada.jpg</b>.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ESSÊNCIA -->
   <div class="wrap section">
     <div class="section-head">
       <div>
@@ -264,7 +338,7 @@
     <div class="split" style="margin-top:14px;">
       <div class="card">
         <h3>Valores</h3>
-        <p>Ética, presença, postura profissional, respeito e constância na qualidade.</p>
+        <p>Ética, presença, postura profissional, respeito, constância e atenção aos detalhes.</p>
       </div>
       <div class="card">
         <h3>Padrão Yama Spa</h3>
@@ -280,6 +354,7 @@
     </div>
   </div>
 
+  <!-- O QUE FAZEMOS -->
   <div class="wrap section">
     <div class="section-head">
       <div>
@@ -302,33 +377,36 @@
       </div>
       <div class="card">
         <h3>Cursos</h3>
-        <p>Formação profissional com postura, ergonomia e técnica para atender com padrão.</p>
+        <p>Formação profissional com postura, ergonomia e técnica para atender com padrão premium.</p>
         <a class="btn" href="cursos.html">Ver cursos</a>
       </div>
     </div>
   </div>
 
+  <!-- CIMS -->
   <div class="wrap section">
     <div class="section-head">
       <div>
         <h2>CIMS School (parceira)</h2>
-        <p>Integração estratégica com cursos e certificações para elevar seu nível profissional.</p>
+        <p>Integração estratégica com cursos e certificações — sem confundir as marcas.</p>
       </div>
       <a class="btn" href="cursos.html">Ver opções</a>
     </div>
 
     <div class="card">
-      <h3>Como entra no site sem confundir</h3>
+      <h3>Como apresentamos a CIMS no Yama Spa</h3>
       <p>
-        A CIMS School aparece como <b>parceira</b> e como <b>caminho de formação</b> para quem deseja certificações e especializações.
-        O Yama Spa mantém sua identidade de marca, e a CIMS fortalece a jornada profissional.
+        A <b>CIMS School</b> aparece no site como <b>parceira</b> e como <b>caminho de formação</b> para quem deseja certificações,
+        especializações e evolução profissional. O <b>Yama Spa mantém sua identidade de marca</b> e a CIMS fortalece a jornada de quem
+        quer crescer com padrão.
       </p>
       <div class="note">
-        * Se você quiser, depois criamos uma página dedicada: <b>cims-school.html</b> (com o logo da CIMS no topo).
+        * Se quiser, criamos uma página dedicada: <b>cims-school.html</b> (com o logo da CIMS no topo e conteúdo separado).
       </div>
     </div>
   </div>
 
+  <!-- CTA FINAL -->
   <div class="wrap section">
     <div class="section-head">
       <div>
@@ -352,7 +430,7 @@
     </div>
   </div>
 
-  <div class="wrap footer">
+  <div class="wrap footer" style="border-top:1px solid var(--line); padding:22px 0 40px; color:var(--muted); font-size:13px;">
     <div>
       <b>Yama Spa</b> • Japão
       <div class="note">© <span id="year"></span> Yama Spa. Todos os direitos reservados.</div>
