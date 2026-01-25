@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Produtos | Yama Spa</title>
+  <meta name="description" content="Produtos Yama Spa: óleos, compressas de ervas e cuidados pós-massagem. Seleção alinhada ao padrão premium de bem-estar." />
+
+  <style>
+    :root{
+      --bg:#0b0f12;
+      --card:#0f151a;
+      --text:#e9eef3;
+      --muted:#aab6c2;
+      --line:rgba(255,255,255,.08);
+      --accent:#c9a86a;
+      --radius:18px;
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+      --max:1120px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial;
+      background:
+        radial-gradient(1200px 600px at 20% -10%, rgba(201,168,106,.18), transparent 60%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.6;
+    }
+    a{text-decoration:none;color:inherit}
+    .wrap{max-width:var(--max);margin:0 auto;padding:0 18px}
+
+    /* TOPO */
+    .topbar{
+      position:sticky; top:0; z-index:10;
+      backdrop-filter: blur(10px);
+      background: rgba(11,15,18,.72);
+      border-bottom:1px solid var(--line);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+      gap:14px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+    }
+    .logo{
+      width:42px;height:42px;border-radius:50%;
+      border:1px solid rgba(201,168,106,.55);
+      box-shadow:0 0 0 4px rgba(201,168,106,.12);
+      display:flex;align-items:center;justify-content:center;
+      overflow:hidden;
+    }
+    .logo img{width:100%;height:100%;object-fit:contain;padding:6px}
+    .brand b{letter-spacing:.6px}
+    .brand small{display:block;color:var(--muted);font-size:12px}
+
+    .menu{display:flex;gap:10px;flex-wrap:wrap}
+    .menu a{
+      padding:8px 10px;
+      border-radius:999px;
+      color:var(--muted);
+      font-size:14px;
+    }
+    .menu a:hover{
+      color:var(--text);
+      background:rgba(255,255,255,.03);
+      border:1px solid var(--line);
+    }
+
+    .cta{display:flex;gap:10px}
+    .btn{
+      padding:10px 14px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+      font-weight:600;
+      font-size:14px;
+    }
+    .btn.primary{
+      background:linear-gradient(135deg,#c9a86a,#b99758);
+      color:#111;
+      border:none;
+    }
+
+    /* HERO */
+    .hero{padding:58px 0 22px}
+    .hero-card{
+      border:1px solid var(--line);
+      background:rgba(15,21,26,.78);
+      border-radius:var(--radius);
+      padding:28px;
+      box-shadow:var(--shadow);
+    }
+    h1{margin:0 0 10px;font-size:34px}
+    .lead{color:var(--muted);max-width:900px}
+
+    .badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+    .badge{
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+      border-radius:999px;
+      padding:8px 10px;
+      font-size:13px;
+      color:var(--muted);
+    }
+
+    /* SEÇÕES */
+    .section{padding:26px 0}
+    .section-head{
+      display:flex;justify-content:space-between;align-items:flex-end;
+      gap:12px;margin-bottom:12px
+    }
+    .section-head h2{margin:0;font-size:22px}
+    .section-head p{margin:0;color:var(--muted);font-size:14px;max-width:560px}
+
+    .grid3{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
+    }
+    .card{
+      border:1px solid var(--line);
+      background:rgba(15,21,26,.55);
+      border-radius:var(--radius);
+      padding:18px;
+      box-shadow:0 10px 25px rgba(0,0,0,.22);
+    }
+    .card h3{margin:0 0 6px;font-size:16px}
+    .card p{margin:0;color:var(--muted);font-size:14px}
+
+    .note{color:var(--muted);font-size:12px;margin-top:8px}
+
+    .footer{
+      border-top:1px solid var(--line);
+      padding:22px 0 40px;
+      margin-top:30px;
+      font-size:13px;
+      color:var(--muted);
+    }
+
+    @media(max-width:940px){
+      h1{font-size:28px}
+      .grid3{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+
+<body>
+  <!-- TOPO -->
+  <div class="topbar">
+    <div class="wrap nav">
+      <a class="brand" href="index.html">
+        <div class="logo">
+          <img src="assets/images/logo/logo-yama-spa.png" alt="Yama Spa">
+        </div>
+        <div>
+          <b>YAMA SPA</b>
+          <small>Komaki • Toyoake • Japão</small>
+        </div>
+      </a>
+
+      <div class="menu">
+        <a href="franquia.html">Franquia</a>
+        <a href="cursos.html">Cursos</a>
+        <a href="parceiros.html">Parceiros</a>
+        <a href="unidades.html">Unidades</a>
+        <a href="produtos.html" style="color:var(--text)">Produtos</a>
+        <a href="blog.html">Blog</a>
+        <a href="quem-somos.html">Quem somos</a>
+        <a href="index.html#contato">Contato</a>
+      </div>
+
+      <div class="cta">
+        <a class="btn" href="index.html#contato">Contato</a>
+        <a class="btn primary" href="franquia.html">Quero ter meu Yama Spa</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div class="wrap hero">
+    <div class="hero-card">
+      <h1>Produtos Yama Spa</h1>
+      <p class="lead">
+        Uma curadoria de produtos alinhados ao padrão Yama Spa.
+        Selecionados para prolongar a experiência de bem-estar
+        e apoiar práticas conscientes de autocuidado.
+      </p>
+
+      <div class="badges">
+        <div class="badge">🌿 Bem-estar</div>
+        <div class="badge">✨ Padrão premium</div>
+        <div class="badge">🧴 Uso profissional e pessoal</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORIAS -->
+  <div class="wrap section">
+    <div class="section-head">
+      <div>
+        <h2>Categorias</h2>
+        <p>Produtos utilizados ou recomendados nas experiências Yama Spa.</p>
+      </div>
+    </div>
+
+    <div class="grid3">
+      <div class="card">
+        <h3>Óleos & Aromas</h3>
+        <p>Óleos naturais e aromas utilizados para relaxamento e equilíbrio.</p>
+      </div>
+      <div class="card">
+        <h3>Compressas de ervas</h3>
+        <p>Compressas tradicionais para alívio de tensões e conforto corporal.</p>
+      </div>
+      <div class="card">
+        <h3>Cuidados pós-massagem</h3>
+        <p>Rotinas simples para prolongar os efeitos da massagem.</p>
+      </div>
+    </div>
+
+    <div class="note">
+      * Catálogo em construção. Em breve com fotos, descrições e indicações.
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="wrap section">
+    <div class="section-head">
+      <div>
+        <h2>Quer receber recomendações?</h2>
+        <p>Fale com a equipe e receba indicações personalizadas.</p>
+      </div>
+      <a class="btn primary" href="index.html#contato">Falar com a equipe</a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="wrap footer">
+    <b>Yama Spa</b> • Japão  
+    <div class="note">© <span id="year"></span> Yama Spa. Todos os direitos reservados.</div>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
