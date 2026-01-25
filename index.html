@@ -117,15 +117,34 @@
       overflow:hidden;
       position:relative;
     }
-    .hero-card:before{
-      content:"";
-      position:absolute;
-      inset:-2px;
-      background: radial-gradient(600px 300px at 20% 0%, rgba(201,168,106,.20), transparent 65%),
-                  radial-gradient(500px 300px at 90% 20%, rgba(122,166,184,.18), transparent 55%);
-      z-index:0;
+
+    /* HERO “FORTE” COM FOTO DA MARGOT */
+    .hero-card.hero-founder{
+      background:
+        linear-gradient(90deg, rgba(11,15,18,.92) 0%, rgba(11,15,18,.72) 52%, rgba(11,15,18,.30) 100%),
+        radial-gradient(600px 300px at 20% 0%, rgba(201,168,106,.22), transparent 65%),
+        radial-gradient(500px 300px at 90% 20%, rgba(122,166,184,.18), transparent 55%),
+        url('assets/images/logo/margot.jpg');
+      background-size: cover;
+      background-position: center right;
+      border-color: rgba(201,168,106,.22);
     }
     .hero-card > *{position:relative; z-index:1}
+
+    .kicker{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid rgba(201,168,106,.25);
+      background: rgba(0,0,0,.25);
+      color: var(--muted);
+      font-size:12px;
+      margin-bottom:12px;
+    }
+    .kicker b{color:var(--text); font-weight:700}
+
     h1{
       margin:0 0 10px;
       font-size:38px;
@@ -260,6 +279,7 @@
       .split{grid-template-columns:1fr}
       .brand{min-width:auto}
       .menu{justify-content:flex-start}
+      .hero-card.hero-founder{background-position:center}
     }
   </style>
 </head>
@@ -301,23 +321,30 @@
   <!-- HERO -->
   <div class="wrap hero">
     <div class="hero-grid">
-      <div class="hero-card">
+
+      <!-- HERO PRINCIPAL COM MARGOT -->
+      <div class="hero-card hero-founder">
+        <div class="kicker">👑 <b>O método por trás do Yama Spa</b> — por Margot Yamada</div>
+
         <h1>Toque que transforma vidas.</h1>
+
         <p class="lead">
-          Bem-estar premium no Japão, com expansão consciente.
-          Unidades, cursos e parceiros — com um modelo de franquia sem mensalidade ou royalty.
+          Yama Spa é uma marca premium construída com técnica, presença e padrão.
+          <br><br>
+          <b>Margot Yamada</b> é a fundadora e referência do método — responsável pelas formações,
+          pelo padrão de atendimento e pela expansão consciente no Japão.
         </p>
 
         <div class="hero-actions">
-          <a class="btn primary" href="unidades.html">Ver unidades</a>
-          <a class="btn" href="cursos.html">Ver cursos</a>
-          <a class="btn" href="produtos.html">Ver produtos</a>
+          <a class="btn primary" href="cursos.html">Estudar com a Margot</a>
+          <a class="btn" href="unidades.html">Agendar uma massagem</a>
+          <a class="btn" href="quem-somos.html">Conhecer a história</a>
         </div>
 
         <div class="badges">
-          <div class="badge">✨ Elegância e presença</div>
-          <div class="badge">🤝 Parcerias reais</div>
           <div class="badge">🎓 Formação profissional</div>
+          <div class="badge">✨ Padrão premium</div>
+          <div class="badge">🤝 Expansão consciente</div>
           <div class="badge">📍 Japão</div>
         </div>
 
@@ -326,6 +353,7 @@
         </div>
       </div>
 
+      <!-- LADO DIREITO -->
       <div class="side">
         <div class="mini">
           <h3>Franquia Yama Spa</h3>
@@ -349,6 +377,7 @@
           </div>
         </div>
       </div>
+
     </div>
   </div>
 
@@ -405,7 +434,6 @@
         </div>
       </a>
 
-      <!-- Enquanto não tiver panel-04/05/06, repetimos imagens (depois troca em 10s) -->
       <a class="panel-card" href="produtos.html">
         <div class="panel-media" style="background-image:url('assets/images/logo/panel-01.jpg');">
           <div class="panel-tag">🧴 Produtos • Curadoria</div>
@@ -464,14 +492,14 @@
         <h3>WhatsApp</h3>
         <p>📲 Clique para falar com a equipe e receber atendimento.</p>
         <a class="btn primary" href="https://wa.me/" target="_blank" rel="noopener">Abrir WhatsApp</a>
-        <p class="note">* Vou ajustar o link assim que você me passar o número no formato internacional.</p>
+        <p class="note">* Ajuste o link assim que você colocar o número no formato internacional.</p>
       </div>
 
       <div class="card">
         <h3>Instagram</h3>
         <p>📷 Acompanhe conteúdos, bastidores, novidades e vagas de cursos.</p>
         <a class="btn" href="https://instagram.com/" target="_blank" rel="noopener">Abrir Instagram</a>
-        <p class="note">* Vou ajustar para @yama.spa quando você quiser.</p>
+        <p class="note">* Ajuste para @yama.spa quando quiser.</p>
       </div>
     </div>
   </div>
