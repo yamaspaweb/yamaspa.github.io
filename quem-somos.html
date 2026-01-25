@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quem somos | Yama Spa</title>
+  <meta name="description" content="Quem somos: Yama Spa é uma marca premium de bem-estar nascida no Japão. Unidades, franquias sem mensalidade/royalty, cursos e rede de parceiros. Integração com CIMS School." />
+
+  <style>
+    :root{
+      --bg:#0b0f12;
+      --card:#0f151a;
+      --text:#e9eef3;
+      --muted:#aab6c2;
+      --line:rgba(255,255,255,.08);
+      --accent:#c9a86a;
+      --accent2:#7aa6b8;
+      --radius:18px;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --max: 1120px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(1200px 600px at 20% -10%, rgba(201,168,106,.18), transparent 60%),
+                  radial-gradient(900px 500px at 90% 10%, rgba(122,166,184,.12), transparent 55%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.6;
+    }
+    a{color:inherit; text-decoration:none}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 18px}
+
+    /* Topo */
+    .topbar{
+      position:sticky; top:0; z-index:10;
+      backdrop-filter: blur(10px);
+      background: rgba(11,15,18,.72);
+      border-bottom:1px solid var(--line);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+      gap:14px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px; min-width: 220px;
+    }
+    .logo{
+      width:42px; height:42px; border-radius:50%;
+      border:1px solid rgba(201,168,106,.55);
+      box-shadow: 0 0 0 4px rgba(201,168,106,.12);
+      background: rgba(255,255,255,.02);
+      display:flex; align-items:center; justify-content:center;
+      overflow:hidden;
+      flex: 0 0 auto;
+    }
+    .logo img{
+      width:100%; height:100%;
+      object-fit:contain;
+      padding:6px;
+      display:block;
+    }
+    .brand b{letter-spacing:.6px}
+    .brand small{display:block; color:var(--muted); margin-top:-2px; font-size:12px}
+
+    .menu{
+      display:flex; flex-wrap:wrap; gap:10px;
+      justify-content:flex-end;
+    }
+    .menu a{
+      padding:8px 10px;
+      border:1px solid transparent;
+      border-radius:999px;
+      color:var(--muted);
+      font-size:14px;
+    }
+    .menu a:hover{
+      color:var(--text);
+      border-color:var(--line);
+      background: rgba(255,255,255,.03);
+    }
+
+    .cta{display:flex; gap:10px; align-items:center}
+    .btn{
+      padding:10px 14px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      color:var(--text);
+      font-weight:600;
+      font-size:14px;
+      cursor:pointer;
+      display:inline-block;
+    }
+    .btn:hover{border-color:rgba(201,168,106,.45)}
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(201,168,106,.95), rgba(201,168,106,.65));
+      border-color: rgba(201,168,106,.4);
+      color:#101418;
+    }
+    .btn.primary:hover{filter:brightness(1.05)}
+
+    /* Hero */
+    .hero{padding:58px 0 18px}
+    .hero-card{
+      border:1px solid var(--line);
+      background: rgba(15,21,26,.78);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding:28px;
+      position:relative;
+      overflow:hidden;
+    }
+    .hero-card:before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background: radial-gradient(600px 300px at 20% 0%, rgba(201,168,106,.20), transparent 65%),
+                  radial-gradient(500px 300px at 90% 20%, rgba(122,166,184,.16), transparent 55%);
+      z-index:0;
+    }
+    .hero-card > *{position:relative; z-index:1}
+    h1{margin:0 0 10px; font-size:34px; line-height:1.15}
+    .lead{margin:0; color:var(--muted); max-width: 920px}
+
+    .badges{display:flex; gap:10px; flex-wrap:wrap; margin-top:16px}
+    .badge{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      color:var(--muted);
+      border-radius:999px;
+      padding:8px 10px;
+      font-size:13px;
+    }
+
+    /* Seções */
+    .section{padding:26px 0}
+    .section-head{
+      display:flex; align-items:flex-end; justify-content:space-between;
+      gap:12px; margin-bottom:12px;
+    }
+    .section-head h2{margin:0; font-size:22px}
+    .section-head p{margin:0; color:var(--muted); font-size:14px; max-width:560px}
+
+    .grid3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+    }
+    .card{
+      border:1px solid var(--line);
+      background: rgba(15,21,26,.55);
+      border-radius: var(--radius);
+      padding:18px;
+      box-shadow: 0 10px 25px rgba(0,0,0,.22);
+    }
+    .card h3{margin:0 0 6px; font-size:16px}
+    .card p{margin:0 0 10px; color:var(--muted); font-size:14px}
+
+    .split{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+    }
+
+    .quote{
+      border:1px solid rgba(201,168,106,.35);
+      background: linear-gradient(135deg, rgba(201,168,106,.12), rgba(201,168,106,.05));
+      border-radius: var(--radius);
+      padding:18px;
+    }
+    .quote b{color: var(--text)}
+    .note{color:var(--muted); font-size:12px; margin-top:8px}
+
+    .footer{
+      margin-top:30px;
+      border-top:1px solid var(--line);
+      padding:22px 0 40px;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    @media (max-width: 940px){
+      h1{font-size:28px}
+      .grid3{grid-template-columns:1fr}
+      .split{grid-template-columns:1fr}
+      .menu{justify-content:flex-start}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="topbar">
+    <div class="wrap">
+      <div class="nav">
+        <a class="brand" href="index.html">
+          <div class="logo">
+            <img src="assets/images/logo/logo-yama-spa.png" alt="Yama Spa Logo">
+          </div>
+          <div>
+            <b>YAMA SPA</b>
+            <small>Komaki • Toyoake • Japão</small>
+          </div>
+        </a>
+
+        <div class="menu">
+          <a href="franquia.html">Franquia</a>
+          <a href="cursos.html">Cursos</a>
+          <a href="parceiros.html">Parceiros</a>
+          <a href="unidades.html">Unidades</a>
+          <a href="produtos.html">Produtos</a>
+          <a href="blog.html">Blog</a>
+          <a href="quem-somos.html" style="color:var(--text); border-color:var(--line); background:rgba(255,255,255,.03);">Quem somos</a>
+          <a href="index.html#contato">Contato</a>
+        </div>
+
+        <div class="cta">
+          <a class="btn" href="index.html#contato">Agendar</a>
+          <a class="btn primary" href="franquia.html">Quero ter meu Yama Spa</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap hero">
+    <div class="hero-card">
+      <h1>Quem somos</h1>
+      <p class="lead">
+        O <b>Yama Spa</b> é uma marca de bem-estar <b>nascida no Japão</b>, criada para elevar o padrão
+        de experiência, técnica e cuidado. Atuamos com <b>unidades</b>, <b>parceiros</b>,
+        <b>franquia sem mensalidade ou royalty</b> e <b>formação profissional</b>.
+      </p>
+
+      <div class="badges">
+        <div class="badge">✨ Elegância e presença</div>
+        <div class="badge">🤝 Expansão consciente</div>
+        <div class="badge">🎓 Formação profissional</div>
+        <div class="badge">📍 Japão</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap section">
+    <div class="section-head">
+      <div>
+        <h2>Nossa essência</h2>
+        <p>Uma alma premium — com clareza, técnica e humanidade.</p>
+      </div>
+    </div>
+
+    <div class="split">
+      <div class="card">
+        <h3>Missão</h3>
+        <p>Entregar bem-estar real, com padrão premium, cuidado consciente e respeito ao corpo.</p>
+      </div>
+      <div class="card">
+        <h3>Visão</h3>
+        <p>Ser referência de excelência em massagem e formação profissional no Japão e no mundo.</p>
+      </div>
+    </div>
+
+    <div class="split" style="margin-top:14px;">
+      <div class="card">
+        <h3>Valores</h3>
+        <p>Ética, presença, postura profissional, respeito e constância na qualidade.</p>
+      </div>
+      <div class="card">
+        <h3>Padrão Yama Spa</h3>
+        <p>Detalhes que mudam tudo: toque, ambiente, linguagem, energia e experiência.</p>
+      </div>
+    </div>
+
+    <div class="quote" style="margin-top:14px;">
+      <b>“Toque que transforma vidas.”</b><br>
+      <span style="color:var(--muted); font-size:14px;">
+        Não é só técnica. É presença. É cuidado verdadeiro.
+      </span>
+    </div>
+  </div>
+
+  <div class="wrap section">
+    <div class="section-head">
+      <div>
+        <h2>O que fazemos</h2>
+        <p>Três pilares para crescer com estrutura e padrão.</p>
+      </div>
+      <a class="btn" href="index.html#contato">Falar com a equipe</a>
+    </div>
+
+    <div class="grid3">
+      <div class="card">
+        <h3>Unidades</h3>
+        <p>Atendimento premium no Japão com foco em experiência e bem-estar real.</p>
+        <a class="btn" href="unidades.html">Ver unidades</a>
+      </div>
+      <div class="card">
+        <h3>Franquia (sem mensalidade/royalty)</h3>
+        <p>Modelo leve e organizado para quem quer “ter seu Yama Spa” do jeito certo.</p>
+        <a class="btn primary" href="franquia.html">Quero ter meu Yama Spa</a>
+      </div>
+      <div class="card">
+        <h3>Cursos</h3>
+        <p>Formação profissional com postura, ergonomia e técnica para atender com padrão.</p>
+        <a class="btn" href="cursos.html">Ver cursos</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap section">
+    <div class="section-head">
+      <div>
+        <h2>CIMS School (parceira)</h2>
+        <p>Integração estratégica com cursos e certificações para elevar seu nível profissional.</p>
+      </div>
+      <a class="btn" href="cursos.html">Ver opções</a>
+    </div>
+
+    <div class="card">
+      <h3>Como entra no site sem confundir</h3>
+      <p>
+        A CIMS School aparece como <b>parceira</b> e como <b>caminho de formação</b> para quem deseja certificações e especializações.
+        O Yama Spa mantém sua identidade de marca, e a CIMS fortalece a jornada profissional.
+      </p>
+      <div class="note">
+        * Se você quiser, depois criamos uma página dedicada: <b>cims-school.html</b> (com o logo da CIMS no topo).
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap section">
+    <div class="section-head">
+      <div>
+        <h2>Vamos construir juntos?</h2>
+        <p>Agendamento, cursos, parcerias e franquia — fale com a equipe.</p>
+      </div>
+      <a class="btn primary" href="index.html#contato">Contato</a>
+    </div>
+
+    <div class="split">
+      <div class="card">
+        <h3>Clientes</h3>
+        <p>Quer viver a experiência premium? Agende sua massagem.</p>
+        <a class="btn" href="index.html#contato">Agendar</a>
+      </div>
+      <div class="card">
+        <h3>Profissionais</h3>
+        <p>Quer entrar no padrão e crescer? Veja cursos, parceiros e franquia.</p>
+        <a class="btn primary" href="franquia.html">Quero ter meu Yama Spa</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap footer">
+    <div>
+      <b>Yama Spa</b> • Japão
+      <div class="note">© <span id="year"></span> Yama Spa. Todos os direitos reservados.</div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
