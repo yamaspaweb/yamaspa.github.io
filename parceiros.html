@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Yama Spa | Parceiros</title>
-  <meta name="description" content="Seja parceiro Yama Spa: exclusividade regional, suporte completo e padrão premium com a fundadora Margot Yamada." />
+  <meta name="description" content="Seja parceiro Yama Spa: exclusividade regional, suporte completo e padrão premium com a fundadora Sensei Margot Yamada." />
   <meta name="theme-color" content="#0b0c10" />
 
   <style>
@@ -100,10 +100,17 @@
       border-radius: 12px;
       transition: .2s ease;
       white-space:nowrap;
+      border:1px solid transparent;
     }
     .menu a:hover{
       background: rgba(255,255,255,.06);
       color: var(--text);
+      border-color: rgba(255,255,255,.10);
+    }
+    .menu a.active{
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+      border-color: rgba(255,255,255,.10);
     }
 
     .actions{
@@ -125,6 +132,7 @@
       cursor:pointer;
       transition: .2s ease;
       box-shadow: 0 10px 30px rgba(0,0,0,.35);
+      white-space:nowrap;
     }
     .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.06); }
     .btn.primary{
@@ -155,16 +163,23 @@
       color: var(--muted);
       border: 1px solid transparent;
       transition:.2s ease;
+      margin-top:6px;
     }
     .mobileMenu a:hover{
       background: rgba(255,255,255,.05);
       color: var(--text);
       border-color: rgba(255,255,255,.08);
     }
+    .mobileMenu a.active{
+      background: rgba(255,255,255,.05);
+      color: var(--text);
+      border-color: rgba(255,255,255,.10);
+    }
     .mobileActions{
       display:flex;
       gap:10px;
       padding: 10px 12px 0;
+      flex-wrap:wrap;
     }
     .mobileActions .btn{ width:100%; }
 
@@ -536,6 +551,43 @@
     }
     .links a:hover{ color: var(--text); background: rgba(255,255,255,.05); transform: translateY(-1px); }
 
+    /* WhatsApp Floating Button */
+    .wa-float{
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 9999;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(216,184,106,.45);
+      background: linear-gradient(135deg, rgba(216,184,106,.22), rgba(216,184,106,.08));
+      box-shadow: 0 14px 40px rgba(0,0,0,.55);
+      backdrop-filter: blur(10px);
+      color: var(--text);
+      font-weight: 800;
+      transition: .2s ease;
+    }
+    .wa-dot{
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.85);
+      box-shadow: 0 0 0 6px rgba(216,184,106,.14);
+      opacity: .9;
+    }
+    .wa-float small{
+      display:block;
+      color: rgba(245,246,251,.78);
+      font-weight: 650;
+      margin-top: -2px;
+      font-size: 12px;
+      letter-spacing: .02em;
+    }
+    .wa-float:hover{ transform: translateY(-1px); filter: brightness(1.04); }
+
     /* ====== RESPONSIVE ====== */
     @media (max-width: 980px){
       .menu{ display:none; }
@@ -560,6 +612,8 @@
       .hero h1{ font-size: 32px; }
       .hero p{ font-size: 14px; }
       .founderCard{ min-height: 280px; }
+      .wa-float span{ display:none; }
+      .wa-float{ padding: 12px; }
     }
   </style>
 </head>
@@ -581,11 +635,15 @@
         <nav class="menu" aria-label="Menu principal">
           <a href="franquia.html">Franquia</a>
           <a href="cursos.html">Cursos</a>
-          <a href="parceiros.html" style="color:rgba(245,246,251,.95); background:rgba(255,255,255,.06);">Parceiros</a>
+          <a class="active" href="parceiros.html">Parceiros</a>
           <a href="unidades.html">Unidades</a>
           <a href="produtos.html">Produtos</a>
           <a href="blog.html">Blog</a>
           <a href="quem-somos.html">Quem somos</a>
+          <a href="#"
+             data-wa="Olá! Quero falar com o Yama Spa. Meu nome é:  | Assunto: Parceiros | Cidade/País: ">
+            Contato
+          </a>
         </nav>
 
         <div class="actions">
@@ -604,11 +662,15 @@
       <div class="mobileMenu" id="mobileMenu">
         <a href="franquia.html">Franquia</a>
         <a href="cursos.html">Cursos</a>
-        <a href="parceiros.html">Parceiros</a>
+        <a class="active" href="parceiros.html">Parceiros</a>
         <a href="unidades.html">Unidades</a>
         <a href="produtos.html">Produtos</a>
         <a href="blog.html">Blog</a>
         <a href="quem-somos.html">Quem somos</a>
+        <a href="#"
+           data-wa="Olá! Quero falar com o Yama Spa. Meu nome é:  | Assunto: Parceiros | Cidade/País: ">
+          Contato
+        </a>
 
         <div class="mobileActions">
           <a class="btn" href="cursos.html">🎓 Ver cursos</a>
@@ -655,6 +717,10 @@
               <a class="btn primary" href="#vantagens">✨ Ver vantagens</a>
               <a class="btn" href="#investimento">💎 Investimento</a>
               <a class="btn" href="#processo">🚀 Como funciona</a>
+              <a class="btn" href="#"
+                 data-wa="Olá! Quero verificar se minha região está disponível para parceria Yama Spa. Minha cidade/país é:  | Tipo de espaço:  | Objetivo: ">
+                💬 WhatsApp
+              </a>
             </div>
 
             <div class="alert" style="margin-top:16px;">
@@ -732,7 +798,7 @@
         <div class="card feat">
           <div class="icon">1</div>
           <h3>Autoridade e marca</h3>
-          <p>Uso oficial da marca Yama Spa, certificação oficial e credibilidade internacional.</p>
+          <p>Uso oficial da marca Yama Spa, padronização e credibilidade internacional.</p>
         </div>
 
         <div class="card feat">
@@ -744,25 +810,25 @@
         <div class="card feat">
           <div class="icon">3</div>
           <h3>Marketing prático</h3>
-          <p>Logo, identidade visual, materiais para redes sociais e divulgação oficial.</p>
+          <p>Materiais para redes sociais, direção de conteúdo e divulgação oficial.</p>
         </div>
 
         <div class="card feat">
           <div class="icon">4</div>
           <h3>Suporte contínuo</h3>
-          <p>Suporte online e acompanhamento mensal personalizado (para manter o padrão premium).</p>
+          <p>Acompanhamento para manter o padrão premium e evoluir a operação.</p>
         </div>
 
         <div class="card feat">
           <div class="icon">5</div>
           <h3>Experiência imersiva</h3>
-          <p>Kit físico e digital: banner, placa, roupa de maca, itens decorativos e playlist exclusiva.</p>
+          <p>Kit físico e digital: itens de padronização, orientações e detalhes que elevam o serviço.</p>
         </div>
 
         <div class="card feat">
           <div class="icon">✨</div>
           <h3>O diferencial Yama</h3>
-          <p>Tradição japonesa + padrão profissional — uma marca que une bem-estar e credibilidade real.</p>
+          <p>Tradição + padrão profissional — uma marca que une bem-estar e credibilidade real.</p>
         </div>
       </div>
     </div>
@@ -782,7 +848,7 @@
         <div class="card feat">
           <div class="icon">⭐</div>
           <h3>Seja o único</h3>
-          <p>Sedie eventos exclusivos em sua região e fortaleça sua presença local com padrão premium.</p>
+          <p>Sedie eventos na sua região e fortaleça sua presença local com padrão premium.</p>
         </div>
 
         <div class="card feat">
@@ -794,7 +860,7 @@
         <div class="card feat">
           <div class="icon">💼</div>
           <h3>Novas fontes de renda</h3>
-          <p>Eventos, cursos, kits, experiências e aumento do ticket médio com o selo Yama Spa.</p>
+          <p>Eventos, cursos, experiências e aumento do ticket médio com o selo Yama Spa.</p>
         </div>
       </div>
 
@@ -811,7 +877,7 @@
       <div class="sectionTitle">
         <div>
           <h2>Investimento na sua transformação</h2>
-          <p>Um investimento estratégico na credibilidade e expansão do seu negócio (primeiro ano, após primeiro ano somente taxa de suporte).</p>
+          <p>Primeiro ano (após primeiro ano: somente taxa de suporte).</p>
         </div>
       </div>
 
@@ -852,8 +918,8 @@
     <div class="container">
       <div class="sectionTitle">
         <div>
-          <h2>Seu próximo passo para o sucesso</h2>
-          <p>Processo rápido e rigoroso para garantir o padrão de excelência do Yama Spa.</p>
+          <h2>Seu próximo passo</h2>
+          <p>Processo rápido e seletivo para garantir o padrão de excelência do Yama Spa.</p>
         </div>
       </div>
 
@@ -861,40 +927,39 @@
         <div class="step">
           <div class="n">1</div>
           <h3>Solicitação de interesse</h3>
-          <p>Entre em contato informando cidade, tipo de espaço e experiência.</p>
+          <p>Envie cidade, tipo de espaço e objetivo.</p>
         </div>
 
         <div class="step">
           <div class="n">2</div>
           <h3>Análise e aprovação</h3>
-          <p>A equipe Yama Spa avalia perfil e viabilidade na região.</p>
+          <p>Alinhamento de perfil e disponibilidade na região.</p>
         </div>
 
         <div class="step">
           <div class="n">3</div>
           <h3>Confirmação e pagamento</h3>
-          <p>Envio do contrato e orientações de pagamento.</p>
+          <p>Contrato, orientações e início do suporte.</p>
         </div>
 
         <div class="step">
           <div class="n">4</div>
           <h3>Início imediato</h3>
-          <p>Receba o kit e seja divulgado no mapa de parceiros.</p>
+          <p>Receba diretrizes e preparação para operar com padrão premium.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FORM / CTA -->
+  <!-- CTA FINAL -->
   <section id="form">
     <div class="container">
       <div class="ctaStrip">
         <div>
           <h3>Quer verificar se sua região está disponível?</h3>
-          <p>Envie sua cidade e o tipo de espaço. Se estiver disponível, damos sequência na análise.</p>
+          <p>Envie sua cidade e o tipo de espaço. Se estiver disponível, seguimos com a análise.</p>
         </div>
         <div style="display:flex; gap:10px; flex-wrap:wrap;">
-          <!-- WhatsApp (Parceria) -->
           <a class="btn primary"
              data-wa="Olá! Quero verificar disponibilidade de parceria Yama Spa. Minha cidade/país é:  | Tipo de espaço (spa/salão/clínica):  | Objetivo (atendimento/cursos/ambos): ">
             📲 Solicitar parceria
@@ -921,7 +986,7 @@
           <div class="icon">✅</div>
           <h3>Critérios de aprovação</h3>
           <p>
-            A parceria é seletiva para manter o padrão premium: região disponível, alinhamento com o método,
+            Parceria seletiva para manter padrão premium: região disponível, alinhamento com o método,
             compromisso com padronização e excelência no atendimento.
           </p>
         </div>
@@ -964,6 +1029,16 @@
     </div>
   </footer>
 
+  <!-- WhatsApp Floating Button -->
+  <a class="wa-float" href="#"
+     data-wa="Olá! Quero solicitar parceria com o Yama Spa. Minha cidade/país é:  | Tipo de espaço (spa/salão/clínica):  | Objetivo (atendimento/cursos/ambos): ">
+    <div class="wa-dot" aria-hidden="true"></div>
+    <div>
+      <span>WhatsApp</span>
+      <small>Parceria / Exclusividade</small>
+    </div>
+  </a>
+
   <script>
     // ano automático
     document.getElementById("year").textContent = new Date().getFullYear();
@@ -979,11 +1054,10 @@
     });
 
     // ===== WhatsApp helper (JAPÃO +81) =====
-    // Seu número era 09020816414 -> WhatsApp internacional: 819020816414
+    // Seu número 09020816414 -> WhatsApp internacional: 819020816414
     const WA_NUMBER = "819020816414";
     const waLink = (msg) => `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`;
 
-    // Aplica em qualquer botão/link com data-wa
     document.querySelectorAll("[data-wa]").forEach((el) => {
       const msg = el.getAttribute("data-wa") || "Olá! Gostaria de informações.";
       el.setAttribute("href", waLink(msg));
