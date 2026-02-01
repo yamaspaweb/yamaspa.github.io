@@ -21,12 +21,13 @@
     *{box-sizing:border-box}
     body{
       margin:0;
-      font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial;
+      font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial,"Apple Color Emoji","Segoe UI Emoji";
       background:
         radial-gradient(1200px 600px at 20% -10%, rgba(201,168,106,.18), transparent 60%),
         var(--bg);
       color:var(--text);
       line-height:1.6;
+      overflow-x:hidden;
     }
     a{text-decoration:none;color:inherit}
     .wrap{max-width:var(--max);margin:0 auto;padding:0 18px}
@@ -45,6 +46,7 @@
     }
     .brand{
       display:flex; align-items:center; gap:10px;
+      min-width: 220px;
     }
     .logo{
       width:42px;height:42px;border-radius:50%;
@@ -52,25 +54,34 @@
       box-shadow:0 0 0 4px rgba(201,168,106,.12);
       display:flex;align-items:center;justify-content:center;
       overflow:hidden;
+      flex: 0 0 auto;
     }
     .logo img{width:100%;height:100%;object-fit:contain;padding:6px}
     .brand b{letter-spacing:.6px}
-    .brand small{display:block;color:var(--muted);font-size:12px}
+    .brand small{display:block;color:var(--muted);font-size:12px;margin-top:-2px}
 
-    .menu{display:flex;gap:10px;flex-wrap:wrap}
+    .menu{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
     .menu a{
       padding:8px 10px;
       border-radius:999px;
       color:var(--muted);
       font-size:14px;
+      border:1px solid transparent;
+      transition:.2s ease;
+      white-space:nowrap;
     }
     .menu a:hover{
       color:var(--text);
       background:rgba(255,255,255,.03);
-      border:1px solid var(--line);
+      border-color: var(--line);
+    }
+    .menu a.active{
+      color:var(--text);
+      border-color: var(--line);
+      background: rgba(255,255,255,.03);
     }
 
-    .cta{display:flex;gap:10px}
+    .cta{display:flex;gap:10px;align-items:center}
     .btn{
       padding:10px 14px;
       border-radius:999px;
@@ -78,12 +89,64 @@
       background:rgba(255,255,255,.03);
       font-weight:600;
       font-size:14px;
+      cursor:pointer;
+      display:inline-block;
+      transition:.2s ease;
     }
+    .btn:hover{border-color:rgba(201,168,106,.45); transform: translateY(-1px)}
     .btn.primary{
       background:linear-gradient(135deg,#c9a86a,#b99758);
       color:#111;
       border:none;
     }
+    .btn.primary:hover{filter:brightness(1.05)}
+    .btn.ghost{
+      border-color: rgba(201,168,106,.28);
+      background: rgba(201,168,106,.06);
+    }
+
+    .hamb{
+      display:none;
+      width:44px; height:44px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      color: var(--text);
+      cursor:pointer;
+    }
+
+    /* Mobile dropdown */
+    .mobileMenu{
+      display:none;
+      padding: 10px 0 16px;
+      border-top:1px solid var(--line);
+    }
+    .mobileMenu a{
+      display:block;
+      padding: 12px 12px;
+      border-radius: 14px;
+      color: var(--muted);
+      border: 1px solid transparent;
+      transition:.2s ease;
+      margin-top:6px;
+    }
+    .mobileMenu a:hover{
+      background: rgba(255,255,255,.05);
+      color: var(--text);
+      border-color: rgba(255,255,255,.08);
+    }
+    .mobileMenu a.active{
+      background: rgba(255,255,255,.05);
+      color: var(--text);
+      border-color: rgba(255,255,255,.10);
+    }
+    .mobileActions{
+      display:flex;
+      gap:10px;
+      padding: 10px 12px 0;
+      flex-wrap:wrap;
+    }
+    .mobileActions .btn{ width:100%; }
 
     /* HERO */
     .hero{padding:58px 0 22px}
@@ -93,9 +156,20 @@
       border-radius:var(--radius);
       padding:28px;
       box-shadow:var(--shadow);
+      position:relative;
+      overflow:hidden;
     }
-    h1{margin:0 0 10px;font-size:34px}
-    .lead{color:var(--muted);max-width:900px}
+    .hero-card:before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background: radial-gradient(600px 300px at 20% 0%, rgba(201,168,106,.20), transparent 65%);
+      z-index:0;
+    }
+    .hero-card > *{position:relative; z-index:1}
+
+    h1{margin:0 0 10px;font-size:34px; line-height:1.15}
+    .lead{color:var(--muted);max-width:900px; margin:0}
 
     .badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
     .badge{
@@ -141,9 +215,55 @@
       color:var(--muted);
     }
 
+    /* WhatsApp Floating Button (Premium) */
+    .wa-float{
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 9999;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(201,168,106,.45);
+      background: linear-gradient(135deg, rgba(201,168,106,.22), rgba(201,168,106,.08));
+      box-shadow: 0 14px 40px rgba(0,0,0,.55);
+      backdrop-filter: blur(10px);
+      color: var(--text);
+      font-weight: 800;
+      transition: .2s ease;
+    }
+    .wa-dot{
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.85);
+      box-shadow: 0 0 0 6px rgba(201,168,106,.14);
+      opacity: .9;
+    }
+    .wa-float small{
+      display:block;
+      color: rgba(233,238,243,.78);
+      font-weight: 650;
+      margin-top: -2px;
+      font-size: 12px;
+      letter-spacing: .02em;
+    }
+    .wa-float:hover{
+      transform: translateY(-1px);
+      filter: brightness(1.04);
+    }
+
     @media(max-width:940px){
       h1{font-size:28px}
       .grid3{grid-template-columns:1fr}
+      .menu{display:none}
+      .hamb{display:inline-grid; place-items:center}
+    }
+    @media (max-width:520px){
+      .wa-float span{ display:none; }
+      .wa-float{ padding: 12px; }
     }
   </style>
 </head>
@@ -151,31 +271,60 @@
 <body>
   <!-- TOPO -->
   <div class="topbar">
-    <div class="wrap nav">
-      <a class="brand" href="index.html">
-        <div class="logo">
-          <img src="assets/images/logo/logo-yama-spa.png" alt="Yama Spa">
-        </div>
-        <div>
-          <b>YAMA SPA</b>
-          <small>Komaki • Toyoake • Japão</small>
-        </div>
-      </a>
+    <div class="wrap">
+      <div class="nav">
+        <a class="brand" href="index.html">
+          <div class="logo">
+            <img src="assets/images/logo/logo-yama-spa.png" alt="Yama Spa">
+          </div>
+          <div>
+            <b>YAMA SPA</b>
+            <small>Komaki • Toyoake • Japão</small>
+          </div>
+        </a>
 
-      <div class="menu">
+        <div class="menu">
+          <a href="franquia.html">Franquia</a>
+          <a href="cursos.html">Cursos</a>
+          <a href="parceiros.html">Parceiros</a>
+          <a href="unidades.html">Unidades</a>
+          <a class="active" href="produtos.html">Produtos</a>
+          <a href="blog.html">Blog</a>
+          <a href="quem-somos.html">Quem somos</a>
+          <a href="#" data-wa="Olá! Quero recomendações de produtos do Yama Spa. Meu nome é:  | Cidade/País:  | Interesse: ">
+            Contato
+          </a>
+        </div>
+
+        <div class="cta">
+          <a class="btn ghost" href="#" data-wa="Olá! Quero recomendações de produtos do Yama Spa. Meu nome é:  | Cidade/País:  | Interesse: ">
+            Contato
+          </a>
+          <a class="btn primary" href="franquia.html">Quero ter meu Yama Spa</a>
+          <button class="hamb" id="hamb" aria-label="Abrir menu" title="Menu">☰</button>
+        </div>
+      </div>
+
+      <div class="mobileMenu" id="mobileMenu">
         <a href="franquia.html">Franquia</a>
         <a href="cursos.html">Cursos</a>
         <a href="parceiros.html">Parceiros</a>
         <a href="unidades.html">Unidades</a>
-        <a href="produtos.html" style="color:var(--text)">Produtos</a>
+        <a class="active" href="produtos.html">Produtos</a>
         <a href="blog.html">Blog</a>
         <a href="quem-somos.html">Quem somos</a>
-        <a href="index.html#contato">Contato</a>
-      </div>
+        <a href="#" data-wa="Olá! Quero recomendações de produtos do Yama Spa. Meu nome é:  | Cidade/País:  | Interesse: ">
+          Contato
+        </a>
 
-      <div class="cta">
-        <a class="btn" href="index.html#contato">Contato</a>
-        <a class="btn primary" href="franquia.html">Quero ter meu Yama Spa</a>
+        <div class="mobileActions">
+          <a class="btn primary" href="#" data-wa="Olá! Quero recomendações de produtos do Yama Spa. Meu nome é:  | Cidade/País:  | Interesse: ">
+            📲 Falar no WhatsApp
+          </a>
+          <a class="btn" href="https://instagram.com/yama.spa" target="_blank" rel="noopener">
+            📷 Instagram @yama.spa
+          </a>
+        </div>
       </div>
     </div>
   </div>
@@ -234,18 +383,53 @@
         <h2>Quer receber recomendações?</h2>
         <p>Fale com a equipe e receba indicações personalizadas.</p>
       </div>
-      <a class="btn primary" href="index.html#contato">Falar com a equipe</a>
+      <a class="btn primary" href="#" data-wa="Olá! Quero recomendações de produtos do Yama Spa. Meu nome é:  | Cidade/País:  | Interesse: ">
+        Falar com a equipe
+      </a>
     </div>
   </div>
 
   <!-- FOOTER -->
   <div class="wrap footer">
-    <b>Yama Spa</b> • Japão  
+    <b>Yama Spa</b> • Japão
     <div class="note">© <span id="year"></span> Yama Spa. Todos os direitos reservados.</div>
   </div>
 
+  <!-- WhatsApp Floating Button -->
+  <a class="wa-float" href="#"
+     data-wa="Olá! Quero recomendações de produtos do Yama Spa. Meu nome é:  | Cidade/País:  | Interesse: ">
+    <div class="wa-dot" aria-hidden="true"></div>
+    <div>
+      <span>WhatsApp</span>
+      <small>Falar agora</small>
+    </div>
+  </a>
+
   <script>
+    // ano automático
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // ===== WhatsApp helper (JAPÃO +81) =====
+    // Seu número local: 09020816414 -> WhatsApp internacional: 819020816414
+    const WA_NUMBER = "819020816414";
+    const waLink = (msg) => `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`;
+
+    document.querySelectorAll("[data-wa]").forEach((el) => {
+      const msg = el.getAttribute("data-wa") || "Olá! Gostaria de informações.";
+      el.setAttribute("href", waLink(msg));
+      el.setAttribute("target", "_blank");
+      el.setAttribute("rel", "noopener");
+    });
+
+    // menu mobile
+    const hamb = document.getElementById("hamb");
+    const mobileMenu = document.getElementById("mobileMenu");
+    hamb?.addEventListener("click", () => {
+      const isOpen = mobileMenu.style.display === "block";
+      mobileMenu.style.display = isOpen ? "none" : "block";
+      hamb.textContent = isOpen ? "☰" : "✕";
+      hamb.setAttribute("aria-label", isOpen ? "Abrir menu" : "Fechar menu");
+    });
   </script>
 </body>
 </html>
