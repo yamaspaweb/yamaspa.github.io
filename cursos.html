@@ -188,6 +188,50 @@
       .split{grid-template-columns:1fr}
       .menu{justify-content:flex-start}
     }
+
+    /* ===== WhatsApp Floating Button (Premium) ===== */
+    .wa-float{
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 9999;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(201,168,106,.45);
+      background: linear-gradient(135deg, rgba(201,168,106,.22), rgba(201,168,106,.08));
+      box-shadow: 0 14px 40px rgba(0,0,0,.55);
+      backdrop-filter: blur(10px);
+      color: var(--text);
+      font-weight: 750;
+    }
+    .wa-dot{
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.85);
+      box-shadow: 0 0 0 6px rgba(201,168,106,.14);
+      opacity: .9;
+    }
+    .wa-float small{
+      display:block;
+      color: rgba(233,238,243,.78);
+      font-weight: 650;
+      margin-top: -2px;
+      font-size: 12px;
+      letter-spacing: .02em;
+    }
+    .wa-float:hover{
+      transform: translateY(-1px);
+      filter: brightness(1.04);
+    }
+
+    @media (max-width:520px){
+      .wa-float span{display:none;}
+      .wa-float{padding: 12px;}
+    }
   </style>
 </head>
 
@@ -213,11 +257,17 @@
           <a href="produtos.html">Produtos</a>
           <a href="blog.html">Blog</a>
           <a href="quem-somos.html">Quem somos</a>
-          <a href="index.html#contato">Contato</a>
+
+          <!-- Contato -> WhatsApp -->
+          <a href="#"
+             data-wa="Olá! Quero falar com a Sensei Margot Yamada sobre cursos do Yama Spa. Pode me enviar datas, valores e currículo?">
+            Contato
+          </a>
         </div>
 
         <div class="cta">
-          <a class="btn" href="index.html#contato">Agendar</a>
+          <!-- Agendar: desce para contato -->
+          <a class="btn" href="#contato">Agendar</a>
           <a class="btn primary" href="franquia.html">Quero ter meu Yama Spa</a>
         </div>
       </div>
@@ -247,24 +297,39 @@
         <h2>Trilhas de formação</h2>
         <p>Organizamos o aprendizado para você evoluir com clareza e confiança.</p>
       </div>
-      <a class="btn" href="index.html#contato">Pedir datas e valores</a>
+
+      <!-- Datas e valores -> WhatsApp -->
+      <a class="btn"
+         href="#"
+         data-wa="Olá, Sensei Margot Yamada! Quero pedir datas e valores dos cursos do Yama Spa. Meu nome é:  | Moro em: ">
+        Pedir datas e valores
+      </a>
     </div>
 
     <div class="grid3">
       <div class="card">
         <h3>Base (Iniciante)</h3>
         <p>Fundamentos para atender com segurança: postura, toque, ritmo e atendimento.</p>
-        <a class="more" href="index.html#contato"><span>→</span> Quero começar</a>
+        <a class="more" href="#"
+           data-wa="Olá, Sensei Margot Yamada! Quero começar a trilha Base (Iniciante) no Yama Spa. Pode me enviar datas, valores e currículo?">
+          <span>→</span> Quero começar
+        </a>
       </div>
       <div class="card">
         <h3>Profissional (Intermediário)</h3>
         <p>Protocolos e construção de sessão premium: fluxo, pressão e pontos de tensão.</p>
-        <a class="more" href="index.html#contato"><span>→</span> Quero evoluir</a>
+        <a class="more" href="#"
+           data-wa="Olá, Sensei Margot Yamada! Quero evoluir para a trilha Profissional (Intermediário) no Yama Spa. Pode me enviar datas, valores e currículo?">
+          <span>→</span> Quero evoluir
+        </a>
       </div>
       <div class="card">
         <h3>Avançado (Especialização)</h3>
         <p>Técnicas avançadas, refinamento de experiência e padrão premium real.</p>
-        <a class="more" href="index.html#contato"><span>→</span> Quero me especializar</a>
+        <a class="more" href="#"
+           data-wa="Olá, Sensei Margot Yamada! Quero me especializar (Avançado) no Yama Spa. Pode me enviar datas, valores e currículo?">
+          <span>→</span> Quero me especializar
+        </a>
       </div>
     </div>
   </div>
@@ -275,24 +340,36 @@
         <h2>CIMS School (parceira)</h2>
         <p>Para certificações e formações complementares reconhecidas internacionalmente.</p>
       </div>
-      <a class="btn" href="index.html#contato">Quero informações CIMS</a>
+      <a class="btn" href="#"
+         data-wa="Olá, Sensei Margot Yamada! Quero informações sobre certificações e cursos da CIMS School (parceira do Yama Spa). Pode me enviar opções, datas e valores?">
+        Quero informações CIMS
+      </a>
     </div>
 
     <div class="grid3">
       <div class="card">
         <h3>Certificação e formaturas</h3>
         <p>Uma jornada de aprendizado com padrão, ética e reconhecimento internacional.</p>
-        <a class="more" href="index.html#contato"><span>→</span> Ver opções</a>
+        <a class="more" href="#"
+           data-wa="Olá, Sensei Margot Yamada! Quero saber sobre certificação e formaturas pela CIMS School. Pode me enviar os detalhes (datas/valores/currículo)?">
+          <span>→</span> Ver opções
+        </a>
       </div>
       <div class="card">
         <h3>Especializações</h3>
         <p>Formações complementares para ampliar técnica e atender diferentes necessidades.</p>
-        <a class="more" href="index.html#contato"><span>→</span> Quero especializar</a>
+        <a class="more" href="#"
+           data-wa="Olá, Sensei Margot Yamada! Quero saber sobre especializações pela CIMS School. Pode me enviar as opções e datas?">
+          <span>→</span> Quero especializar
+        </a>
       </div>
       <div class="card">
         <h3>Integração com Yama Spa</h3>
         <p>Caminho estruturado: aprender, praticar e entrar no padrão profissional.</p>
-        <a class="more" href="index.html#contato"><span>→</span> Integrar meu caminho</a>
+        <a class="more" href="#"
+           data-wa="Olá, Sensei Margot Yamada! Quero entender o caminho de integração entre CIMS School e Yama Spa. Pode me orientar com datas e valores?">
+          <span>→</span> Integrar meu caminho
+        </a>
       </div>
     </div>
   </div>
@@ -308,15 +385,23 @@
     <div class="split">
       <div class="card">
         <h3>WhatsApp</h3>
-        <p>📲 Fale com a equipe e receba as datas disponíveis e detalhes do conteúdo.</p>
-        <a class="btn primary" href="https://wa.me/" target="_blank" rel="noopener">Abrir WhatsApp</a>
-        <div class="note">* Ajustamos o link assim que você me passar o número.</div>
+        <p>📲 Fale com a Sensei Margot Yamada e receba as datas disponíveis e detalhes do conteúdo.</p>
+
+        <a class="btn primary" href="#"
+           data-wa="Olá, Sensei Margot Yamada! Quero informações sobre os cursos do Yama Spa (datas, valores e currículo). Meu nome é:  | Moro em: ">
+          Abrir WhatsApp
+        </a>
+
+        <div class="note">WhatsApp Japão: +81 90 2081 6414</div>
       </div>
+
       <div class="card">
         <h3>Instagram</h3>
         <p>📷 Acompanhe bastidores, turmas, formaturas e novidades.</p>
-        <a class="btn" href="https://instagram.com/" target="_blank" rel="noopener">Abrir Instagram</a>
-        <div class="note">* Ajustamos para @yama.spa quando você quiser.</div>
+        <a class="btn" href="https://instagram.com/yama.spa" target="_blank" rel="noopener">
+          Abrir Instagram @yama.spa
+        </a>
+        <div class="note">Siga para ver turmas e formaturas.</div>
       </div>
     </div>
   </div>
@@ -328,8 +413,31 @@
     </div>
   </div>
 
+  <!-- WhatsApp Floating Button -->
+  <a class="wa-float" href="#"
+     data-wa="Olá, Sensei Margot Yamada! Quero informações sobre os cursos do Yama Spa. Meu nome é:  | Moro em: ">
+    <div class="wa-dot" aria-hidden="true"></div>
+    <div>
+      <span>WhatsApp</span>
+      <small>Falar agora</small>
+    </div>
+  </a>
+
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // ===== WhatsApp helper (JAPÃO +81) =====
+    // Número local: 09020816414 -> WhatsApp internacional: 819020816414
+    const WA_NUMBER = "819020816414";
+    const waLink = (msg) => `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`;
+
+    // Aplica em qualquer botão/link com data-wa
+    document.querySelectorAll("[data-wa]").forEach((el) => {
+      const msg = el.getAttribute("data-wa") || "Olá! Gostaria de informações.";
+      el.setAttribute("href", waLink(msg));
+      el.setAttribute("target", "_blank");
+      el.setAttribute("rel", "noopener");
+    });
   </script>
 </body>
 </html>
