@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Yama Spa | Toque que transforma</title>
-  <meta name="description" content="Yama Spa — experiência premium em bem-estar, massagens e formação profissional com Margot Yamada." />
+  <meta name="description" content="Yama Spa — experiência premium em bem-estar, massagens e formação profissional com Sensei Margot Yamada." />
   <meta name="theme-color" content="#0b0c10" />
 
   <style>
@@ -165,6 +165,7 @@
       display:flex;
       gap:10px;
       padding: 10px 12px 0;
+      flex-wrap:wrap;
     }
     .mobileActions .btn{ width:100%; }
 
@@ -186,7 +187,7 @@
       box-shadow: var(--shadow);
     }
 
-    /* background image (Margot) */
+    /* background image (Sensei Margot Yamada) */
     .heroBg{
       position:absolute;
       inset:0;
@@ -509,6 +510,50 @@
       .hero p{ font-size: 14px; }
       .founderCard{ min-height: 280px; }
     }
+
+    /* ===== WhatsApp Floating Button (Premium) ===== */
+    .wa-float{
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 9999;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(216,184,106,.45);
+      background: linear-gradient(135deg, rgba(216,184,106,.22), rgba(216,184,106,.08));
+      box-shadow: 0 14px 40px rgba(0,0,0,.55);
+      backdrop-filter: blur(10px);
+      color: var(--text);
+      font-weight: 750;
+      transition: .2s ease;
+    }
+    .wa-dot{
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.85);
+      box-shadow: 0 0 0 6px rgba(216,184,106,.14);
+      opacity: .9;
+    }
+    .wa-float small{
+      display:block;
+      color: rgba(245,246,251,.78);
+      font-weight: 650;
+      margin-top: -2px;
+      font-size: 12px;
+      letter-spacing: .02em;
+    }
+    .wa-float:hover{
+      transform: translateY(-1px);
+      filter: brightness(1.04);
+    }
+    @media (max-width:520px){
+      .wa-float span{display:none;}
+      .wa-float{padding: 12px;}
+    }
   </style>
 </head>
 
@@ -534,6 +579,10 @@
           <a href="produtos.html">Produtos</a>
           <a href="blog.html">Blog</a>
           <a href="quem-somos.html">Quem somos</a>
+          <!-- Contato direto -->
+          <a href="#" data-wa="Olá, Sensei Margot Yamada! Gostaria de informações sobre o Yama Spa (agendamento, cursos ou parceria). Meu nome é:  | Moro em: ">
+            Contato
+          </a>
         </nav>
 
         <div class="actions">
@@ -555,6 +604,12 @@
         <div class="mobileActions">
           <a class="btn" href="cursos.html">🎓 Ver cursos</a>
           <a class="btn primary" href="parceiros.html">🤝 Seja parceiro</a>
+          <a class="btn" href="#" data-wa="Olá, Sensei Margot Yamada! Quero falar com você sobre o Yama Spa (agendamento, cursos ou parceria). Meu nome é:  | Moro em: ">
+            📲 WhatsApp
+          </a>
+          <a class="btn" href="https://instagram.com/yama.spa" target="_blank" rel="noopener">
+            📷 Instagram @yama.spa
+          </a>
         </div>
       </div>
     </div>
@@ -573,7 +628,7 @@
 
             <h1>
               O método por trás do <span class="gold">Yama Spa</span><br/>
-              com <span class="gold">Margot Yamada</span>
+              com <span class="gold">Sensei Margot Yamada</span>
             </h1>
 
             <p>
@@ -589,20 +644,22 @@
             </div>
 
             <div class="heroBtns">
-              <a class="btn primary" href="cursos.html">🎓 Quero aprender com a Margot</a>
+              <a class="btn primary" href="cursos.html">🎓 Quero aprender com a Sensei Margot</a>
               <a class="btn" href="unidades.html">📍 Ver unidades</a>
-              <a class="btn" href="quem-somos.html">🌸 Conhecer a história</a>
+              <a class="btn" href="#" data-wa="Olá, Sensei Margot Yamada! Quero agendar um horário no Yama Spa. Minha cidade/unidade é:  | Melhor dia/horário: ">
+                📲 Quero agendar
+              </a>
             </div>
           </div>
 
-          <aside class="founderCard" aria-label="Fundadora Margot Yamada">
+          <aside class="founderCard" aria-label="Fundadora Sensei Margot Yamada">
             <div class="founderImg" aria-hidden="true"></div>
             <div class="founderShade" aria-hidden="true"></div>
             <div class="founderInfo">
               <div class="role">Fundadora & Professora</div>
-              <h3>Margot Yamada</h3>
+              <h3>Sensei Margot Yamada</h3>
               <p>
-               Fundadora do Yama Spa: referência em massoterapia, bem-estar e formação profissional.
+                Fundadora do Yama Spa: referência em massoterapia, bem-estar e formação profissional.
                 Um método que une técnica, sensibilidade e excelência.
               </p>
               <a class="btn" href="quem-somos.html">🌿 Ver “Quem somos”</a>
@@ -633,7 +690,7 @@
         <div class="card feat">
           <div class="icon">🎓</div>
           <h3>Cursos profissionais</h3>
-          <p>Aprenda com a Margot Yamada: aulas práticas, método claro e padrão premium.</p>
+          <p>Aprenda com a Sensei Margot Yamada: aulas práticas, método claro e padrão premium.</p>
         </div>
 
         <div class="card feat">
@@ -680,10 +737,10 @@
           </div>
         </a>
 
-        <a class="panel" href="cursos.html" aria-label="Cursos com Margot Yamada">
-          <img src="assets/images/logo/panel-04.jpg" alt="Cursos Yama Spa com Margot Yamada" />
+        <a class="panel" href="cursos.html" aria-label="Cursos com Sensei Margot Yamada">
+          <img src="assets/images/logo/panel-04.jpg" alt="Cursos Yama Spa com Sensei Margot Yamada" />
           <div class="cap">
-            <strong>🎓 Cursos com Margot Yamada</strong>
+            <strong>🎓 Cursos com Sensei Margot</strong>
             <span>Formação profissional com técnica e confiança.</span>
           </div>
         </a>
@@ -697,11 +754,13 @@
       <div class="ctaStrip">
         <div>
           <h3>Quer aprender com quem é referência?</h3>
-          <p>Veja os cursos e reserve sua vaga nas próximas turmas com a Margot Yamada.</p>
+          <p>Veja os cursos e reserve sua vaga nas próximas turmas com a Sensei Margot Yamada.</p>
         </div>
         <div style="display:flex; gap:10px; flex-wrap:wrap;">
           <a class="btn primary" href="cursos.html">🎓 Ver cursos</a>
-          <a class="btn" href="parceiros.html">🤝 Ser parceiro</a>
+          <a class="btn" href="#" data-wa="Olá, Sensei Margot Yamada! Quero informações sobre cursos (datas e valores). Meu nome é:  | Moro em: ">
+            📲 Falar no WhatsApp
+          </a>
         </div>
       </div>
     </div>
@@ -732,6 +791,10 @@
             <a href="quem-somos.html">Quem somos</a>
             <a href="parceiros.html">Parceiros</a>
             <a href="franquia.html">Franquia</a>
+            <a href="https://instagram.com/yama.spa" target="_blank" rel="noopener">Instagram @yama.spa</a>
+            <a href="#" data-wa="Olá, Sensei Margot Yamada! Gostaria de informações sobre o Yama Spa. Meu nome é:  | Moro em: ">
+              WhatsApp
+            </a>
           </div>
         </div>
       </div>
@@ -742,9 +805,32 @@
     </div>
   </footer>
 
+  <!-- WhatsApp Floating Button -->
+  <a class="wa-float" href="#"
+     data-wa="Olá, Sensei Margot Yamada! Quero informações sobre o Yama Spa (agendamento, cursos ou parceria). Meu nome é:  | Moro em: ">
+    <div class="wa-dot" aria-hidden="true"></div>
+    <div>
+      <span>WhatsApp</span>
+      <small>Falar agora</small>
+    </div>
+  </a>
+
   <script>
     // ano automático
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // ===== WhatsApp helper (JAPÃO +81) =====
+    // Número local: 09020816414 -> WhatsApp internacional: 819020816414
+    const WA_NUMBER = "819020816414";
+    const waLink = (msg) => `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`;
+
+    // Aplica em qualquer botão/link com data-wa
+    document.querySelectorAll("[data-wa]").forEach((el) => {
+      const msg = el.getAttribute("data-wa") || "Olá! Gostaria de informações.";
+      el.setAttribute("href", waLink(msg));
+      el.setAttribute("target", "_blank");
+      el.setAttribute("rel", "noopener");
+    });
 
     // menu mobile
     const hamb = document.getElementById("hamb");
