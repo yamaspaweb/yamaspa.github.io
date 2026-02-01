@@ -590,7 +590,13 @@
 
         <div class="actions">
           <a class="btn" href="cursos.html">🎓 Ver cursos</a>
-          <a class="btn primary" href="#form">🤝 Quero ser parceiro</a>
+
+          <!-- WhatsApp (Parceria) -->
+          <a class="btn primary"
+             data-wa="Olá! Quero solicitar parceria com o Yama Spa. Minha cidade/país é:  | Tipo de espaço (spa/salão/clínica):  | Objetivo (atendimento/cursos/ambos): ">
+            🤝 Quero ser parceiro
+          </a>
+
           <button class="hamb" id="hamb" aria-label="Abrir menu" title="Menu">☰</button>
         </div>
       </div>
@@ -606,7 +612,12 @@
 
         <div class="mobileActions">
           <a class="btn" href="cursos.html">🎓 Ver cursos</a>
-          <a class="btn primary" href="#form">🤝 Quero ser parceiro</a>
+
+          <!-- WhatsApp (Parceria) - mobile -->
+          <a class="btn primary"
+             data-wa="Olá! Quero solicitar parceria com o Yama Spa. Minha cidade/país é:  | Tipo de espaço (spa/salão/clínica):  | Objetivo (atendimento/cursos/ambos): ">
+            🤝 Quero ser parceiro
+          </a>
         </div>
       </div>
     </div>
@@ -656,12 +667,17 @@
             <div class="founderShade" aria-hidden="true"></div>
             <div class="founderInfo">
               <div class="role">Fundadora & Professora</div>
-              <h3>Margot Yamada</h3>
+              <h3>Sensei Margot Yamada</h3>
               <p>
                 A referência por trás do Yama Spa — método, padronização e excelência.
                 Parceria com suporte e autoridade real da marca.
               </p>
-              <a class="btn" href="#form">🤝 Solicitar parceria</a>
+
+              <!-- WhatsApp (Parceria) -->
+              <a class="btn"
+                 data-wa="Olá, Sensei Margot Yamada! Quero solicitar parceria com o Yama Spa. Minha cidade/país é:  | Tipo de espaço:  | Objetivo (atendimento/cursos/ambos): ">
+                📲 Solicitar parceria
+              </a>
             </div>
           </aside>
         </div>
@@ -772,7 +788,7 @@
         <div class="card feat">
           <div class="icon">👑</div>
           <h3>Convide a fundadora</h3>
-          <p>Margot Yamada pode ministrar cursos oficiais na sua unidade (agenda sob disponibilidade).</p>
+          <p>Sensei Margot Yamada pode ministrar cursos oficiais na sua unidade (agenda sob disponibilidade).</p>
         </div>
 
         <div class="card feat">
@@ -784,7 +800,7 @@
 
       <div class="alert">
         <b>Atenção:</b> Todos os cursos com certificado Yama Spa devem ser ministrados exclusivamente pela fundadora,
-        <b>Margot Yamada</b>, para manter o padrão de qualidade e autenticidade.
+        <b>Sensei Margot Yamada</b>, para manter o padrão de qualidade e autenticidade.
       </div>
     </div>
   </section>
@@ -878,8 +894,12 @@
           <p>Envie sua cidade e o tipo de espaço. Se estiver disponível, damos sequência na análise.</p>
         </div>
         <div style="display:flex; gap:10px; flex-wrap:wrap;">
-          <!-- Ajuste aqui para o WhatsApp real quando quiser -->
-          <a class="btn primary" href="#" onclick="alert('Troque este link pelo WhatsApp oficial do Yama Spa (ex: https://wa.me/XXXXXXXXXXX).'); return false;">📲 Solicitar parceria</a>
+          <!-- WhatsApp (Parceria) -->
+          <a class="btn primary"
+             data-wa="Olá! Quero verificar disponibilidade de parceria Yama Spa. Minha cidade/país é:  | Tipo de espaço (spa/salão/clínica):  | Objetivo (atendimento/cursos/ambos): ">
+            📲 Solicitar parceria
+          </a>
+
           <a class="btn" href="franquia.html">🏷️ Ver franquia</a>
         </div>
       </div>
@@ -956,6 +976,19 @@
       mobileMenu.style.display = isOpen ? "none" : "block";
       hamb.textContent = isOpen ? "☰" : "✕";
       hamb.setAttribute("aria-label", isOpen ? "Abrir menu" : "Fechar menu");
+    });
+
+    // ===== WhatsApp helper (JAPÃO +81) =====
+    // Seu número era 09020816414 -> WhatsApp internacional: 819020816414
+    const WA_NUMBER = "819020816414";
+    const waLink = (msg) => `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`;
+
+    // Aplica em qualquer botão/link com data-wa
+    document.querySelectorAll("[data-wa]").forEach((el) => {
+      const msg = el.getAttribute("data-wa") || "Olá! Gostaria de informações.";
+      el.setAttribute("href", waLink(msg));
+      el.setAttribute("target", "_blank");
+      el.setAttribute("rel", "noopener");
     });
   </script>
 </body>
