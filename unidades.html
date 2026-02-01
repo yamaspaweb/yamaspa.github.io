@@ -1,4 +1,88 @@
-<!DOCTYPE html>
+Pular para o conteúdo
+Histórico de chats
+
+
+
+
+Você disse:
+preciso refazer o site do yama spa somente na parte do Unidades o telefone do whatsapp da unidade komaki é 243-8 Yokouchi, Komaki, Aichi 485-0081 erika flores instagram @yamaspa.komaki
+O ChatGPT disse:
+Perfeito — já deixei a seção “Unidades” pronta pra você colar no site, com a Unidade Komaki atualizada com os dados que você passou (endereço, proprietária e Instagram). Como você escreveu “telefone do WhatsApp” mas enviou um endereço, eu deixei o WhatsApp como campo para preencher (só colar o número depois).
+
+Texto pronto (para site)
+Unidade Komaki 🇯🇵
+Proprietária: Erika Flores
+Endereço: 243-8 Yokouchi, Komaki, Aichi 485-0081
+Instagram: @yamaspa.komaki
+WhatsApp: (coloque aqui o número)
+
+Código HTML pronto (cards)
+Se você me disser se seu site está em HTML puro, WordPress, Notion/Super, ou outra plataforma, eu adapto o bloco no mesmo padrão do seu layout.
+
+<section id="unidades" class="unidades">
+  <div class="container">
+    <h2>Unidades</h2>
+
+    <div class="unidades-grid">
+      <!-- Komaki -->
+      <div class="unidade-card">
+        <h3>Yama Spa • Komaki</h3>
+
+        <p><strong>Proprietária:</strong> Erika Flores</p>
+        <p><strong>Endereço:</strong> 243-8 Yokouchi, Komaki, Aichi 485-0081</p>
+
+        <div class="unidade-links">
+          <a class="btn" href="https://www.instagram.com/yamaspa.komaki/" target="_blank" rel="noopener">
+            Instagram: @yamaspa.komaki
+          </a>
+
+          <!-- Troque o XXXXX pelo número real (somente dígitos, com DDI) -->
+          <a class="btn btn-whatsapp" href="https://wa.me/XXXXXXXXXXXX" target="_blank" rel="noopener">
+            WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+CSS básico (luxo, limpo e “cara de spa”)
+.unidades { padding: 64px 0; }
+.unidades .container { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
+.unidades h2 { font-size: 32px; margin-bottom: 24px; letter-spacing: 0.5px; }
+
+.unidades-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 18px;
+}
+
+.unidade-card {
+  border: 1px solid rgba(0,0,0,.08);
+  border-radius: 18px;
+  padding: 18px 18px 16px;
+  background: #fff;
+  box-shadow: 0 10px 24px rgba(0,0,0,.06);
+}
+
+.unidade-card h3 { margin: 0 0 10px; font-size: 20px; }
+.unidade-card p { margin: 6px 0; line-height: 1.45; }
+
+.unidade-links { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
+.btn {
+  display: inline-block;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,.12);
+  text-decoration: none;
+  font-weight: 600;
+}
+.btn:hover { transform: translateY(-1px); transition: .15s ease; }
+.btn-whatsapp { border-color: rgba(0,128,0,.25); }
+Só preciso de 1 coisa sua (pra finalizar 100%)
+Me manda o número do WhatsApp da unidade Komaki no formato que você usa (com DDI, ex.: +81...), que eu já devolvo o link wa.me certinho e o botão funcionando.
+
+Você disse:
+descu,poe vou enviar o site orginial e vc so atualiza a partet do yama spa komaki ali telefone e proprietaria etc <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
@@ -336,3 +420,761 @@
   </script>
 </body>
 </html>
+O ChatGPT disse:
+Fechado — atualizei somente o card da unidade Komaki (proprietária, Instagram, endereço e o botão do WhatsApp).
+⚠️ Você ainda não me passou o número do WhatsApp, então deixei um placeholder 81XXXXXXXXXXX pra você só trocar (tem que ser só números, com DDI).
+
+Abaixo está o mesmo HTML, com apenas a parte Komaki alterada:
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Unidades | Yama Spa</title>
+  <meta name="description" content="Unidades Yama Spa no Japão: Komaki e Toyoake. Agendamento, endereço e experiência premium." />
+
+  <style>
+    :root{
+      --bg:#0b0f12;
+      --card:#0f151a;
+      --text:#e9eef3;
+      --muted:#aab6c2;
+      --line:rgba(255,255,255,.08);
+      --accent:#c9a86a;
+      --accent2:#7aa6b8;
+      --radius:18px;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --max: 1120px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(1200px 600px at 20% -10%, rgba(201,168,106,.18), transparent 60%),
+                  radial-gradient(900px 500px at 90% 10%, rgba(122,166,184,.12), transparent 55%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.6;
+    }
+    a{color:inherit; text-decoration:none}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 18px}
+
+    .topbar{
+      position:sticky; top:0; z-index:10;
+      backdrop-filter: blur(10px);
+      background: rgba(11,15,18,.72);
+      border-bottom:1px solid var(--line);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+      gap:14px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px; min-width: 220px;
+    }
+    .logo{
+      width:42px; height:42px; border-radius:50%;
+      border:1px solid rgba(201,168,106,.55);
+      box-shadow: 0 0 0 4px rgba(201,168,106,.12);
+      background: rgba(255,255,255,.02);
+      display:flex; align-items:center; justify-content:center;
+      overflow:hidden;
+      flex: 0 0 auto;
+    }
+    .logo img{
+      width:100%; height:100%;
+      object-fit:contain;
+      padding:6px;
+      display:block;
+    }
+    .brand b{letter-spacing:.6px}
+    .brand small{display:block; color:var(--muted); margin-top:-2px; font-size:12px}
+
+    .menu{
+      display:flex; flex-wrap:wrap; gap:10px;
+      justify-content:flex-end;
+    }
+    .menu a{
+      padding:8px 10px;
+      border:1px solid transparent;
+      border-radius:999px;
+      color:var(--muted);
+      font-size:14px;
+    }
+    .menu a:hover{
+      color:var(--text);
+      border-color:var(--line);
+      background: rgba(255,255,255,.03);
+    }
+
+    .cta{display:flex; gap:10px; align-items:center}
+    .btn{
+      padding:10px 14px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      color:var(--text);
+      font-weight:600;
+      font-size:14px;
+      cursor:pointer;
+      display:inline-block;
+    }
+    .btn:hover{border-color:rgba(201,168,106,.45)}
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(201,168,106,.95), rgba(201,168,106,.65));
+      border-color: rgba(201,168,106,.4);
+      color:#101418;
+    }
+    .btn.primary:hover{filter:brightness(1.05)}
+    .btn.ghost{
+      border-color: rgba(201,168,106,.28);
+      background: rgba(201,168,106,.06);
+    }
+
+    .hero{
+      padding:58px 0 18px;
+    }
+    .hero-card{
+      border:1px solid var(--line);
+      background: rgba(15,21,26,.78);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding:28px;
+      position:relative;
+      overflow:hidden;
+    }
+    .hero-card:before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background: radial-gradient(600px 300px at 20% 0%, rgba(201,168,106,.20), transparent 65%),
+                  radial-gradient(500px 300px at 90% 20%, rgba(122,166,184,.16), transparent 55%);
+      z-index:0;
+    }
+    .hero-card > *{position:relative; z-index:1}
+    h1{margin:0 0 10px; font-size:34px; line-height:1.15}
+    .lead{margin:0; color:var(--muted); max-width: 900px}
+
+    .badges{display:flex; gap:10px; flex-wrap:wrap; margin-top:16px}
+    .badge{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      color:var(--muted);
+      border-radius:999px;
+      padding:8px 10px;
+      font-size:13px;
+    }
+
+    .section{padding:26px 0}
+    .section-head{
+      display:flex; align-items:flex-end; justify-content:space-between;
+      gap:12px; margin-bottom:12px;
+    }
+    .section-head h2{margin:0; font-size:22px}
+    .section-head p{margin:0; color:var(--muted); font-size:14px; max-width:560px}
+
+    .cards{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+    }
+    .card{
+      border:1px solid var(--line);
+      background: rgba(15,21,26,.55);
+      border-radius: var(--radius);
+      padding:18px;
+      box-shadow: 0 10px 25px rgba(0,0,0,.22);
+    }
+    .card h3{margin:0 0 6px; font-size:18px}
+    .card p{margin:0 0 10px; color:var(--muted); font-size:14px}
+    .row{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px}
+    .muted{color:var(--muted); font-size:13px}
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      color: var(--muted);
+      font-size:13px;
+      margin-right:8px;
+      margin-top:8px;
+    }
+
+    .split{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+    }
+
+    .footer{
+      margin-top:30px;
+      border-top:1px solid var(--line);
+      padding:22px 0 40px;
+      color:var(--muted);
+      font-size:13px;
+    }
+    .note{color:var(--muted); font-size:12px; margin-top:8px}
+
+    @media (max-width: 940px){
+      h1{font-size:28px}
+      .cards{grid-template-columns:1fr}
+      .split{grid-template-columns:1fr}
+      .menu{justify-content:flex-start}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="topbar">
+    <div class="wrap">
+      <div class="nav">
+        <a class="brand" href="index.html">
+          <div class="logo">
+            <img src="assets/images/logo/logo-yama-spa.png" alt="Yama Spa Logo">
+          </div>
+          <div>
+            <b>YAMA SPA</b>
+            <small>Komaki • Toyoake • Japão</small>
+          </div>
+        </a>
+
+        <div class="menu">
+          <a href="franquia.html">Franquia</a>
+          <a href="cursos.html">Cursos</a>
+          <a href="parceiros.html">Parceiros</a>
+          <a href="unidades.html" style="color:var(--text); border-color:var(--line); background:rgba(255,255,255,.03);">Unidades</a>
+          <a href="produtos.html">Produtos</a>
+          <a href="blog.html">Blog</a>
+          <a href="quem-somos.html">Quem somos</a>
+          <a href="index.html#contato">Contato</a>
+        </div>
+
+        <div class="cta">
+          <a class="btn" href="index.html#contato">Agendar</a>
+          <a class="btn primary" href="franquia.html">Quero ter meu Yama Spa</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap hero">
+    <div class="hero-card">
+      <h1>Unidades Yama Spa</h1>
+      <p class="lead">
+        Atendimento no Japão com padrão Yama Spa. Escolha a unidade,
+        clique no agendamento e fale com a equipe.
+      </p>
+
+      <div class="badges">
+        <div class="badge">✨ Experiência premium</div>
+        <div class="badge">🤍 Ambiente acolhedor</div>
+        <div class="badge">📍 Japão</div>
+        <div class="badge">📲 Agendamento fácil</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap section">
+    <div class="section-head">
+      <div>
+        <h2>Escolha sua unidade</h2>
+        <p>Em breve: fotos, mapa e lista de serviços por unidade.</p>
+      </div>
+    </div>
+
+    <div class="cards">
+      <!-- ✅ ATUALIZADO: KOMAKI -->
+      <div class="card">
+        <h3>Komaki</h3>
+        <p>
+          Unidade principal — <strong>Erika Flores</strong> •
+          <a href="https://www.instagram.com/yamaspa.komaki/" target="_blank" rel="noopener" style="color:var(--text); text-decoration:underline;">
+            @yamaspa.komaki
+          </a>
+          <br>
+          <span class="muted">📍 243-8 Yokouchi, Komaki, Aichi 485-0081</span>
+        </p>
+
+        <div class="pill">⏱️ Duração: 60–120 min</div>
+        <div class="pill">🌿 Técnicas: relax / terapêutica</div>
+        <div class="pill">✨ Ambiente: premium</div>
+
+        <div class="row">
+          <!-- Troque 81XXXXXXXXXXX pelo WhatsApp real (somente números, com DDI) -->
+          <a class="btn primary" href="https://wa.me/81XXXXXXXXXXX" target="_blank" rel="noopener">Agendar Komaki</a>
+          <a class="btn ghost" href="https://www.instagram.com/yamaspa.komaki/" target="_blank" rel="noopener">Instagram</a>
+        </div>
+
+        <div class="note">* WhatsApp: substitua <b>81XXXXXXXXXXX</b> pelo número real (somente dígitos).</div>
+      </div>
+
+      <!-- Toyoake (sem alterações) -->
+      <div class="card">
+        <h3>Toyoake</h3>
+        <p>Unidade parceira com padrão Yama Spa e atendimento profissional.</p>
+
+        <div class="pill">⏱️ Duração: 60–120 min</div>
+        <div class="pill">🌿 Técnicas: relax / terapêutica</div>
+        <div class="pill">✨ Padrão: Yama Spa</div>
+
+        <div class="row">
+          <a class="btn primary" href="https://wa.me/" target="_blank" rel="noopener">Agendar Toyoake</a>
+          <a class="btn ghost" href="#" target="_blank" rel="noopener">Ver no Google Maps</a>
+        </div>
+
+        <div class="note">* Ajustaremos WhatsApp e Maps quando você me passar os links.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap section">
+    <div class="section-head">
+      <div>
+        <h2>Como é o atendimento</h2>
+        <p>Um padrão silencioso, elegante e humano — sem pressa.</p>
+      </div>
+      <a class="btn" href="cursos.html">Quero me formar</a>
+    </div>
+
+    <div class="split">
+      <div class="card">
+        <h3>Antes</h3>
+        <p>Boas-vindas, alinhamento do objetivo, tensão do corpo e preferências.</p>
+      </div>
+      <div class="card">
+        <h3>Durante</h3>
+        <p>Técnica com presença, pressão consciente e respeito ao seu ritmo.</p>
+      </div>
+    </div>
+
+    <div class="split" style="margin-top:14px;">
+      <div class="card">
+        <h3>Depois</h3>
+        <p>Orientações simples para manter o corpo leve e prolongar o bem-estar.</p>
+      </div>
+      <div class="card">
+        <h3>Padrão Yama Spa</h3>
+        <p>Qualidade, ética, postura e experiência premium de verdade.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap footer">
+    <div>
+      <b>Yama Spa</b> • Japão
+      <div class="note">© <span id="year"></span> Yama Spa. Todos os direitos reservados.</div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+✅ Agora só troca isso aqui:
+
+https://wa.me/81XXXXXXXXXXX → coloque o WhatsApp real da Komaki (ex.: https://wa.me/819012345678)
+
+Se você me mandar o número certinho, eu já devolvo o link final já pronto (e se você quiser também eu coloco um botão “Ver no Google Maps” com o link exato do endereço).
+
+Você disse:
+o telefone é esse 08052960674
+O ChatGPT disse:
+Perfeito — atualizado ✅
+Como esse número começa com 0, ele é formato local do Japão. Para link do WhatsApp (wa.me) precisa ser em formato internacional (E.164):
+
+08052960674 → +81 80 5296 0674 → 818052960674 (sem “+”, sem espaços)
+
+Então o botão fica assim:
+
+<a class="btn primary" href="https://wa.me/818052960674" target="_blank" rel="noopener">Agendar Komaki</a>
+Trecho Komaki (já pronto, só substituir no seu arquivo)
+Substitua somente o card Komaki pelo bloco abaixo:
+
+<div class="card">
+  <h3>Komaki</h3>
+  <p>
+    Unidade principal — <strong>Erika Flores</strong> •
+    <a href="https://www.instagram.com/yamaspa.komaki/" target="_blank" rel="noopener" style="color:var(--text); text-decoration:underline;">
+      @yamaspa.komaki
+    </a>
+    <br>
+    <span class="muted">📍 243-8 Yokouchi, Komaki, Aichi 485-0081</span>
+    <br>
+    <span class="muted">📞 WhatsApp: 080-5296-0674</span>
+  </p>
+
+  <div class="pill">⏱️ Duração: 60–120 min</div>
+  <div class="pill">🌿 Técnicas: relax / terapêutica</div>
+  <div class="pill">✨ Ambiente: premium</div>
+
+  <div class="row">
+    <a class="btn primary" href="https://wa.me/818052960674" target="_blank" rel="noopener">Agendar Komaki</a>
+    <a class="btn ghost" href="https://www.instagram.com/yamaspa.komaki/" target="_blank" rel="noopener">Instagram</a>
+  </div>
+
+  <div class="note">* Atendimento via WhatsApp: +81 80-5296-0674</div>
+</div>
+Se você quiser, eu também já coloco o link do Google Maps certinho pra esse endereço (com o botão “Ver no Google Maps”) — mas com WhatsApp já está 100% funcionando.
+
+Você disse:
+refaca completo para eu colar
+O ChatGPT disse:
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Unidades | Yama Spa</title>
+  <meta name="description" content="Unidades Yama Spa no Japão: Komaki e Toyoake. Agendamento, endereço e experiência premium." />
+
+  <style>
+    :root{
+      --bg:#0b0f12;
+      --card:#0f151a;
+      --text:#e9eef3;
+      --muted:#aab6c2;
+      --line:rgba(255,255,255,.08);
+      --accent:#c9a86a;
+      --accent2:#7aa6b8;
+      --radius:18px;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --max: 1120px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(1200px 600px at 20% -10%, rgba(201,168,106,.18), transparent 60%),
+                  radial-gradient(900px 500px at 90% 10%, rgba(122,166,184,.12), transparent 55%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.6;
+    }
+    a{color:inherit; text-decoration:none}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 18px}
+
+    .topbar{
+      position:sticky; top:0; z-index:10;
+      backdrop-filter: blur(10px);
+      background: rgba(11,15,18,.72);
+      border-bottom:1px solid var(--line);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+      gap:14px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px; min-width: 220px;
+    }
+    .logo{
+      width:42px; height:42px; border-radius:50%;
+      border:1px solid rgba(201,168,106,.55);
+      box-shadow: 0 0 0 4px rgba(201,168,106,.12);
+      background: rgba(255,255,255,.02);
+      display:flex; align-items:center; justify-content:center;
+      overflow:hidden;
+      flex: 0 0 auto;
+    }
+    .logo img{
+      width:100%; height:100%;
+      object-fit:contain;
+      padding:6px;
+      display:block;
+    }
+    .brand b{letter-spacing:.6px}
+    .brand small{display:block; color:var(--muted); margin-top:-2px; font-size:12px}
+
+    .menu{
+      display:flex; flex-wrap:wrap; gap:10px;
+      justify-content:flex-end;
+    }
+    .menu a{
+      padding:8px 10px;
+      border:1px solid transparent;
+      border-radius:999px;
+      color:var(--muted);
+      font-size:14px;
+    }
+    .menu a:hover{
+      color:var(--text);
+      border-color:var(--line);
+      background: rgba(255,255,255,.03);
+    }
+
+    .cta{display:flex; gap:10px; align-items:center}
+    .btn{
+      padding:10px 14px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      color:var(--text);
+      font-weight:600;
+      font-size:14px;
+      cursor:pointer;
+      display:inline-block;
+    }
+    .btn:hover{border-color:rgba(201,168,106,.45)}
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(201,168,106,.95), rgba(201,168,106,.65));
+      border-color: rgba(201,168,106,.4);
+      color:#101418;
+    }
+    .btn.primary:hover{filter:brightness(1.05)}
+    .btn.ghost{
+      border-color: rgba(201,168,106,.28);
+      background: rgba(201,168,106,.06);
+    }
+
+    .hero{
+      padding:58px 0 18px;
+    }
+    .hero-card{
+      border:1px solid var(--line);
+      background: rgba(15,21,26,.78);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding:28px;
+      position:relative;
+      overflow:hidden;
+    }
+    .hero-card:before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background: radial-gradient(600px 300px at 20% 0%, rgba(201,168,106,.20), transparent 65%),
+                  radial-gradient(500px 300px at 90% 20%, rgba(122,166,184,.16), transparent 55%);
+      z-index:0;
+    }
+    .hero-card > *{position:relative; z-index:1}
+    h1{margin:0 0 10px; font-size:34px; line-height:1.15}
+    .lead{margin:0; color:var(--muted); max-width: 900px}
+
+    .badges{display:flex; gap:10px; flex-wrap:wrap; margin-top:16px}
+    .badge{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      color:var(--muted);
+      border-radius:999px;
+      padding:8px 10px;
+      font-size:13px;
+    }
+
+    .section{padding:26px 0}
+    .section-head{
+      display:flex; align-items:flex-end; justify-content:space-between;
+      gap:12px; margin-bottom:12px;
+    }
+    .section-head h2{margin:0; font-size:22px}
+    .section-head p{margin:0; color:var(--muted); font-size:14px; max-width:560px}
+
+    .cards{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+    }
+    .card{
+      border:1px solid var(--line);
+      background: rgba(15,21,26,.55);
+      border-radius: var(--radius);
+      padding:18px;
+      box-shadow: 0 10px 25px rgba(0,0,0,.22);
+    }
+    .card h3{margin:0 0 6px; font-size:18px}
+    .card p{margin:0 0 10px; color:var(--muted); font-size:14px}
+    .row{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px}
+    .muted{color:var(--muted); font-size:13px}
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      color: var(--muted);
+      font-size:13px;
+      margin-right:8px;
+      margin-top:8px;
+    }
+
+    .split{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+    }
+
+    .footer{
+      margin-top:30px;
+      border-top:1px solid var(--line);
+      padding:22px 0 40px;
+      color:var(--muted);
+      font-size:13px;
+    }
+    .note{color:var(--muted); font-size:12px; margin-top:8px}
+
+    @media (max-width: 940px){
+      h1{font-size:28px}
+      .cards{grid-template-columns:1fr}
+      .split{grid-template-columns:1fr}
+      .menu{justify-content:flex-start}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="topbar">
+    <div class="wrap">
+      <div class="nav">
+        <a class="brand" href="index.html">
+          <div class="logo">
+            <img src="assets/images/logo/logo-yama-spa.png" alt="Yama Spa Logo">
+          </div>
+          <div>
+            <b>YAMA SPA</b>
+            <small>Komaki • Toyoake • Japão</small>
+          </div>
+        </a>
+
+        <div class="menu">
+          <a href="franquia.html">Franquia</a>
+          <a href="cursos.html">Cursos</a>
+          <a href="parceiros.html">Parceiros</a>
+          <a href="unidades.html" style="color:var(--text); border-color:var(--line); background:rgba(255,255,255,.03);">Unidades</a>
+          <a href="produtos.html">Produtos</a>
+          <a href="blog.html">Blog</a>
+          <a href="quem-somos.html">Quem somos</a>
+          <a href="index.html#contato">Contato</a>
+        </div>
+
+        <div class="cta">
+          <a class="btn" href="index.html#contato">Agendar</a>
+          <a class="btn primary" href="franquia.html">Quero ter meu Yama Spa</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap hero">
+    <div class="hero-card">
+      <h1>Unidades Yama Spa</h1>
+      <p class="lead">
+        Atendimento no Japão com padrão Yama Spa. Escolha a unidade,
+        clique no agendamento e fale com a equipe.
+      </p>
+
+      <div class="badges">
+        <div class="badge">✨ Experiência premium</div>
+        <div class="badge">🤍 Ambiente acolhedor</div>
+        <div class="badge">📍 Japão</div>
+        <div class="badge">📲 Agendamento fácil</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap section">
+    <div class="section-head">
+      <div>
+        <h2>Escolha sua unidade</h2>
+        <p>Em breve: fotos, mapa e lista de serviços por unidade.</p>
+      </div>
+    </div>
+
+    <div class="cards">
+      <!-- ✅ KOMAKI (ATUALIZADO) -->
+      <div class="card">
+        <h3>Komaki</h3>
+        <p>
+          Unidade principal — <strong>Erika Flores</strong> •
+          <a href="https://www.instagram.com/yamaspa.komaki/" target="_blank" rel="noopener" style="color:var(--text); text-decoration:underline;">
+            @yamaspa.komaki
+          </a>
+          <br>
+          <span class="muted">📍 243-8 Yokouchi, Komaki, Aichi 485-0081</span>
+          <br>
+          <span class="muted">📞 WhatsApp: 080-5296-0674</span>
+        </p>
+
+        <div class="pill">⏱️ Duração: 60–120 min</div>
+        <div class="pill">🌿 Técnicas: relax / terapêutica</div>
+        <div class="pill">✨ Ambiente: premium</div>
+
+        <div class="row">
+          <!-- WhatsApp em formato internacional (Japão): 080... -> +81 80... -->
+          <a class="btn primary" href="https://wa.me/818052960674" target="_blank" rel="noopener">Agendar Komaki</a>
+          <a class="btn ghost" href="https://www.instagram.com/yamaspa.komaki/" target="_blank" rel="noopener">Instagram</a>
+        </div>
+
+        <div class="note">* Atendimento via WhatsApp: +81 80-5296-0674</div>
+      </div>
+
+      <!-- Toyoake (sem alterações) -->
+      <div class="card">
+        <h3>Toyoake</h3>
+        <p>Unidade parceira com padrão Yama Spa e atendimento profissional.</p>
+
+        <div class="pill">⏱️ Duração: 60–120 min</div>
+        <div class="pill">🌿 Técnicas: relax / terapêutica</div>
+        <div class="pill">✨ Padrão: Yama Spa</div>
+
+        <div class="row">
+          <a class="btn primary" href="https://wa.me/" target="_blank" rel="noopener">Agendar Toyoake</a>
+          <a class="btn ghost" href="#" target="_blank" rel="noopener">Ver no Google Maps</a>
+        </div>
+
+        <div class="note">* Ajustaremos WhatsApp e Maps quando você me passar os links.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap section">
+    <div class="section-head">
+      <div>
+        <h2>Como é o atendimento</h2>
+        <p>Um padrão silencioso, elegante e humano — sem pressa.</p>
+      </div>
+      <a class="btn" href="cursos.html">Quero me formar</a>
+    </div>
+
+    <div class="split">
+      <div class="card">
+        <h3>Antes</h3>
+        <p>Boas-vindas, alinhamento do objetivo, tensão do corpo e preferências.</p>
+      </div>
+      <div class="card">
+        <h3>Durante</h3>
+        <p>Técnica com presença, pressão consciente e respeito ao seu ritmo.</p>
+      </div>
+    </div>
+
+    <div class="split" style="margin-top:14px;">
+      <div class="card">
+        <h3>Depois</h3>
+        <p>Orientações simples para manter o corpo leve e prolongar o bem-estar.</p>
+      </div>
+      <div class="card">
+        <h3>Padrão Yama Spa</h3>
+        <p>Qualidade, ética, postura e experiência premium de verdade.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap footer">
+    <div>
+      <b>Yama Spa</b> • Japão
+      <div class="note">© <span id="year"></span> Yama Spa. Todos os direitos reservados.</div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+
+
+
+Nenhum arquivo escolhidoNenhum arquivo escolhido
+O ChatGPT pode cometer erros. Confira informações importantes. Consulte as .
