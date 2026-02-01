@@ -174,6 +174,7 @@
       display:flex;
       gap:10px;
       padding: 10px 12px 0;
+      flex-wrap:wrap;
     }
     .mobileActions .btn{ width:100%; }
 
@@ -194,7 +195,7 @@
       box-shadow: var(--shadow);
     }
 
-    /* Usa a MESMA foto do index (pra não quebrar) */
+    /* Usa a MESMA foto do index */
     .heroBg{
       position:absolute;
       inset:0;
@@ -353,11 +354,6 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 14px;
     }
-    .grid2{
-      display:grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
-    }
 
     .card{
       border-radius: var(--radius);
@@ -449,17 +445,50 @@
     }
     .links a:hover{ color: var(--text); background: rgba(255,255,255,.05); transform: translateY(-1px); }
 
-    /* ====== RESPONSIVE ====== */
+    /* ===== WhatsApp Floating Button (Premium) ===== */
+    .wa-float{
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 9999;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(216,184,106,.45);
+      background: linear-gradient(135deg, rgba(216,184,106,.22), rgba(216,184,106,.08));
+      box-shadow: 0 14px 40px rgba(0,0,0,.55);
+      backdrop-filter: blur(10px);
+      color: var(--text);
+      font-weight: 800;
+      transition: .2s ease;
+    }
+    .wa-dot{
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.85);
+      box-shadow: 0 0 0 6px rgba(216,184,106,.14);
+      opacity: .9;
+    }
+    .wa-float small{
+      display:block;
+      color: rgba(245,246,251,.78);
+      font-weight: 650;
+      margin-top: -2px;
+      font-size: 12px;
+      letter-spacing: .02em;
+    }
+    .wa-float:hover{
+      transform: translateY(-1px);
+      filter: brightness(1.04);
+    }
     @media (max-width: 980px){
       .menu{ display:none; }
       .hamb{ display:inline-grid; place-items:center; }
-      .heroInner{
-        grid-template-columns: 1fr;
-        gap: 14px;
-        padding: 18px;
-      }
+      .heroInner{ grid-template-columns: 1fr; gap: 14px; padding: 18px; }
       .grid3{ grid-template-columns: 1fr; }
-      .grid2{ grid-template-columns: 1fr; }
       .ctaStrip{ flex-direction:column; align-items:flex-start; }
     }
     @media (max-width: 520px){
@@ -467,6 +496,8 @@
       .hero h1{ font-size: 30px; }
       .hero p{ font-size: 14px; }
       .founderCard{ min-height: 280px; }
+      .wa-float span{ display:none; }
+      .wa-float{ padding: 12px; }
     }
   </style>
 </head>
@@ -493,6 +524,9 @@
           <a href="produtos.html">Produtos</a>
           <a href="blog.html">Blog</a>
           <a class="active" href="quem-somos.html">Quem somos</a>
+          <a href="#" data-wa="Olá! Quero falar com a equipe do Yama Spa. Meu nome é:  | Cidade/País:  | Assunto: ">
+            Contato
+          </a>
         </nav>
 
         <div class="actions">
@@ -510,10 +544,17 @@
         <a href="produtos.html">Produtos</a>
         <a href="blog.html">Blog</a>
         <a class="active" href="quem-somos.html">Quem somos</a>
+        <a href="#" data-wa="Olá! Quero falar com a equipe do Yama Spa. Meu nome é:  | Cidade/País:  | Assunto: ">
+          Contato
+        </a>
 
         <div class="mobileActions">
-          <a class="btn" href="cursos.html">🎓 Ver cursos</a>
-          <a class="btn primary" href="parceiros.html">🤝 Seja parceiro</a>
+          <a class="btn primary" href="#" data-wa="Olá! Quero informações sobre cursos/parcerias/unidades do Yama Spa. Meu nome é:  | Cidade/País:  | Interesse: ">
+            📲 Falar no WhatsApp
+          </a>
+          <a class="btn" href="https://instagram.com/yama.spa" target="_blank" rel="noopener">
+            📷 Instagram @yama.spa
+          </a>
         </div>
       </div>
     </div>
@@ -551,6 +592,9 @@
             <div class="heroBtns">
               <a class="btn primary" href="cursos.html">🎓 Quero aprender com a Margot</a>
               <a class="btn" href="unidades.html">📍 Ver unidades</a>
+              <a class="btn" href="#" data-wa="Olá! Quero falar com a equipe do Yama Spa. Meu nome é:  | Cidade/País:  | Assunto: ">
+                📲 Contato
+              </a>
             </div>
           </div>
 
@@ -562,7 +606,7 @@
               <h3>Margot Yamada</h3>
               <p>
                 Mais do que a fundadora, Margot é a essência do Yama Spa.
-                 Seu método combina técnica, sensibilidade, postura e presença, transformando 
+                Seu método combina técnica, sensibilidade, postura e presença, transformando
                 cada atendimento em uma experiência de cuidado profundo e consciente.
               </p>
               <a class="btn" href="cursos.html">🎓 Ver cursos</a>
@@ -628,7 +672,7 @@
         <div class="card feat">
           <div class="icon">🤝</div>
           <h3>Franquia (sem mensalidade/royalty)</h3>
-          <p>Modelo leve e organizado para quem quer “ter seu Yama Spa” do jeito certo.</p>
+          <p>Modelo leve e organizado para quem quer ter seu Yama Spa do jeito certo.</p>
           <div style="margin-top:12px;">
             <a class="btn primary" href="franquia.html">🚀 Quero ter meu Yama Spa</a>
           </div>
@@ -678,6 +722,9 @@
         <div style="display:flex; gap:10px; flex-wrap:wrap;">
           <a class="btn primary" href="cursos.html">🎓 Ver cursos</a>
           <a class="btn" href="parceiros.html">🤝 Ser parceiro</a>
+          <a class="btn" href="#" data-wa="Olá! Quero falar com a equipe do Yama Spa. Meu nome é:  | Cidade/País:  | Assunto: ">
+            📲 Contato
+          </a>
         </div>
       </div>
     </div>
@@ -718,9 +765,31 @@
     </div>
   </footer>
 
+  <!-- WhatsApp Floating Button -->
+  <a class="wa-float" href="#"
+     data-wa="Olá! Quero falar com a equipe do Yama Spa. Meu nome é:  | Cidade/País:  | Assunto: ">
+    <div class="wa-dot" aria-hidden="true"></div>
+    <div>
+      <span>WhatsApp</span>
+      <small>Falar agora</small>
+    </div>
+  </a>
+
   <script>
     // ano automático
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // ===== WhatsApp helper (JAPÃO +81) =====
+    // Seu número local: 09020816414 -> WhatsApp internacional: 819020816414
+    const WA_NUMBER = "819020816414";
+    const waLink = (msg) => `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`;
+
+    document.querySelectorAll("[data-wa]").forEach((el) => {
+      const msg = el.getAttribute("data-wa") || "Olá! Gostaria de informações.";
+      el.setAttribute("href", waLink(msg));
+      el.setAttribute("target", "_blank");
+      el.setAttribute("rel", "noopener");
+    });
 
     // menu mobile (igual ao index)
     const hamb = document.getElementById("hamb");
