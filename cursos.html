@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cursos | Yama Spa</title>
-  <meta name="description" content="Cursos Yama Spa: formação profissional premium. Integração com CIMS School para certificações e especializações." />
+  <meta name="description" content="Cursos Yama Spa: formação profissional com técnica, presença e padrão premium. Do iniciante ao avançado." />
 
   <style>
     :root{
@@ -32,9 +32,8 @@
     a{color:inherit; text-decoration:none}
     .wrap{max-width:var(--max); margin:0 auto; padding:0 18px}
 
-    /* Topo */
     .topbar{
-      position:sticky; top:0; z-index:10;
+      position:sticky; top:0; z-index:50;
       backdrop-filter: blur(10px);
       background: rgba(11,15,18,.72);
       border-bottom:1px solid var(--line);
@@ -93,6 +92,7 @@
       font-size:14px;
       cursor:pointer;
       display:inline-block;
+      white-space:nowrap;
     }
     .btn:hover{border-color:rgba(201,168,106,.45)}
     .btn.primary{
@@ -101,11 +101,13 @@
       color:#101418;
     }
     .btn.primary:hover{filter:brightness(1.05)}
-
-    /* Hero */
-    .hero{
-      padding:58px 0 18px;
+    .btn.ghost{
+      border-color: rgba(201,168,106,.28);
+      background: rgba(201,168,106,.06);
     }
+
+    /* HERO */
+    .hero{ padding:58px 0 18px; }
     .hero-card{
       border:1px solid var(--line);
       background: rgba(15,21,26,.78);
@@ -125,7 +127,7 @@
     }
     .hero-card > *{position:relative; z-index:1}
     h1{margin:0 0 10px; font-size:34px; line-height:1.15}
-    .lead{margin:0; color:var(--muted); max-width: 880px}
+    .lead{margin:0; color:var(--muted); max-width: 900px}
 
     .badges{display:flex; gap:10px; flex-wrap:wrap; margin-top:16px}
     .badge{
@@ -137,7 +139,7 @@
       font-size:13px;
     }
 
-    /* Seções */
+    /* SECTIONS */
     .section{padding:26px 0}
     .section-head{
       display:flex; align-items:flex-end; justify-content:space-between;
@@ -146,9 +148,9 @@
     .section-head h2{margin:0; font-size:22px}
     .section-head p{margin:0; color:var(--muted); font-size:14px; max-width:560px}
 
-    .grid3{
+    .cards{
       display:grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: 1fr 1fr;
       gap:14px;
     }
     .card{
@@ -158,14 +160,22 @@
       padding:18px;
       box-shadow: 0 10px 25px rgba(0,0,0,.22);
     }
-    .card h3{margin:0 0 6px; font-size:16px}
+    .card h3{margin:0 0 6px; font-size:18px}
     .card p{margin:0 0 10px; color:var(--muted); font-size:14px}
-    .card a.more{
-      display:inline-flex; gap:8px; align-items:center;
-      color:var(--text);
-      font-weight:700; font-size:14px;
+
+    .row{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px}
+    .muted{color:var(--muted); font-size:13px}
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      color: var(--muted);
+      font-size:13px;
+      margin-right:8px;
+      margin-top:8px;
     }
-    .card a.more span{color:var(--accent)}
 
     .split{
       display:grid;
@@ -182,55 +192,79 @@
     }
     .note{color:var(--muted); font-size:12px; margin-top:8px}
 
+    /* BOTÃO FLUTUANTE */
+    .float-cta{
+      position: fixed;
+      right: 16px;
+      bottom: 18px;
+      z-index: 80;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      padding:12px 14px;
+      border-radius:999px;
+      border:1px solid rgba(201,168,106,.28);
+      background: rgba(11,15,18,.72);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 24px rgba(0,0,0,.35);
+    }
+    .dot{
+      width:10px; height:10px; border-radius:50%;
+      background: rgba(201,168,106,.95);
+      box-shadow: 0 0 0 4px rgba(201,168,106,.18);
+      flex:0 0 auto;
+    }
+    .float-cta span{font-weight:700}
+    .float-cta small{display:block; color:var(--muted); font-weight:600; margin-top:-2px}
+
+    /* --- MOBILE MENU (hambúrguer) --- */
+    .hamburger{
+      display:none;
+      width:42px; height:42px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      align-items:center;
+      justify-content:center;
+      gap:5px;
+      cursor:pointer;
+    }
+    .hamburger span{
+      width:18px;
+      height:2px;
+      background: rgba(233,238,243,.92);
+      display:block;
+      border-radius:2px;
+    }
+
     @media (max-width: 940px){
       h1{font-size:28px}
-      .grid3{grid-template-columns:1fr}
+      .cards{grid-template-columns:1fr}
       .split{grid-template-columns:1fr}
       .menu{justify-content:flex-start}
-    }
 
-    /* ===== WhatsApp Floating Button (Premium) ===== */
-    .wa-float{
-      position: fixed;
-      right: 18px;
-      bottom: 18px;
-      z-index: 9999;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 12px 14px;
-      border-radius: 999px;
-      border: 1px solid rgba(201,168,106,.45);
-      background: linear-gradient(135deg, rgba(201,168,106,.22), rgba(201,168,106,.08));
-      box-shadow: 0 14px 40px rgba(0,0,0,.55);
-      backdrop-filter: blur(10px);
-      color: var(--text);
-      font-weight: 750;
-    }
-    .wa-dot{
-      width: 10px;
-      height: 10px;
-      border-radius: 999px;
-      background: rgba(255,255,255,.85);
-      box-shadow: 0 0 0 6px rgba(201,168,106,.14);
-      opacity: .9;
-    }
-    .wa-float small{
-      display:block;
-      color: rgba(233,238,243,.78);
-      font-weight: 650;
-      margin-top: -2px;
-      font-size: 12px;
-      letter-spacing: .02em;
-    }
-    .wa-float:hover{
-      transform: translateY(-1px);
-      filter: brightness(1.04);
-    }
-
-    @media (max-width:520px){
-      .wa-float span{display:none;}
-      .wa-float{padding: 12px;}
+      .nav{ flex-wrap:wrap; gap:10px; }
+      .menu{ display:none; }
+      .hamburger{ display:flex; }
+      .menu.open{
+        display:flex;
+        flex-direction:column;
+        width:100%;
+        padding:14px 0 6px;
+        gap:8px;
+        border-top:1px solid var(--line);
+        margin-top:6px;
+      }
+      .menu a{
+        width:100%;
+        padding:12px 12px;
+        border-radius:14px;
+        border:1px solid var(--line);
+        background: rgba(255,255,255,.02);
+        color:var(--text);
+      }
+      .cta{ margin-left:auto; gap:8px; }
+      .cta .btn{ padding:10px 12px; }
     }
   </style>
 </head>
@@ -249,7 +283,13 @@
           </div>
         </a>
 
-        <div class="menu">
+        <!-- Botão Hambúrguer (mobile) -->
+        <button class="hamburger" id="hamburgerBtn" aria-label="Abrir menu" aria-expanded="false" type="button">
+          <span></span><span></span><span></span>
+        </button>
+
+        <!-- Menu -->
+        <div class="menu" id="mobileMenu">
           <a href="franquia.html">Franquia</a>
           <a href="cursos.html" style="color:var(--text); border-color:var(--line); background:rgba(255,255,255,.03);">Cursos</a>
           <a href="parceiros.html">Parceiros</a>
@@ -257,17 +297,11 @@
           <a href="produtos.html">Produtos</a>
           <a href="blog.html">Blog</a>
           <a href="quem-somos.html">Quem somos</a>
-
-          <!-- Contato -> WhatsApp -->
-          <a href="#"
-             data-wa="Olá! Quero falar com a Sensei Margot Yamada sobre cursos do Yama Spa. Pode me enviar datas, valores e currículo?">
-            Contato
-          </a>
+          <a href="index.html#contato">Contato</a>
         </div>
 
         <div class="cta">
-          <!-- Agendar: desce para contato -->
-          <a class="btn" href="#contato">Agendar</a>
+          <a class="btn" href="index.html#contato">Agendar</a>
           <a class="btn primary" href="franquia.html">Quero ter meu Yama Spa</a>
         </div>
       </div>
@@ -279,14 +313,14 @@
       <h1>Cursos Yama Spa</h1>
       <p class="lead">
         Formação profissional para quem quer atender com técnica, presença e padrão premium.
-        Aqui você encontra o caminho do iniciante ao avançado — e também a integração com a <b>CIMS School</b>
-        (parceira) para certificações e especializações.
+        Do iniciante ao avançado — e também integração com a CIMS School (parceira) para certificações e especializações.
       </p>
+
       <div class="badges">
         <div class="badge">🎓 Formação profissional</div>
-        <div class="badge">🧠 Ergonomia e postura</div>
-        <div class="badge">✨ Experiência premium</div>
-        <div class="badge">🏅 Certificações (CIMS)</div>
+        <div class="badge">🧍‍♀️ Ergonomia e postura</div>
+        <div class="badge">✨ Padrão premium</div>
+        <div class="badge">📍 Japão</div>
       </div>
     </div>
   </div>
@@ -294,150 +328,152 @@
   <div class="wrap section">
     <div class="section-head">
       <div>
-        <h2>Trilhas de formação</h2>
-        <p>Organizamos o aprendizado para você evoluir com clareza e confiança.</p>
+        <h2>Trilhas de aprendizado</h2>
+        <p>Escolha um caminho e fale com a equipe para datas, valores e vagas.</p>
       </div>
-
-      <!-- Datas e valores -> WhatsApp -->
-      <a class="btn"
-         href="#"
-         data-wa="Olá, Sensei Margot Yamada! Quero pedir datas e valores dos cursos do Yama Spa. Meu nome é:  | Moro em: ">
-        Pedir datas e valores
-      </a>
+      <a class="btn" href="unidades.html">Ver unidades</a>
     </div>
 
-    <div class="grid3">
+    <div class="cards">
       <div class="card">
-        <h3>Base (Iniciante)</h3>
-        <p>Fundamentos para atender com segurança: postura, toque, ritmo e atendimento.</p>
-        <a class="more" href="#"
-           data-wa="Olá, Sensei Margot Yamada! Quero começar a trilha Base (Iniciante) no Yama Spa. Pode me enviar datas, valores e currículo?">
-          <span>→</span> Quero começar
-        </a>
-      </div>
-      <div class="card">
-        <h3>Profissional (Intermediário)</h3>
-        <p>Protocolos e construção de sessão premium: fluxo, pressão e pontos de tensão.</p>
-        <a class="more" href="#"
-           data-wa="Olá, Sensei Margot Yamada! Quero evoluir para a trilha Profissional (Intermediário) no Yama Spa. Pode me enviar datas, valores e currículo?">
-          <span>→</span> Quero evoluir
-        </a>
-      </div>
-      <div class="card">
-        <h3>Avançado (Especialização)</h3>
-        <p>Técnicas avançadas, refinamento de experiência e padrão premium real.</p>
-        <a class="more" href="#"
-           data-wa="Olá, Sensei Margot Yamada! Quero me especializar (Avançado) no Yama Spa. Pode me enviar datas, valores e currículo?">
-          <span>→</span> Quero me especializar
-        </a>
-      </div>
-    </div>
-  </div>
+        <h3>Iniciante</h3>
+        <p>Base técnica, presença, pressão correta e postura para atender com segurança.</p>
 
-  <div class="wrap section">
-    <div class="section-head">
-      <div>
-        <h2>CIMS School (parceira)</h2>
-        <p>Para certificações e formações complementares reconhecidas internacionalmente.</p>
-      </div>
-      <a class="btn" href="#"
-         data-wa="Olá, Sensei Margot Yamada! Quero informações sobre certificações e cursos da CIMS School (parceira do Yama Spa). Pode me enviar opções, datas e valores?">
-        Quero informações CIMS
-      </a>
-    </div>
+        <div class="pill">🧠 Fundamentos</div>
+        <div class="pill">🧍 Ergonomia</div>
+        <div class="pill">🧾 Apostila</div>
 
-    <div class="grid3">
-      <div class="card">
-        <h3>Certificação e formaturas</h3>
-        <p>Uma jornada de aprendizado com padrão, ética e reconhecimento internacional.</p>
-        <a class="more" href="#"
-           data-wa="Olá, Sensei Margot Yamada! Quero saber sobre certificação e formaturas pela CIMS School. Pode me enviar os detalhes (datas/valores/currículo)?">
-          <span>→</span> Ver opções
-        </a>
+        <div class="row">
+          <a class="btn primary" href="index.html#contato">Quero começar</a>
+          <a class="btn ghost" href="parceiros.html">Saiba mais</a>
+        </div>
+
+        <div class="note">* Ideal para quem quer iniciar do jeito certo.</div>
       </div>
+
+      <div class="card">
+        <h3>Avançado</h3>
+        <p>Refino de técnica, atendimento premium, construção de rotina e experiência do cliente.</p>
+
+        <div class="pill">✨ Padrão premium</div>
+        <div class="pill">👐 Técnica</div>
+        <div class="pill">📈 Profissionalização</div>
+
+        <div class="row">
+          <a class="btn primary" href="index.html#contato">Quero avançar</a>
+          <a class="btn ghost" href="franquia.html">Quero crescer</a>
+        </div>
+
+        <div class="note">* Para terapeutas que querem elevar o nível.</div>
+      </div>
+
       <div class="card">
         <h3>Especializações</h3>
-        <p>Formações complementares para ampliar técnica e atender diferentes necessidades.</p>
-        <a class="more" href="#"
-           data-wa="Olá, Sensei Margot Yamada! Quero saber sobre especializações pela CIMS School. Pode me enviar as opções e datas?">
-          <span>→</span> Quero especializar
-        </a>
+        <p>Módulos específicos para elevar resultado e diferencial no atendimento.</p>
+
+        <div class="pill">🌿 Técnicas</div>
+        <div class="pill">🧖‍♀️ Spa</div>
+        <div class="pill">🏅 Certificação</div>
+
+        <div class="row">
+          <a class="btn primary" href="index.html#contato">Ver opções</a>
+          <a class="btn ghost" href="blog.html">Conteúdos</a>
+        </div>
+
+        <div class="note">* Consulte a lista atual de módulos.</div>
       </div>
-      <div class="card">
-        <h3>Integração com Yama Spa</h3>
-        <p>Caminho estruturado: aprender, praticar e entrar no padrão profissional.</p>
-        <a class="more" href="#"
-           data-wa="Olá, Sensei Margot Yamada! Quero entender o caminho de integração entre CIMS School e Yama Spa. Pode me orientar com datas e valores?">
-          <span>→</span> Integrar meu caminho
-        </a>
+
+      <div class="card" style="border-color: rgba(201,168,106,.22); background: rgba(201,168,106,.06);">
+        <h3>Seja uma unidade Yama Spa</h3>
+        <p>
+          Leve o padrão Yama Spa para a sua cidade — com identidade,
+          suporte e experiência premium.
+          <br><br>
+          <span class="muted">✨ Seu espaço pode aparecer aqui como unidade oficial.</span>
+        </p>
+
+        <div class="pill">🤝 Parceria / unidade</div>
+        <div class="pill">📍 Brasil • Japão • Europa</div>
+        <div class="pill">🏷️ Marca premium</div>
+
+        <div class="row">
+          <a class="btn primary" href="franquia.html">Quero ser unidade</a>
+          <a class="btn ghost" href="parceiros.html">Ver parceiros</a>
+        </div>
+
+        <div class="note">* Fale com a equipe e receba o passo a passo para abrir sua unidade.</div>
       </div>
     </div>
   </div>
 
-  <div class="wrap section" id="contato">
+  <div class="wrap section">
     <div class="section-head">
       <div>
-        <h2>Contato</h2>
-        <p>Peça datas, valores e currículo dos cursos. Vamos te orientar no melhor caminho.</p>
+        <h2>Como funciona</h2>
+        <p>Um método humano, claro e direto — com padrão Yama Spa.</p>
       </div>
+      <a class="btn" href="index.html#contato">Falar com a equipe</a>
     </div>
 
     <div class="split">
       <div class="card">
-        <h3>WhatsApp</h3>
-        <p>📲 Fale com a Sensei Margot Yamada e receba as datas disponíveis e detalhes do conteúdo.</p>
-
-        <a class="btn primary" href="#"
-           data-wa="Olá, Sensei Margot Yamada! Quero informações sobre os cursos do Yama Spa (datas, valores e currículo). Meu nome é:  | Moro em: ">
-          Abrir WhatsApp
-        </a>
-
-        <div class="note">WhatsApp Japão: +81 90 2081 6414</div>
+        <h3>Antes</h3>
+        <p>Avaliação do nível, objetivo e indicação da trilha ideal.</p>
       </div>
-
       <div class="card">
-        <h3>Instagram</h3>
-        <p>📷 Acompanhe bastidores, turmas, formaturas e novidades.</p>
-        <a class="btn" href="https://instagram.com/yama.spa" target="_blank" rel="noopener">
-          Abrir Instagram @yama.spa
-        </a>
-        <div class="note">Siga para ver turmas e formaturas.</div>
+        <h3>Durante</h3>
+        <p>Treino guiado, correções e prática com postura e pressão consciente.</p>
+      </div>
+    </div>
+
+    <div class="split" style="margin-top:14px;">
+      <div class="card">
+        <h3>Depois</h3>
+        <p>Orientações para atender melhor e manter qualidade no dia a dia.</p>
+      </div>
+      <div class="card">
+        <h3>Padrão Yama Spa</h3>
+        <p>Identidade, ética, postura e experiência premium de verdade.</p>
       </div>
     </div>
   </div>
 
   <div class="wrap footer">
     <div>
-      <b>Yama Spa</b> • Japão • Komaki • Toyoake
+      <b>Yama Spa</b> • Japão
       <div class="note">© <span id="year"></span> Yama Spa. Todos os direitos reservados.</div>
     </div>
   </div>
 
-  <!-- WhatsApp Floating Button -->
-  <a class="wa-float" href="#"
-     data-wa="Olá, Sensei Margot Yamada! Quero informações sobre os cursos do Yama Spa. Meu nome é:  | Moro em: ">
-    <div class="wa-dot" aria-hidden="true"></div>
+  <!-- Botão flutuante (edite o link se quiser direcionar para WhatsApp/DM) -->
+  <a class="float-cta" href="index.html#contato" aria-label="Falar agora">
+    <span class="dot"></span>
     <div>
-      <span>WhatsApp</span>
-      <small>Falar agora</small>
+      <span>Falar agora</span>
+      <small>Agendar / cursos</small>
     </div>
   </a>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // ===== WhatsApp helper (JAPÃO +81) =====
-    // Número local: 09020816414 -> WhatsApp internacional: 819020816414
-    const WA_NUMBER = "819020816414";
-    const waLink = (msg) => `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`;
+    (function(){
+      const btn = document.getElementById("hamburgerBtn");
+      const menu = document.getElementById("mobileMenu");
+      if(!btn || !menu) return;
 
-    // Aplica em qualquer botão/link com data-wa
-    document.querySelectorAll("[data-wa]").forEach((el) => {
-      const msg = el.getAttribute("data-wa") || "Olá! Gostaria de informações.";
-      el.setAttribute("href", waLink(msg));
-      el.setAttribute("target", "_blank");
-      el.setAttribute("rel", "noopener");
-    });
+      btn.addEventListener("click", () => {
+        const isOpen = menu.classList.toggle("open");
+        btn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      });
+
+      menu.querySelectorAll("a").forEach(a => {
+        a.addEventListener("click", () => {
+          menu.classList.remove("open");
+          btn.setAttribute("aria-expanded", "false");
+        });
+      });
+    })();
   </script>
 </body>
 </html>
